@@ -20,7 +20,6 @@ use App\Http\Controllers\MultiUserController;
         return response('Fitur lupa password belum tersedia.', 200);
     })->name('password.request');
 });
-
 // Routes for authenticated users
 Route::middleware(['auth'])->group(function () {
     // Post-login landing for regular users
@@ -67,4 +66,6 @@ Route::middleware(['auth'])->group(function () {
     // Additional feature routes (if used)
     Route::get('/checking', [MultiUserController::class, 'checking'])->name('checking');
     Route::get('/ticketing', [MultiUserController::class, 'ticketing'])->name('ticketing');
-});
+
+Route::get('/user', function () {
+    return view('user');
