@@ -26,11 +26,11 @@ class LoginController extends Controller
             $user = Auth::user();
             switch ($user->role) {
                 case 'user':
-                    return redirect()->route('welcome');
+                    return redirect()->route('user');
                 case 'admin':
                     return redirect()->route('admin');
                 default:
-                    return redirect()->route('welcome');
+                    return redirect()->route('user');
             }
         }
 

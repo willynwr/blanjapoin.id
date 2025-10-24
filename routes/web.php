@@ -23,9 +23,9 @@ use App\Http\Controllers\MultiUserController;
 // Routes for authenticated users
 Route::middleware(['auth'])->group(function () {
     // Post-login landing for regular users
-    Route::get('/welcome', function () {
-        return view('welcome');
-    })->name('welcome');
+    Route::get('/user', function () {
+        return view('user');
+    })->name('user');
 
     // Post-login landing for admins
     Route::get('/admin', function () {
@@ -59,6 +59,7 @@ Route::middleware(['auth'])->group(function () {
         }
         return redirect()->route('welcome');
     });
+    
 
     // Logout
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -66,6 +67,5 @@ Route::middleware(['auth'])->group(function () {
     // Additional feature routes (if used)
     Route::get('/checking', [MultiUserController::class, 'checking'])->name('checking');
     Route::get('/ticketing', [MultiUserController::class, 'ticketing'])->name('ticketing');
+});
 
-Route::get('/user', function () {
-    return view('user');
