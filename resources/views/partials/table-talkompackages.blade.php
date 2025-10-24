@@ -13,16 +13,16 @@
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                 </tr>
             </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-                @for($i = 1; $i <= 5; $i++)
-                <tr class="hover:bg-gray-50 transition-colors">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $i }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Telkom Package {{ $i }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2000 Points</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">30</td>
+            <tbody class="bg-white divide-y divide-gray-200" id="telkom-table-body">
+                <!-- Row 1 - Telkomsel Packet -->
+                <tr class="hover:bg-gray-50 transition-colors telkom-row" data-category="Telkomsel Packet">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Unlimited Data 10GB</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">500 Points</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">200</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2025-01-01 - 2025-12-31</td>
                     <td class="px-6 py-4 text-sm text-blue-600 hover:text-blue-900">
-                        <a href="https://example.com/telkom{{ $i }}" target="_blank">Link</a>
+                        <a href="https://example.com/data10gb" target="_blank">Link</a>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         <div class="flex items-center">
@@ -40,7 +40,114 @@
                         </div>
                     </td>
                 </tr>
-                @endfor
+                
+                <!-- Row 2 - Telkomsel Packet -->
+                <tr class="hover:bg-gray-50 transition-colors telkom-row" data-category="Telkomsel Packet">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">2</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Unlimited Calls 500min</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">300 Points</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">150</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2025-02-01 - 2025-11-30</td>
+                    <td class="px-6 py-4 text-sm text-blue-600 hover:text-blue-900">
+                        <a href="https://example.com/calls500min" target="_blank">Link</a>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <div class="flex items-center">
+                            <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <div class="flex space-x-2">
+                            <button class="text-blue-600 hover:text-blue-900">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="text-red-600 hover:text-red-900">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                
+                <!-- Row 3 - Telkomsel Packet -->
+                <tr class="hover:bg-gray-50 transition-colors telkom-row" data-category="Telkomsel Packet">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">3</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Combo Package 5GB+300min</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">700 Points</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">100</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2025-03-01 - 2025-10-31</td>
+                    <td class="px-6 py-4 text-sm text-blue-600 hover:text-blue-900">
+                        <a href="https://example.com/combo5gb" target="_blank">Link</a>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <div class="flex items-center">
+                            <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <div class="flex space-x-2">
+                            <button class="text-blue-600 hover:text-blue-900">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="text-red-600 hover:text-red-900">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                
+                <!-- Row 4 - Telkomsel Packet -->
+                <tr class="hover:bg-gray-50 transition-colors telkom-row" data-category="Telkomsel Packet">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">4</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Unlimited Data 20GB</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">900 Points</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">75</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2025-04-01 - 2025-09-30</td>
+                    <td class="px-6 py-4 text-sm text-blue-600 hover:text-blue-900">
+                        <a href="https://example.com/data20gb" target="_blank">Link</a>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <div class="flex items-center">
+                            <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <div class="flex space-x-2">
+                            <button class="text-blue-600 hover:text-blue-900">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="text-red-600 hover:text-red-900">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                
+                <!-- Row 5 - Telkomsel Packet -->
+                <tr class="hover:bg-gray-50 transition-colors telkom-row" data-category="Telkomsel Packet">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">5</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Premium Package 50GB</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">1500 Points</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">50</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2025-05-01 - 2025-08-31</td>
+                    <td class="px-6 py-4 text-sm text-blue-600 hover:text-blue-900">
+                        <a href="https://example.com/data50gb" target="_blank">Link</a>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <div class="flex items-center">
+                            <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <div class="flex space-x-2">
+                            <button class="text-blue-600 hover:text-blue-900">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="text-red-600 hover:text-red-900">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>

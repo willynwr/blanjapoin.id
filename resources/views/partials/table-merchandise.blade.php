@@ -13,16 +13,16 @@
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                 </tr>
             </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-                @for($i = 1; $i <= 5; $i++)
-                <tr class="hover:bg-gray-50 transition-colors">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $i }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Merchandise {{ $i }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">500 Points</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">100</td>
+            <tbody class="bg-white divide-y divide-gray-200" id="merchandise-table-body">
+                <!-- Row 1 - F&B -->
+                <tr class="hover:bg-gray-50 transition-colors merchandise-row" data-category="F&B">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Gourmet Gift Box</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">1000 Points</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">50</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2025-01-01 - 2025-12-31</td>
                     <td class="px-6 py-4 text-sm text-blue-600 hover:text-blue-900">
-                        <a href="https://example.com/merchandise{{ $i }}" target="_blank">Link</a>
+                        <a href="https://example.com/giftbox" target="_blank">Link</a>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         <div class="flex items-center">
@@ -40,7 +40,114 @@
                         </div>
                     </td>
                 </tr>
-                @endfor
+                
+                <!-- Row 2 - Entertain -->
+                <tr class="hover:bg-gray-50 transition-colors merchandise-row" data-category="Entertain">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">2</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Movie Tickets</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">750 Points</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">100</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2025-02-01 - 2025-11-30</td>
+                    <td class="px-6 py-4 text-sm text-blue-600 hover:text-blue-900">
+                        <a href="https://example.com/movietickets" target="_blank">Link</a>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <div class="flex items-center">
+                            <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <div class="flex space-x-2">
+                            <button class="text-blue-600 hover:text-blue-900">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="text-red-600 hover:text-red-900">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                
+                <!-- Row 3 - Vacation -->
+                <tr class="hover:bg-gray-50 transition-colors merchandise-row" data-category="Vacation">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">3</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Travel Voucher</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2000 Points</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">25</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2025-03-01 - 2025-10-31</td>
+                    <td class="px-6 py-4 text-sm text-blue-600 hover:text-blue-900">
+                        <a href="https://example.com/travelvoucher" target="_blank">Link</a>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <div class="flex items-center">
+                            <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <div class="flex space-x-2">
+                            <button class="text-blue-600 hover:text-blue-900">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="text-red-600 hover:text-red-900">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                
+                <!-- Row 4 - Shopping -->
+                <tr class="hover:bg-gray-50 transition-colors merchandise-row" data-category="Shopping">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">4</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Designer Handbag</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">1500 Points</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">10</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2025-04-01 - 2025-09-30</td>
+                    <td class="px-6 py-4 text-sm text-blue-600 hover:text-blue-900">
+                        <a href="https://example.com/handbag" target="_blank">Link</a>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <div class="flex items-center">
+                            <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <div class="flex space-x-2">
+                            <button class="text-blue-600 hover:text-blue-900">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="text-red-600 hover:text-red-900">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                
+                <!-- Row 5 - Beauty & Care -->
+                <tr class="hover:bg-gray-50 transition-colors merchandise-row" data-category="Beauty & Care">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">5</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Skincare Set</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">500 Points</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">75</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2025-05-01 - 2025-08-31</td>
+                    <td class="px-6 py-4 text-sm text-blue-600 hover:text-blue-900">
+                        <a href="https://example.com/skincare" target="_blank">Link</a>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <div class="flex items-center">
+                            <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <div class="flex space-x-2">
+                            <button class="text-blue-600 hover:text-blue-900">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="text-red-600 hover:text-red-900">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
