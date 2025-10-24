@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Datang</title>
+    <title>Dashboard Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
           rel="stylesheet"
           integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
@@ -18,7 +18,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         .btn-gradient {
-            background: linear-gradient(to right, #3b82f6, #22d3ee);
+            background: linear-gradient(to right, #ef4444, #f59e0b);
             border: none;
             color: white;
             font-weight: 600;
@@ -32,14 +32,11 @@
 <body>
     <div class="container d-flex flex-column justify-content-center align-items-center vh-100">
         <div class="card p-5 text-center">
-            <h1 class="fw-bold text-dark mb-3">Selamat Datang!</h1>
-            <p class="text-muted mb-4">
-                Anda berhasil login sebagai <strong>User</strong>.  
-                Semoga hari Anda menyenangkan 🌿
-            </p>
+            <h1 class="fw-bold text-dark mb-3">Selamat Datang, Admin!</h1>
+            <p class="text-muted mb-4">Anda berhasil login sebagai <strong>Administrator</strong>.</p>
 
             <div class="d-grid gap-2">
-                <a href="{{ route('profile') }}" class="btn btn-primary">Lihat Profil</a>
+                <a href="{{ route('dashboard') }}" class="btn btn-primary">Masuk ke Dashboard</a>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button type="submit" class="btn btn-gradient mt-2">Logout</button>
