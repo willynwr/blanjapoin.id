@@ -640,30 +640,162 @@
                         activeSection.classList.add('opacity-100','translate-y-0');
                     });
                 }
+
+                // Reapply saved category states on the now-active section
+                if (tab === 'all') {
+                    ['merchant','merchandise','telkom'].forEach(type => applyCategoryState(type));
+                } else if (['merchant','merchandise','telkom'].includes(tab)) {
+                    applyCategoryState(tab);
+                }
+            }
+
+            // Track active category for each table type
+            const activeCategories = {
+                merchant: null,
+                merchandise: null,
+                telkom: null
+            };
+
+            // Apply saved category state without toggling (used on tab switch)
+            function applyCategoryState(tableType) {
+                const saved = activeCategories[tableType];
+                const category = saved ? saved : 'All';
+
+                // Decide which button/dropdown IDs to target based on current visible section
+                let buttonId = '';
+                let dropdownId = '';
+                if (document.getElementById('section-all').classList.contains('hidden') === false) {
+                    if (tableType === 'merchant') { buttonId = 'kategoriBtnAll1'; dropdownId = 'kategoriDropdownAll1'; }
+                    else if (tableType === 'merchandise') { buttonId = 'kategoriBtnAll2'; dropdownId = 'kategoriDropdownAll2'; }
+                    else if (tableType === 'telkom') { buttonId = 'kategoriBtnAll3'; dropdownId = 'kategoriDropdownAll3'; }
+                } else {
+                    if (tableType === 'merchant') { buttonId = 'kategoriBtnMerchant'; dropdownId = 'kategoriDropdownMerchant'; }
+                    else if (tableType === 'merchandise') { buttonId = 'kategoriBtnMerchandise'; dropdownId = 'kategoriDropdownMerchandise'; }
+                    else if (tableType === 'telkom') { buttonId = 'kategoriBtnTelkom'; dropdownId = 'kategoriDropdownTelkom'; }
+                }
+
+                const button = document.getElementById(buttonId);
+                if (button) {
+                    if (category === 'All') {
+                        button.innerHTML = `<i class="fas fa-list mr-2"></i>Kategori<i class="fas fa-chevron-down ml-2 text-xs"></i>`;
+                        button.className = 'flex items-center justify-between whitespace-nowrap min-w-[140px] px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors';
+                    } else {
+                        button.innerHTML = `<i class=\"fas fa-list mr-2\"></i>${category}<i class=\"fas fa-chevron-down ml-2 text-xs\"></i>`;
+                        button.className = 'flex items-center justify-between whitespace-nowrap min-w-[140px] px-4 py-2 text-sm rounded-full border border-transparent bg-gradient-to-r from-[#F81611] to-[#F0B100] text-white font-medium shadow-md hover:shadow-lg transition-all';
+                    }
+                }
+
+                // Highlight dropdown item if dropdown exists
+                const dropdown = document.getElementById(dropdownId);
+                if (dropdown) {
+                    const links = dropdown.querySelectorAll('a');
+                    links.forEach(link => {
+                        const linkCategory = link.textContent.trim();
+                        if (linkCategory === category && category !== 'All') {
+                            link.className = 'block px-4 py-2 text-sm text-white bg-gradient-to-r from-[#F81611] to-[#F0B100] rounded-lg font-medium shadow-sm';
+                        } else {
+                            link.className = 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg';
+                        }
+                    });
+                }
+
+                // Apply row filtering in the active container
+                let tableBodyId = '';
+                let rowClass = '';
+                if (tableType === 'merchant') { tableBodyId = 'merchant-table-body'; rowClass = 'merchant-row'; }
+                else if (tableType === 'merchandise') { tableBodyId = 'merchandise-table-body'; rowClass = 'merchandise-row'; }
+                else if (tableType === 'telkom') { tableBodyId = 'telkom-table-body'; rowClass = 'telkom-row'; }
+
+                let containerId = '';
+                if (document.getElementById('section-all').classList.contains('hidden') === false) {
+                    containerId = 'section-all';
+                } else if (tableType === 'merchant') {
+                    containerId = 'section-merchant';
+                } else if (tableType === 'merchandise') {
+                    containerId = 'section-merchandise';
+                } else if (tableType === 'telkom') {
+                    containerId = 'section-telkom';
+                }
+                const container = document.getElementById(containerId);
+                const tableBody = container ? container.querySelector('#' + tableBodyId) : document.getElementById(tableBodyId);
+                if (tableBody) {
+                    const rows = tableBody.querySelectorAll(`.${rowClass}`);
+                    rows.forEach(row => {
+                        const rowCategory = row.getAttribute('data-category');
+                        if (category === 'All' || rowCategory === category) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                }
             }
 
             // Function to filter table based on category
             function filterTable(tableType, category) {
+                // Check if clicking the same category - toggle to show all
+                if (activeCategories[tableType] === category) {
+                    category = 'All';
+                    activeCategories[tableType] = null;
+                } else {
+                    activeCategories[tableType] = category;
+                }
+                
                 // Close the dropdown after selection
                 closeAllDropdowns();
                 
-                // Update the button text to show the selected category
+                // Update the button text and style to show the selected category
                 let buttonId = '';
+                let dropdownId = '';
                 if (document.getElementById('section-all').classList.contains('hidden') === false) {
                     // We are in the "All" section
-                    if (tableType === 'merchant') buttonId = 'kategoriBtnAll1';
-                    else if (tableType === 'merchandise') buttonId = 'kategoriBtnAll2';
-                    else if (tableType === 'telkom') buttonId = 'kategoriBtnAll3';
+                    if (tableType === 'merchant') {
+                        buttonId = 'kategoriBtnAll1';
+                        dropdownId = 'kategoriDropdownAll1';
+                    } else if (tableType === 'merchandise') {
+                        buttonId = 'kategoriBtnAll2';
+                        dropdownId = 'kategoriDropdownAll2';
+                    } else if (tableType === 'telkom') {
+                        buttonId = 'kategoriBtnAll3';
+                        dropdownId = 'kategoriDropdownAll3';
+                    }
                 } else {
                     // We are in a specific section
-                    if (tableType === 'merchant') buttonId = 'kategoriBtnMerchant';
-                    else if (tableType === 'merchandise') buttonId = 'kategoriBtnMerchandise';
-                    else if (tableType === 'telkom') buttonId = 'kategoriBtnTelkom';
+                    if (tableType === 'merchant') {
+                        buttonId = 'kategoriBtnMerchant';
+                        dropdownId = 'kategoriDropdownMerchant';
+                    } else if (tableType === 'merchandise') {
+                        buttonId = 'kategoriBtnMerchandise';
+                        dropdownId = 'kategoriDropdownMerchandise';
+                    } else if (tableType === 'telkom') {
+                        buttonId = 'kategoriBtnTelkom';
+                        dropdownId = 'kategoriDropdownTelkom';
+                    }
                 }
                 
                 const button = document.getElementById(buttonId);
                 if (button) {
-                    button.innerHTML = `<i class="fas fa-list mr-2"></i>${category}<i class="fas fa-chevron-down ml-2 text-xs"></i>`;
+                    if (category === 'All') {
+                        button.innerHTML = `<i class="fas fa-list mr-2"></i>Kategori<i class="fas fa-chevron-down ml-2 text-xs"></i>`;
+                        button.className = 'flex items-center justify-between whitespace-nowrap min-w-[140px] px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors';
+                    } else {
+                        button.innerHTML = `<i class=\"fas fa-list mr-2\"></i>${category}<i class=\"fas fa-chevron-down ml-2 text-xs\"></i>`;
+                        button.className = 'flex items-center justify-between whitespace-nowrap min-w-[140px] px-4 py-2 text-sm rounded-full border border-transparent bg-gradient-to-r from-[#F81611] to-[#F0B100] text-white font-medium shadow-md hover:shadow-lg transition-all';
+                    }
+                }
+                
+                // Update dropdown items styling
+                const dropdown = document.getElementById(dropdownId);
+                if (dropdown) {
+                    const links = dropdown.querySelectorAll('a');
+                    links.forEach(link => {
+                        const linkCategory = link.textContent.trim();
+                        if (linkCategory === category && category !== 'All') {
+                            link.className = 'block px-4 py-2 text-sm text-white bg-gradient-to-r from-[#F81611] to-[#F0B100] rounded-lg font-medium shadow-sm';
+                        } else {
+                            link.className = 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg';
+                        }
+                    });
                 }
                 
                 // Filter the table rows based on category
@@ -681,7 +813,19 @@
                     rowClass = 'telkom-row';
                 }
                 
-                const tableBody = document.getElementById(tableBodyId);
+                // Determine active container to avoid targeting hidden duplicates
+                let containerId = '';
+                if (document.getElementById('section-all').classList.contains('hidden') === false) {
+                    containerId = 'section-all';
+                } else if (tableType === 'merchant') {
+                    containerId = 'section-merchant';
+                } else if (tableType === 'merchandise') {
+                    containerId = 'section-merchandise';
+                } else if (tableType === 'telkom') {
+                    containerId = 'section-telkom';
+                }
+                const container = document.getElementById(containerId);
+                const tableBody = container ? container.querySelector('#' + tableBodyId) : document.getElementById(tableBodyId);
                 if (tableBody) {
                     const rows = tableBody.querySelectorAll(`.${rowClass}`);
                     rows.forEach(row => {
@@ -700,14 +844,14 @@
         <!-- All Tables Section -->
         <div id="section-all" class="transition-all duration-300 opacity-100 translate-y-0">
             <!-- Merchant Table -->
-            <h2 class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4 mt-4 sm:mt-8">Merchant</h2>
+            <h2 class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Merchant</h2>
             
             <!-- Merchant Controls -->
-            <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
-                <div class="flex space-x-3">
+            <div class="flex items-center justify-between gap-4 mb-4">
+                <div class="flex items-center space-x-3 flex-nowrap">
                     <!-- Kategori Dropdown -->
                     <div class="relative">
-                        <button id="kategoriBtnAll1" onclick="toggleKategoriDropdownAll1()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
+                        <button id="kategoriBtnAll1" onclick="toggleKategoriDropdownAll1()" class="flex items-center justify-between whitespace-nowrap min-w-[140px] px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
                             <i class="fas fa-list mr-2"></i>
                             Kategori
                             <i class="fas fa-chevron-down ml-2 text-xs"></i>
@@ -748,14 +892,14 @@
             @include('partials.table-merchant')
 
             <!-- Merchandise Table -->
-            <h2 class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4 mt-8 sm:mt-12">Merchandise</h2>
+            <h2 class="text-lg sm:text-xl font-bold text-gray-800 mb-3 mt-8 sm:mb-4">Merchandise</h2>
             
             <!-- Merchandise Controls -->
-            <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
-                <div class="flex space-x-3">
+            <div class="flex items-center justify-between gap-4 mb-4">
+                <div class="flex items-center space-x-3 flex-nowrap">
                     <!-- Kategori Dropdown -->
                     <div class="relative">
-                        <button id="kategoriBtnAll2" onclick="toggleKategoriDropdownAll2()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
+                        <button id="kategoriBtnAll2" onclick="toggleKategoriDropdownAll2()" class="flex items-center justify-between whitespace-nowrap min-w-[140px] px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
                             <i class="fas fa-list mr-2"></i>
                             Kategori
                             <i class="fas fa-chevron-down ml-2 text-xs"></i>
@@ -796,14 +940,14 @@
             @include('partials.table-merchandise')
 
             <!-- Telkom Packages Table -->
-            <h2 class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4 mt-8 sm:mt-12">Telkom Packages</h2>
+            <h2 class="text-lg sm:text-xl font-bold text-gray-800 mb-3 mt-8 sm:mb-4">Telkom Packages</h2>
             
             <!-- Telkom Controls -->
-            <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
-                <div class="flex space-x-3">
+            <div class="flex items-center justify-between gap-4 mb-4">
+                <div class="flex items-center space-x-3 flex-nowrap">
                     <!-- Kategori Dropdown -->
                     <div class="relative">
-                        <button id="kategoriBtnAll3" onclick="toggleKategoriDropdownAll3()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
+                        <button id="kategoriBtnAll3" onclick="toggleKategoriDropdownAll3()" class="flex items-center justify-between whitespace-nowrap min-w-[140px] px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
                             <i class="fas fa-list mr-2"></i>
                             Kategori
                             <i class="fas fa-chevron-down ml-2 text-xs"></i>
@@ -853,14 +997,13 @@
                 <div class="flex space-x-3">
                     <!-- Kategori Dropdown -->
                     <div class="relative">
-                        <button id="kategoriBtnMerchant" onclick="toggleKategoriDropdownMerchant()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
+                        <button id="kategoriBtnMerchant" onclick="toggleKategoriDropdownMerchant()" class="flex items-center justify-between whitespace-nowrap min-w-[140px] px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
                             <i class="fas fa-list mr-2"></i>
                             Kategori
                             <i class="fas fa-chevron-down ml-2 text-xs"></i>
                         </button>
-                        <div id="kategoriDropdownAll1" class="hidden absolute left-0 mt-2 bg-white rounded-2xl shadow-2xl p-3 border border-gray-200 w-64 z-50">
+                        <div id="kategoriDropdownMerchant" class="hidden absolute left-0 mt-2 bg-white rounded-2xl shadow-2xl p-3 border border-gray-200 w-64 z-50">
                             <div class="py-1">
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'All'); return false;">All</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'F&B'); return false;">F&B</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'Entertain'); return false;">Entertain</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'Vacation'); return false;">Vacation</a>
@@ -907,14 +1050,13 @@
                 <div class="flex space-x-3">
                     <!-- Kategori Dropdown -->
                     <div class="relative">
-                        <button id="kategoriBtnMerchandise" onclick="toggleKategoriDropdownMerchandise()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
+                        <button id="kategoriBtnMerchandise" onclick="toggleKategoriDropdownMerchandise()" class="flex items-center justify-between whitespace-nowrap min-w-[140px] px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
                             <i class="fas fa-list mr-2"></i>
                             Kategori
                             <i class="fas fa-chevron-down ml-2 text-xs"></i>
                         </button>
-                        <div id="kategoriDropdownAll2" class="hidden absolute left-0 mt-2 bg-white rounded-2xl shadow-2xl p-3 border border-gray-200 w-64 z-50">
+                        <div id="kategoriDropdownMerchandise" class="hidden absolute left-0 mt-2 bg-white rounded-2xl shadow-2xl p-3 border border-gray-200 w-64 z-50">
                             <div class="py-1">
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'All'); return false;">All</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'F&B'); return false;">F&B</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'Entertain'); return false;">Entertain</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'Vacation'); return false;">Vacation</a>
@@ -959,14 +1101,13 @@
                 <div class="flex space-x-3">
                     <!-- Kategori Dropdown -->
                     <div class="relative">
-                        <button id="kategoriBtnTelkom" onclick="toggleKategoriDropdownTelkom()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
+                        <button id="kategoriBtnTelkom" onclick="toggleKategoriDropdownTelkom()" class="flex items-center justify-between whitespace-nowrap min-w-[140px] px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
                             <i class="fas fa-list mr-2"></i>
                             Kategori
                             <i class="fas fa-chevron-down ml-2 text-xs"></i>
                         </button>
-                        <div id="kategoriDropdownAll3" class="hidden absolute left-0 mt-2 bg-white rounded-2xl shadow-2xl p-3 border border-gray-200 w-64 z-50">
+                        <div id="kategoriDropdownTelkom" class="hidden absolute left-0 mt-2 bg-white rounded-2xl shadow-2xl p-3 border border-gray-200 w-64 z-50">
                             <div class="py-1">
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'All'); return false;">All</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'F&B'); return false;">F&B</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'Entertain'); return false;">Entertain</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'Vacation'); return false;">Vacation</a>

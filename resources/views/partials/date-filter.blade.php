@@ -3,7 +3,7 @@
         <i class="fas fa-calendar-alt mr-2"></i>
         Date
     </button>
-    <div id="{{ $filterId }}" class="hidden absolute left-0 right-0 md:left-auto md:right-0 mt-2 bg-white rounded-2xl shadow-2xl p-3 sm:p-5 border border-gray-200 w-full md:w-96 mx-auto md:mx-0 z-50">
+    <div id="{{ $filterId }}" class="hidden absolute left-0 right-0 md:left-auto md:right-0 mt-2 bg-white rounded-2xl shadow-2xl p-3 sm:p-5 border border-gray-200 w-full md:w-96 mx-auto md:mx-0 z-50" onclick="event.stopPropagation()">
         <!-- Enter range label -->
         <div class="text-xs text-gray-500 mb-2">Enter range</div>
         
@@ -156,7 +156,7 @@
             const dayDiv = document.createElement('div');
             dayDiv.className = 'text-xs sm:text-sm text-gray-700 transition-all duration-200 aspect-square flex items-center justify-center rounded-lg cursor-pointer hover:bg-gray-100';
             dayDiv.textContent = day;
-            dayDiv.onclick = () => selectDate(filterId, day);
+            dayDiv.addEventListener('click', (e) => { e.stopPropagation(); selectDate(filterId, day); });
             
             // Check if this day is selected (only start and end)
             const currentDate = new Date(state.currentYear, state.currentMonth, day);
