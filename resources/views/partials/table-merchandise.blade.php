@@ -9,6 +9,7 @@
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stock</th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Start End Periode</th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">CTA</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">SNK</th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Images</th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                 </tr>
@@ -24,6 +25,7 @@
                     <td class="px-6 py-4 text-sm text-blue-600 hover:text-blue-900">
                         <a href="https://example.com/giftbox" target="_blank">Link</a>
                     </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">50</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         <div class="flex items-center">
                             <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>
@@ -51,6 +53,7 @@
                     <td class="px-6 py-4 text-sm text-blue-600 hover:text-blue-900">
                         <a href="https://example.com/movietickets" target="_blank">Link</a>
                     </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">50</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         <div class="flex items-center">
                             <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>
@@ -78,6 +81,7 @@
                     <td class="px-6 py-4 text-sm text-blue-600 hover:text-blue-900">
                         <a href="https://example.com/travelvoucher" target="_blank">Link</a>
                     </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">25</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         <div class="flex items-center">
                             <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>
@@ -105,6 +109,7 @@
                     <td class="px-6 py-4 text-sm text-blue-600 hover:text-blue-900">
                         <a href="https://example.com/handbag" target="_blank">Link</a>
                     </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">50</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         <div class="flex items-center">
                             <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>
@@ -132,6 +137,7 @@
                     <td class="px-6 py-4 text-sm text-blue-600 hover:text-blue-900">
                         <a href="https://example.com/skincare" target="_blank">Link</a>
                     </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">50</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         <div class="flex items-center">
                             <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>

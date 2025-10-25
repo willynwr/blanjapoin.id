@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>blanjapoin.id - Merchant</title>
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- Google Fonts - Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
 </head>
+
 <body class="min-h-screen bg-gray-50">
     <!-- Header -->
     <header class="bg-white shadow-sm border-b">
@@ -50,11 +53,16 @@
             </div>
         </div>
 
-
+        <!-- JavaScript Functions -->
         <script>
+            ////////////////////////////////////////////////////////////////////
+            // Dropdown Toggle Functions
+            ////////////////////////////////////////////////////////////////////
+
             function toggleDateFilter(id) {
                 const dropdown = document.getElementById(id || 'dateFilterDropdown');
                 if (!dropdown) return;
+                
                 if (dropdown.classList.contains('hidden')) {
                     dropdown.classList.remove('hidden');
                     dropdown.style.opacity = '0';
@@ -81,6 +89,7 @@
             function toggleKategoriDropdown() {
                 const dropdown = document.getElementById('kategoriDropdown');
                 if (!dropdown) return;
+                
                 if (dropdown.classList.contains('hidden')) {
                     // Close any other open dropdowns first
                     closeAllDropdowns();
@@ -123,6 +132,10 @@
                 });
             }
 
+            ////////////////////////////////////////////////////////////////////
+            // File Upload Functions
+            ////////////////////////////////////////////////////////////////////
+
             // Function to handle file upload
             function handleFileUpload(event) {
                 const file = event.target.files[0];
@@ -151,6 +164,7 @@
             function toggleKategoriDropdownMerchant() {
                 const dropdown = document.getElementById('kategoriDropdownMerchant');
                 if (!dropdown) return;
+                
                 if (dropdown.classList.contains('hidden')) {
                     // Close any other open dropdowns first
                     closeAllDropdowns();
@@ -190,6 +204,7 @@
             function toggleKategoriDropdownMerchandise() {
                 const dropdown = document.getElementById('kategoriDropdownMerchandise');
                 if (!dropdown) return;
+                
                 if (dropdown.classList.contains('hidden')) {
                     // Close any other open dropdowns first
                     closeAllDropdowns();
@@ -229,6 +244,7 @@
             function toggleKategoriDropdownTelkom() {
                 const dropdown = document.getElementById('kategoriDropdownTelkom');
                 if (!dropdown) return;
+                
                 if (dropdown.classList.contains('hidden')) {
                     // Close any other open dropdowns first
                     closeAllDropdowns();
@@ -268,6 +284,7 @@
             function toggleKategoriDropdownAll1() {
                 const dropdown = document.getElementById('kategoriDropdownAll1');
                 if (!dropdown) return;
+                
                 if (dropdown.classList.contains('hidden')) {
                     // Close any other open dropdowns first
                     closeAllDropdowns();
@@ -307,6 +324,7 @@
             function toggleKategoriDropdownAll2() {
                 const dropdown = document.getElementById('kategoriDropdownAll2');
                 if (!dropdown) return;
+                
                 if (dropdown.classList.contains('hidden')) {
                     // Close any other open dropdowns first
                     closeAllDropdowns();
@@ -346,6 +364,7 @@
             function toggleKategoriDropdownAll3() {
                 const dropdown = document.getElementById('kategoriDropdownAll3');
                 if (!dropdown) return;
+                
                 if (dropdown.classList.contains('hidden')) {
                     // Close any other open dropdowns first
                     closeAllDropdowns();
@@ -381,7 +400,9 @@
                 }
             }
 
-
+            ////////////////////////////////////////////////////////////////////
+            // Image Preview Functions
+            ////////////////////////////////////////////////////////////////////
 
             // Function to preview single image
             function previewImage(event, previewId) {
@@ -452,6 +473,10 @@
                 countSpan.textContent = imageCount > 0 ? `${imageCount} file(s) selected` : 'No files chosen';
             }
 
+            ////////////////////////////////////////////////////////////////////
+            // Form Handling Functions
+            ////////////////////////////////////////////////////////////////////
+
             // Function to handle form submission
             function handleMerchantFormSubmit(event) {
                 event.preventDefault();
@@ -489,6 +514,10 @@
                     form.addEventListener('submit', handleMerchantFormSubmit);
                 }
             });
+
+            ////////////////////////////////////////////////////////////////////
+            // Event Listeners
+            ////////////////////////////////////////////////////////////////////
 
             // Click outside to close dropdowns
             document.addEventListener('click', function(event) {
@@ -600,11 +629,18 @@
                 }
             });
 
+            ////////////////////////////////////////////////////////////////////
+            // Tab Switching Functions
+            ////////////////////////////////////////////////////////////////////
 
-            
+            // Store current active tab
+            let currentActiveTab = 'merchant';
+
             // Trigger file input for All section
-
             function switchTab(tab) {
+                // Store the current active tab
+                currentActiveTab = tab;
+                
                 // Reset all tabs
                 const tabs = ['all', 'merchant', 'merchandise', 'telkom'];
                 tabs.forEach(t => {
@@ -640,162 +676,30 @@
                         activeSection.classList.add('opacity-100','translate-y-0');
                     });
                 }
-
-                // Reapply saved category states on the now-active section
-                if (tab === 'all') {
-                    ['merchant','merchandise','telkom'].forEach(type => applyCategoryState(type));
-                } else if (['merchant','merchandise','telkom'].includes(tab)) {
-                    applyCategoryState(tab);
-                }
-            }
-
-            // Track active category for each table type
-            const activeCategories = {
-                merchant: null,
-                merchandise: null,
-                telkom: null
-            };
-
-            // Apply saved category state without toggling (used on tab switch)
-            function applyCategoryState(tableType) {
-                const saved = activeCategories[tableType];
-                const category = saved ? saved : 'All';
-
-                // Decide which button/dropdown IDs to target based on current visible section
-                let buttonId = '';
-                let dropdownId = '';
-                if (document.getElementById('section-all').classList.contains('hidden') === false) {
-                    if (tableType === 'merchant') { buttonId = 'kategoriBtnAll1'; dropdownId = 'kategoriDropdownAll1'; }
-                    else if (tableType === 'merchandise') { buttonId = 'kategoriBtnAll2'; dropdownId = 'kategoriDropdownAll2'; }
-                    else if (tableType === 'telkom') { buttonId = 'kategoriBtnAll3'; dropdownId = 'kategoriDropdownAll3'; }
-                } else {
-                    if (tableType === 'merchant') { buttonId = 'kategoriBtnMerchant'; dropdownId = 'kategoriDropdownMerchant'; }
-                    else if (tableType === 'merchandise') { buttonId = 'kategoriBtnMerchandise'; dropdownId = 'kategoriDropdownMerchandise'; }
-                    else if (tableType === 'telkom') { buttonId = 'kategoriBtnTelkom'; dropdownId = 'kategoriDropdownTelkom'; }
-                }
-
-                const button = document.getElementById(buttonId);
-                if (button) {
-                    if (category === 'All') {
-                        button.innerHTML = `<i class="fas fa-list mr-2"></i>Kategori<i class="fas fa-chevron-down ml-2 text-xs"></i>`;
-                        button.className = 'flex items-center justify-between whitespace-nowrap min-w-[140px] px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors';
-                    } else {
-                        button.innerHTML = `<i class=\"fas fa-list mr-2\"></i>${category}<i class=\"fas fa-chevron-down ml-2 text-xs\"></i>`;
-                        button.className = 'flex items-center justify-between whitespace-nowrap min-w-[140px] px-4 py-2 text-sm rounded-full border border-transparent bg-gradient-to-r from-[#F81611] to-[#F0B100] text-white font-medium shadow-md hover:shadow-lg transition-all';
-                    }
-                }
-
-                // Highlight dropdown item if dropdown exists
-                const dropdown = document.getElementById(dropdownId);
-                if (dropdown) {
-                    const links = dropdown.querySelectorAll('a');
-                    links.forEach(link => {
-                        const linkCategory = link.textContent.trim();
-                        if (linkCategory === category && category !== 'All') {
-                            link.className = 'block px-4 py-2 text-sm text-white bg-gradient-to-r from-[#F81611] to-[#F0B100] rounded-lg font-medium shadow-sm';
-                        } else {
-                            link.className = 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg';
-                        }
-                    });
-                }
-
-                // Apply row filtering in the active container
-                let tableBodyId = '';
-                let rowClass = '';
-                if (tableType === 'merchant') { tableBodyId = 'merchant-table-body'; rowClass = 'merchant-row'; }
-                else if (tableType === 'merchandise') { tableBodyId = 'merchandise-table-body'; rowClass = 'merchandise-row'; }
-                else if (tableType === 'telkom') { tableBodyId = 'telkom-table-body'; rowClass = 'telkom-row'; }
-
-                let containerId = '';
-                if (document.getElementById('section-all').classList.contains('hidden') === false) {
-                    containerId = 'section-all';
-                } else if (tableType === 'merchant') {
-                    containerId = 'section-merchant';
-                } else if (tableType === 'merchandise') {
-                    containerId = 'section-merchandise';
-                } else if (tableType === 'telkom') {
-                    containerId = 'section-telkom';
-                }
-                const container = document.getElementById(containerId);
-                const tableBody = container ? container.querySelector('#' + tableBodyId) : document.getElementById(tableBodyId);
-                if (tableBody) {
-                    const rows = tableBody.querySelectorAll(`.${rowClass}`);
-                    rows.forEach(row => {
-                        const rowCategory = row.getAttribute('data-category');
-                        if (category === 'All' || rowCategory === category) {
-                            row.style.display = '';
-                        } else {
-                            row.style.display = 'none';
-                        }
-                    });
-                }
             }
 
             // Function to filter table based on category
             function filterTable(tableType, category) {
-                // Check if clicking the same category - toggle to show all
-                if (activeCategories[tableType] === category) {
-                    category = 'All';
-                    activeCategories[tableType] = null;
-                } else {
-                    activeCategories[tableType] = category;
-                }
-                
                 // Close the dropdown after selection
                 closeAllDropdowns();
                 
-                // Update the button text and style to show the selected category
+                // Update the button text to show the selected category
                 let buttonId = '';
-                let dropdownId = '';
                 if (document.getElementById('section-all').classList.contains('hidden') === false) {
                     // We are in the "All" section
-                    if (tableType === 'merchant') {
-                        buttonId = 'kategoriBtnAll1';
-                        dropdownId = 'kategoriDropdownAll1';
-                    } else if (tableType === 'merchandise') {
-                        buttonId = 'kategoriBtnAll2';
-                        dropdownId = 'kategoriDropdownAll2';
-                    } else if (tableType === 'telkom') {
-                        buttonId = 'kategoriBtnAll3';
-                        dropdownId = 'kategoriDropdownAll3';
-                    }
+                    if (tableType === 'merchant') buttonId = 'kategoriBtnAll1';
+                    else if (tableType === 'merchandise') buttonId = 'kategoriBtnAll2';
+                    else if (tableType === 'telkom') buttonId = 'kategoriBtnAll3';
                 } else {
                     // We are in a specific section
-                    if (tableType === 'merchant') {
-                        buttonId = 'kategoriBtnMerchant';
-                        dropdownId = 'kategoriDropdownMerchant';
-                    } else if (tableType === 'merchandise') {
-                        buttonId = 'kategoriBtnMerchandise';
-                        dropdownId = 'kategoriDropdownMerchandise';
-                    } else if (tableType === 'telkom') {
-                        buttonId = 'kategoriBtnTelkom';
-                        dropdownId = 'kategoriDropdownTelkom';
-                    }
+                    if (tableType === 'merchant') buttonId = 'kategoriBtnMerchant';
+                    else if (tableType === 'merchandise') buttonId = 'kategoriBtnMerchandise';
+                    else if (tableType === 'telkom') buttonId = 'kategoriBtnTelkom';
                 }
                 
                 const button = document.getElementById(buttonId);
                 if (button) {
-                    if (category === 'All') {
-                        button.innerHTML = `<i class="fas fa-list mr-2"></i>Kategori<i class="fas fa-chevron-down ml-2 text-xs"></i>`;
-                        button.className = 'flex items-center justify-between whitespace-nowrap min-w-[140px] px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors';
-                    } else {
-                        button.innerHTML = `<i class=\"fas fa-list mr-2\"></i>${category}<i class=\"fas fa-chevron-down ml-2 text-xs\"></i>`;
-                        button.className = 'flex items-center justify-between whitespace-nowrap min-w-[140px] px-4 py-2 text-sm rounded-full border border-transparent bg-gradient-to-r from-[#F81611] to-[#F0B100] text-white font-medium shadow-md hover:shadow-lg transition-all';
-                    }
-                }
-                
-                // Update dropdown items styling
-                const dropdown = document.getElementById(dropdownId);
-                if (dropdown) {
-                    const links = dropdown.querySelectorAll('a');
-                    links.forEach(link => {
-                        const linkCategory = link.textContent.trim();
-                        if (linkCategory === category && category !== 'All') {
-                            link.className = 'block px-4 py-2 text-sm text-white bg-gradient-to-r from-[#F81611] to-[#F0B100] rounded-lg font-medium shadow-sm';
-                        } else {
-                            link.className = 'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg';
-                        }
-                    });
+                    button.innerHTML = `<i class="fas fa-list mr-2"></i>${category}<i class="fas fa-chevron-down ml-2 text-xs"></i>`;
                 }
                 
                 // Filter the table rows based on category
@@ -813,19 +717,7 @@
                     rowClass = 'telkom-row';
                 }
                 
-                // Determine active container to avoid targeting hidden duplicates
-                let containerId = '';
-                if (document.getElementById('section-all').classList.contains('hidden') === false) {
-                    containerId = 'section-all';
-                } else if (tableType === 'merchant') {
-                    containerId = 'section-merchant';
-                } else if (tableType === 'merchandise') {
-                    containerId = 'section-merchandise';
-                } else if (tableType === 'telkom') {
-                    containerId = 'section-telkom';
-                }
-                const container = document.getElementById(containerId);
-                const tableBody = container ? container.querySelector('#' + tableBodyId) : document.getElementById(tableBodyId);
+                const tableBody = document.getElementById(tableBodyId);
                 if (tableBody) {
                     const rows = tableBody.querySelectorAll(`.${rowClass}`);
                     rows.forEach(row => {
@@ -839,19 +731,120 @@
                 }
             }
 
+            ////////////////////////////////////////////////////////////////////
+            // Modal Functions
+            ////////////////////////////////////////////////////////////////////
+
+            // Function to toggle merchant upload modal
+            function toggleMerchantUploadModal() {
+                const modal = document.getElementById('merchantUploadModal');
+                const modalContent = modal.querySelector('div.relative');
+                const backdrop = modal.querySelector('div.fixed');
+                const modalTitle = document.querySelector('#merchantUploadModal h3');
+                
+                if (modal.classList.contains('hidden')) {
+                    // Update modal title based on current active tab
+                    const tabTitles = {
+                        'all': 'Upload Data',
+                        'merchant': 'Upload Merchant Data',
+                        'merchandise': 'Upload Merchandise Data',
+                        'telkom': 'Upload Telkom Package Data'
+                    };
+                    
+                    if (modalTitle) {
+                        modalTitle.textContent = tabTitles[currentActiveTab] || 'Upload Data';
+                    }
+                    
+                    // Show modal with transitions
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                    
+                    // Animate backdrop
+                    setTimeout(() => {
+                        backdrop.style.opacity = '0.5';
+                    }, 10);
+                    
+                    // Animate modal content
+                    setTimeout(() => {
+                        modalContent.style.transform = 'scale(1)';
+                        modalContent.style.opacity = '1';
+                    }, 50);
+                    
+                    // Animate form elements with staggered delays
+                    const formElements = modalContent.querySelectorAll('h3, button, label, input, select, textarea, button.px-3, span, div#imagesPreview, button.px-4');
+                    formElements.forEach((el, index) => {
+                        setTimeout(() => {
+                            el.style.transform = 'translateY(0)';
+                            el.style.opacity = '1';
+                        }, 100 + (index * 30));
+                    });
+                } else {
+                    // Hide modal with transitions
+                    
+                    // Animate form elements out
+                    const formElements = modalContent.querySelectorAll('h3, button, label, input, select, textarea, button.px-3, span, div#imagesPreview, button.px-4');
+                    formElements.forEach((el, index) => {
+                        setTimeout(() => {
+                            el.style.transform = 'translateY(10px)';
+                            el.style.opacity = '0';
+                        }, index * 20);
+                    });
+                    
+                    // Animate modal content
+                    setTimeout(() => {
+                        modalContent.style.transform = 'scale(0.95)';
+                        modalContent.style.opacity = '0';
+                    }, 100);
+                    
+                    // Animate backdrop
+                    setTimeout(() => {
+                        backdrop.style.opacity = '0';
+                    }, 150);
+                    
+                    // Hide modal completely after animations
+                    setTimeout(() => {
+                        modal.classList.add('hidden');
+                        document.body.style.overflow = ''; // Restore scrolling
+                        
+                        // Reset form when closing
+                        const form = document.getElementById('merchantUploadFormElement');
+                        form.reset();
+                        document.getElementById('logoPreview').innerHTML = '<div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>';
+                        document.getElementById('imagesPreview').innerHTML = '';
+                        document.getElementById('logoFileName').textContent = 'No file chosen';
+                        document.getElementById('imagesCount').textContent = 'No files chosen';
+                        
+                        // Reset form element positions
+                        formElements.forEach(el => {
+                            el.style.transform = 'translateY(10px)';
+                            el.style.opacity = '0';
+                        });
+                        modalContent.style.transform = 'scale(0.95)';
+                        modalContent.style.opacity = '0';
+                        backdrop.style.opacity = '0';
+                    }, 400);
+                }
+            }
+
+            // Close modal when clicking outside
+            document.getElementById('merchantUploadModal').addEventListener('click', function(event) {
+                if (event.target === this) {
+                    toggleMerchantUploadModal();
+                }
+            });
         </script>
 
         <!-- All Tables Section -->
         <div id="section-all" class="transition-all duration-300 opacity-100 translate-y-0">
             <!-- Merchant Table -->
-            <h2 class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Merchant</h2>
+            <h2 class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4 mt-4 sm:mt-8">Merchant</h2>
             
             <!-- Merchant Controls -->
-            <div class="flex items-center justify-between gap-4 mb-4">
-                <div class="flex items-center space-x-3 flex-nowrap">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                <div class="flex space-x-3">
                     <!-- Kategori Dropdown -->
                     <div class="relative">
-                        <button id="kategoriBtnAll1" onclick="toggleKategoriDropdownAll1()" class="flex items-center justify-between whitespace-nowrap min-w-[140px] px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
+                        <button id="kategoriBtnAll1" onclick="toggleKategoriDropdownAll1()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
                             <i class="fas fa-list mr-2"></i>
                             Kategori
                             <i class="fas fa-chevron-down ml-2 text-xs"></i>
@@ -892,14 +885,14 @@
             @include('partials.table-merchant')
 
             <!-- Merchandise Table -->
-            <h2 class="text-lg sm:text-xl font-bold text-gray-800 mb-3 mt-8 sm:mb-4">Merchandise</h2>
+            <h2 class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4 mt-8 sm:mt-12">Merchandise</h2>
             
             <!-- Merchandise Controls -->
-            <div class="flex items-center justify-between gap-4 mb-4">
-                <div class="flex items-center space-x-3 flex-nowrap">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                <div class="flex space-x-3">
                     <!-- Kategori Dropdown -->
-                    <div class="relative">
-                        <button id="kategoriBtnAll2" onclick="toggleKategoriDropdownAll2()" class="flex items-center justify-between whitespace-nowrap min-w-[140px] px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
+                    <!-- <div class="relative">
+                        <button id="kategoriBtnAll2" onclick="toggleKategoriDropdownAll2()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
                             <i class="fas fa-list mr-2"></i>
                             Kategori
                             <i class="fas fa-chevron-down ml-2 text-xs"></i>
@@ -914,7 +907,7 @@
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'Telkomsel Packet'); return false;">Telkomsel Packet</a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     
                     <!-- Upload Button -->
                     <div class="relative">
@@ -940,14 +933,14 @@
             @include('partials.table-merchandise')
 
             <!-- Telkom Packages Table -->
-            <h2 class="text-lg sm:text-xl font-bold text-gray-800 mb-3 mt-8 sm:mb-4">Telkom Packages</h2>
+            <h2 class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4 mt-8 sm:mt-12">Telkom Packages</h2>
             
             <!-- Telkom Controls -->
-            <div class="flex items-center justify-between gap-4 mb-4">
-                <div class="flex items-center space-x-3 flex-nowrap">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                <div class="flex space-x-3">
                     <!-- Kategori Dropdown -->
-                    <div class="relative">
-                        <button id="kategoriBtnAll3" onclick="toggleKategoriDropdownAll3()" class="flex items-center justify-between whitespace-nowrap min-w-[140px] px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
+                    <!-- <div class="relative">
+                        <button id="kategoriBtnAll3" onclick="toggleKategoriDropdownAll3()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
                             <i class="fas fa-list mr-2"></i>
                             Kategori
                             <i class="fas fa-chevron-down ml-2 text-xs"></i>
@@ -962,7 +955,7 @@
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'Telkomsel Packet'); return false;">Telkomsel Packet</a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     
                     <!-- Upload Button -->
                     <div class="relative">
@@ -997,13 +990,14 @@
                 <div class="flex space-x-3">
                     <!-- Kategori Dropdown -->
                     <div class="relative">
-                        <button id="kategoriBtnMerchant" onclick="toggleKategoriDropdownMerchant()" class="flex items-center justify-between whitespace-nowrap min-w-[140px] px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
+                        <button id="kategoriBtnMerchant" onclick="toggleKategoriDropdownMerchant()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
                             <i class="fas fa-list mr-2"></i>
                             Kategori
                             <i class="fas fa-chevron-down ml-2 text-xs"></i>
                         </button>
-                        <div id="kategoriDropdownMerchant" class="hidden absolute left-0 mt-2 bg-white rounded-2xl shadow-2xl p-3 border border-gray-200 w-64 z-50">
+                        <div id="kategoriDropdownAll1" class="hidden absolute left-0 mt-2 bg-white rounded-2xl shadow-2xl p-3 border border-gray-200 w-64 z-50">
                             <div class="py-1">
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'All'); return false;">All</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'F&B'); return false;">F&B</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'Entertain'); return false;">Entertain</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'Vacation'); return false;">Vacation</a>
@@ -1035,10 +1029,7 @@
                 </div>
             </div>
             
-
-            
             @include('partials.table-merchant')
-
         </div>
 
         <!-- Merchandise Only Section -->
@@ -1050,13 +1041,14 @@
                 <div class="flex space-x-3">
                     <!-- Kategori Dropdown -->
                     <div class="relative">
-                        <button id="kategoriBtnMerchandise" onclick="toggleKategoriDropdownMerchandise()" class="flex items-center justify-between whitespace-nowrap min-w-[140px] px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
+                        <button id="kategoriBtnMerchandise" onclick="toggleKategoriDropdownMerchandise()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
                             <i class="fas fa-list mr-2"></i>
                             Kategori
                             <i class="fas fa-chevron-down ml-2 text-xs"></i>
                         </button>
-                        <div id="kategoriDropdownMerchandise" class="hidden absolute left-0 mt-2 bg-white rounded-2xl shadow-2xl p-3 border border-gray-200 w-64 z-50">
+                        <div id="kategoriDropdownAll2" class="hidden absolute left-0 mt-2 bg-white rounded-2xl shadow-2xl p-3 border border-gray-200 w-64 z-50">
                             <div class="py-1">
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'All'); return false;">All</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'F&B'); return false;">F&B</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'Entertain'); return false;">Entertain</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'Vacation'); return false;">Vacation</a>
@@ -1101,13 +1093,14 @@
                 <div class="flex space-x-3">
                     <!-- Kategori Dropdown -->
                     <div class="relative">
-                        <button id="kategoriBtnTelkom" onclick="toggleKategoriDropdownTelkom()" class="flex items-center justify-between whitespace-nowrap min-w-[140px] px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
+                        <button id="kategoriBtnTelkom" onclick="toggleKategoriDropdownTelkom()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
                             <i class="fas fa-list mr-2"></i>
                             Kategori
                             <i class="fas fa-chevron-down ml-2 text-xs"></i>
                         </button>
-                        <div id="kategoriDropdownTelkom" class="hidden absolute left-0 mt-2 bg-white rounded-2xl shadow-2xl p-3 border border-gray-200 w-64 z-50">
+                        <div id="kategoriDropdownAll3" class="hidden absolute left-0 mt-2 bg-white rounded-2xl shadow-2xl p-3 border border-gray-200 w-64 z-50">
                             <div class="py-1">
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'All'); return false;">All</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'F&B'); return false;">F&B</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'Entertain'); return false;">Entertain</a>
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'Vacation'); return false;">Vacation</a>
@@ -1144,185 +1137,8 @@
         </div>
     </main>
     
-    <!-- Merchant Upload Modal -->
-    <div id="merchantUploadModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50" style="overflow-y: auto;">
-        <div class="fixed inset-0 bg-black opacity-0 transition-opacity duration-300 ease-out"></div>
-        <div class="relative bg-white rounded-xl shadow-lg w-full max-w-4xl max-h-[90vh] overflow-y-auto my-8 transform transition-all duration-300 ease-out scale-95 opacity-0">
-            <div class="flex justify-between items-center p-4 border-b">
-                <h3 class="text-lg font-semibold text-gray-800 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Upload Merchant Data</h3>
-                <button onclick="toggleMerchantUploadModal()" class="text-gray-500 hover:text-gray-700 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            
-            <form id="merchantUploadFormElement" class="p-4 space-y-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Nama Merchant</label>
-                        <input type="text" name="nama_merchant" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter merchant name">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Kategori</label>
-                        <select name="kategori" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
-                            <option value="">Select Category</option>
-                            <option value="F&B">F&B</option>
-                            <option value="Entertain">Entertain</option>
-                            <option value="Vacation">Vacation</option>
-                            <option value="Shopping">Shopping</option>
-                            <option value="Beauty & Care">Beauty & Care</option>
-                            <option value="Telkomsel Packet">Telkomsel Packet</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Diskon</label>
-                        <input type="text" name="diskon" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter discount">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">SKB</label>
-                        <input type="text" name="skb" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter SKB">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Redeem Point</label>
-                        <input type="text" name="redeem_point" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter redeem points">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Stock</label>
-                        <input type="number" name="stock" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter stock">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Start Date</label>
-                        <input type="date" name="start_date" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">End Date</label>
-                        <input type="date" name="end_date" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">CTA</label>
-                        <input type="url" name="cta" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="https://example.com">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Logo Merchant</label>
-                        <div class="flex items-center space-x-2">
-                            <input type="file" id="logoMerchantInput" name="logo_merchant" accept="image/*" class="hidden" onchange="previewImage(event, 'logoPreview')">
-                            <button type="button" onclick="document.getElementById('logoMerchantInput').click()" class="px-3 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Choose File</button>
-                            <span id="logoFileName" class="text-sm text-gray-500 transition-all duration-300 ease-out transform translate-y-2 opacity-0">No file chosen</span>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Images</label>
-                        <div class="flex items-center space-x-2">
-                            <input type="file" id="imagesMerchantInput" name="images[]" accept="image/*" multiple class="hidden" onchange="previewImages(event, 'imagesPreview')">
-                            <button type="button" onclick="document.getElementById('imagesMerchantInput').click()" class="px-3 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Choose Files</button>
-                            <span id="imagesCount" class="text-sm text-gray-500 transition-all duration-300 ease-out transform translate-y-2 opacity-0">No files chosen</span>
-                        </div>
-                        <div id="imagesPreview" class="mt-2 flex flex-wrap gap-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0"></div>
-                    </div>
-                </div>
-                
-                <div class="flex justify-end space-x-3 pt-4">
-                    <button type="button" onclick="toggleMerchantUploadModal()" class="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Cancel</button>
-                    <button type="submit" class="px-4 py-2 text-sm bg-gradient-to-r from-[#F81611] to-[#F0B100] text-white rounded-lg hover:shadow-lg transition-all duration-300 ease-out transform translate-y-2 opacity-0">Upload</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    
-    <script>
-        // Function to toggle merchant upload modal
-        function toggleMerchantUploadModal() {
-            const modal = document.getElementById('merchantUploadModal');
-            const modalContent = modal.querySelector('div.relative');
-            const backdrop = modal.querySelector('div.fixed');
-            
-            if (modal.classList.contains('hidden')) {
-                // Show modal with transitions
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
-                
-                // Animate backdrop
-                setTimeout(() => {
-                    backdrop.style.opacity = '0.5';
-                }, 10);
-                
-                // Animate modal content
-                setTimeout(() => {
-                    modalContent.style.transform = 'scale(1)';
-                    modalContent.style.opacity = '1';
-                }, 50);
-                
-                // Animate form elements with staggered delays
-                const formElements = modalContent.querySelectorAll('h3, button, label, input, select, textarea, button.px-3, span, div#imagesPreview, button.px-4');
-                formElements.forEach((el, index) => {
-                    setTimeout(() => {
-                        el.style.transform = 'translateY(0)';
-                        el.style.opacity = '1';
-                    }, 100 + (index * 30));
-                });
-            } else {
-                // Hide modal with transitions
-                
-                // Animate form elements out
-                const formElements = modalContent.querySelectorAll('h3, button, label, input, select, textarea, button.px-3, span, div#imagesPreview, button.px-4');
-                formElements.forEach((el, index) => {
-                    setTimeout(() => {
-                        el.style.transform = 'translateY(10px)';
-                        el.style.opacity = '0';
-                    }, index * 20);
-                });
-                
-                // Animate modal content
-                setTimeout(() => {
-                    modalContent.style.transform = 'scale(0.95)';
-                    modalContent.style.opacity = '0';
-                }, 100);
-                
-                // Animate backdrop
-                setTimeout(() => {
-                    backdrop.style.opacity = '0';
-                }, 150);
-                
-                // Hide modal completely after animations
-                setTimeout(() => {
-                    modal.classList.add('hidden');
-                    document.body.style.overflow = ''; // Restore scrolling
-                    
-                    // Reset form when closing
-                    const form = document.getElementById('merchantUploadFormElement');
-                    form.reset();
-                    document.getElementById('logoPreview').innerHTML = '<div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>';
-                    document.getElementById('imagesPreview').innerHTML = '';
-                    document.getElementById('logoFileName').textContent = 'No file chosen';
-                    document.getElementById('imagesCount').textContent = 'No files chosen';
-                    
-                    // Reset form element positions
-                    formElements.forEach(el => {
-                        el.style.transform = 'translateY(10px)';
-                        el.style.opacity = '0';
-                    });
-                    modalContent.style.transform = 'scale(0.95)';
-                    modalContent.style.opacity = '0';
-                    backdrop.style.opacity = '0';
-                }, 400);
-            }
-        }
-        
-        // Close modal when clicking outside
-        document.getElementById('merchantUploadModal').addEventListener('click', function(event) {
-            if (event.target === this) {
-                toggleMerchantUploadModal();
-            }
-        });
-    </script>
+    @include('partials.upload-modal')
+    @include('partials.upload-modal-merchandise')
+    @include('partials.upload-modal-telkom')
 </body>
 </html>
