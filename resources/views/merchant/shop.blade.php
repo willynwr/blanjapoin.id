@@ -2,8 +2,8 @@
      <div class="mb-4 md:mb-6 flex items-center justify-between">
       <h2 class="text-2xl md:text-3xl font-black text-neutral-900">🛍️ Shop</h2>
      </div>
-     <div id="shopCardContainer" class="card-container grid grid-cols-2 gap-3 md:grid-cols-1 md:gap-5">
-      <article class="group overflow-hidden rounded-xl md:rounded-2xl border border-neutral-200 bg-white shadow-md transition-all hover:shadow-xl hover:scale-[1.01] hover:border-rose-200">
+     <div id="shopCardContainer" class="card-container grid grid-cols-2 gap-3 md:grid-cols-1 md:gap-5 items-stretch">
+      <article onclick="window.open('https://instagram.com', '_blank')" class="group overflow-hidden rounded-xl md:rounded-2xl border border-neutral-200 bg-white shadow-md transition-all hover:shadow-xl hover:scale-[1.01] hover:border-rose-200 cursor-pointer opacity-0 translate-y-2 transition-all duration-200 ease-out h-full min-h-[280px]" style="animation-delay: 0.05s">
        <!-- Mobile Layout (default) -->
        <div class="md:hidden flex flex-col h-full">
         <div class="relative">
@@ -17,12 +17,12 @@
          
          <!-- Promo Image -->
          <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
-          <img src="{{ asset('promo-wingstop.jpg') }}" alt="Wingstop Jemursari" class="w-full h-full object-cover">
+          <img src="{{ asset('promo-wingstop.jpg') }}" alt="Wingstop Jemursari" class="w-full h-full object-cover" loading="lazy">
          </div>
         </div>
         
         <!-- Card Content Below Image -->
-        <div class="flex flex-col p-3 space-y-2">
+        <div class="flex flex-col p-3 space-y-2 flex-1">
          <!-- Title -->
          <h3 class="text-sm font-bold text-neutral-900 leading-tight">Wingstop Jemursari</h3>
          
@@ -30,7 +30,7 @@
          <p class="text-xs text-neutral-600 leading-relaxed">Diskon Rp 100,000 Wingstop melalui PaysQift</p>
          
          <!-- Stock & Valid Until -->
-         <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100">
+         <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
           <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
            <span class="font-medium">Stock:</span>
            <span class="font-semibold text-neutral-800">250</span>
@@ -48,7 +48,7 @@
         <div class="grid grid-cols-2 gap-0">
          <div class="card-content p-4 flex flex-col">
           <div class="mb-1">
-           <img src="{{ asset('wingstop.png') }}" alt="WINGSTOP" class="card-logo w-[180px] h-[82px] object-contain">
+           <img src="{{ asset('wingstop.png') }}" alt="WINGSTOP" class="card-logo w-[180px] h-[82px] object-contain" loading="lazy">
           </div>
           <div class="pl-10 md:pl-14">
            <div class="card-title text-rose-600 font-bold text-base md:text-3xl mb-0.5">Diskon</div>
@@ -62,7 +62,7 @@
          </div>  
          <div class="card-image-wrapper p-2">
           <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
-           <img src="{{ asset('promo-wingstop.jpg') }}" alt="" class="w-full h-full object-cover">
+           <img src="{{ asset('promo-wingstop.jpg') }}" alt="" class="w-full h-full object-cover" loading="lazy">
           </div>
          </div>
         </div>
@@ -75,7 +75,7 @@
        </div>
       </article>
 
-      <article class="group overflow-hidden rounded-xl md:rounded-2xl border border-neutral-200 bg-white shadow-md transition-all hover:shadow-xl hover:scale-[1.01] hover:border-blue-200">
+      <article onclick="window.open('https://instagram.com', '_blank')" class="group overflow-hidden rounded-xl md:rounded-2xl border border-neutral-200 bg-white shadow-md transition-all hover:shadow-xl hover:scale-[1.01] hover:border-blue-200 cursor-pointer opacity-0 translate-y-2 transition-all duration-200 ease-out h-full min-h-[280px]" style="animation-delay: 0.08s">
        <!-- Mobile Layout (default) -->
        <div class="md:hidden flex flex-col h-full">
         <div class="relative">
@@ -89,12 +89,12 @@
          
          <!-- Promo Image -->
          <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden"> 
-          <img src="{{ asset('promo-transmart.jpeg') }}" alt="Transmart" class="w-full h-full object-cover">
+          <img src="{{ asset('promo-transmart.jpeg') }}" alt="Transmart" class="w-full h-full object-cover" loading="lazy">
          </div>
         </div>
         
         <!-- Card Content Below Image -->
-        <div class="flex flex-col p-3 space-y-2">
+        <div class="flex flex-col p-3 space-y-2 flex-1">
          <!-- Title -->
          <h3 class="text-sm font-bold text-neutral-900 leading-tight">Transmart</h3>
          
@@ -102,7 +102,7 @@
          <p class="text-xs text-neutral-600 leading-relaxed">Diskon Rp 100,000 Transmart melalui PaysQift</p>
          
          <!-- Stock & Valid Until -->
-         <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100">
+         <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
           <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
            <span class="font-medium">Stock:</span>
            <span class="font-semibold text-neutral-800">150</span>
@@ -120,7 +120,7 @@
         <div class="grid grid-cols-2 gap-0">
          <div class="card-content p-4 flex flex-col">
           <div class="mb-1">
-           <img src="{{ asset('transmart.png') }}" alt="TRANSMART" class="card-logo w-[180px] h-[82px] object-contain">
+           <img src="{{ asset('transmart.png') }}" alt="TRANSMART" class="card-logo w-[180px] h-[82px] object-contain" loading="lazy">
           </div>
           <div class="pl-10 md:pl-14">
            <div class="card-title text-rose-600 font-bold text-base md:text-3xl mb-0.5">Diskon</div>
@@ -134,7 +134,7 @@
          </div>
          <div class="card-image-wrapper p-2">
           <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden"> 
-           <img src="{{ asset('promo-transmart.jpeg') }}" alt="" class="w-full h-full object-cover">
+           <img src="{{ asset('promo-transmart.jpeg') }}" alt="" class="w-full h-full object-cover" loading="lazy">
           </div>
          </div>
         </div>
@@ -148,7 +148,7 @@
        
       </article>
 
-      <article id="extraShopCard" class="group overflow-hidden rounded-xl md:rounded-2xl border border-neutral-200 bg-white shadow-md transition-all duration-500 ease-in-out hover:shadow-xl hover:scale-[1.01] hover:border-green-200 max-h-0 opacity-0 scale-y-0 origin-top">
+      <article id="extraShopCard" onclick="window.open('https://instagram.com', '_blank')" class="group overflow-hidden rounded-xl md:rounded-2xl border border-neutral-200 bg-white shadow-md transition-all duration-500 ease-in-out hover:shadow-xl hover:scale-[1.01] hover:border-green-200 max-h-0 opacity-0 scale-y-0 origin-top cursor-pointer h-full mt-2">
        <!-- Mobile Layout (default) -->
        <div class="md:hidden flex flex-col h-full">
         <div class="relative">
@@ -162,12 +162,12 @@
          
          <!-- Promo Image -->
          <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
-          <img src="{{ asset('promo-indomaret.jpg') }}" alt="Indomaret" class="w-full h-full object-cover">
+          <img src="{{ asset('promo-indomaret.jpg') }}" alt="Indomaret" class="w-full h-full object-cover" loading="lazy">
          </div>
         </div>
         
         <!-- Card Content Below Image -->
-        <div class="flex flex-col p-3 space-y-2">
+        <div class="flex flex-col p-3 space-y-2 flex-1">
          <!-- Title -->
          <h3 class="text-sm font-bold text-neutral-900 leading-tight">Voucher Indomaret</h3>
          
@@ -175,7 +175,7 @@
          <p class="text-xs text-neutral-600 leading-relaxed">Voucher Belanja Rp 50,000 Indomaret</p>
          
          <!-- Stock & Valid Until -->
-         <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100">
+         <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
           <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
            <span class="font-medium">Stock:</span>
            <span class="font-semibold text-neutral-800">300</span>
@@ -193,7 +193,7 @@
         <div class="grid grid-cols-2 gap-0">
          <div class="card-content p-4 flex flex-col">
           <div class="mb-1">
-           <img src="{{ asset('indomaret.png') }}" alt="INDOMARET" class="card-logo w-[180px] h-[82px] object-contain">
+           <img src="{{ asset('indomaret.png') }}" alt="INDOMARET" class="card-logo w-[180px] h-[82px] object-contain" loading="lazy">
           </div>
           <div class="pl-10 md:pl-14">
            <div class="card-title text-rose-600 font-bold text-base md:text-3xl mb-0.5">Voucher</div>
@@ -207,7 +207,7 @@
          </div>
          <div class="card-image-wrapper p-2">
           <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
-           <img src="{{ asset('promo-indomaret.jpg') }}" alt="" class="w-full h-full object-cover">
+           <img src="{{ asset('promo-indomaret.jpg') }}" alt="" class="w-full h-full object-cover" loading="lazy">
           </div>
          </div>
         </div>

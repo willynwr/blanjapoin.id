@@ -11,6 +11,41 @@
         'Noto Color Emoji';
 }
 
+
+/* Ensure location dropdown is not cut off */
+#locationDropdown {
+ z-index: 9999 !important;
+ position: absolute !important;
+}
+
+/* Ensure search section has proper stacking context */
+#searchSection {
+ position: relative;
+ z-index: 10;
+ overflow: visible !important;
+}
+
+/* Ensure shop section doesn't interfere */
+#shopSection {
+ position: relative;
+ z-index: 1;
+ overflow: visible !important;
+}
+
+/* Ensure all parent containers allow overflow */
+.mx-auto,
+main,
+body {
+ overflow: visible !important;
+}
+
+/* Ensure location dropdown container doesn't clip */
+.relative {
+ overflow: visible !important;
+}
+
+
+
 /* Font optimization for Poppins */
 body {
     font-family: 'Poppins', sans-serif;
