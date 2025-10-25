@@ -2,8 +2,8 @@
      <div class="mb-4 md:mb-6 flex items-center justify-between">
       <h2 class="text-2xl md:text-3xl font-black text-neutral-900">🏖️ Vacation</h2>
      </div>
-     <div class="grid grid-cols-2 gap-3 md:grid-cols-1 md:gap-5">
-      <article class="group overflow-hidden rounded-xl md:rounded-2xl border border-neutral-200 bg-white shadow-md transition-all hover:shadow-xl hover:scale-[1.01] hover:border-blue-200">
+     <div class="grid grid-cols-2 gap-3 md:grid-cols-1 md:gap-5 items-stretch">
+      <article onclick="window.open('https://instagram.com', '_blank')" class="group overflow-hidden rounded-xl md:rounded-2xl border border-neutral-200 bg-white shadow-md transition-all hover:shadow-xl hover:scale-[1.01] hover:border-blue-200 cursor-pointer h-full min-h-[280px]">
       <!-- Mobile Layout (default) -->
       <div class="md:hidden flex flex-col h-full">
        <div class="relative">
@@ -16,17 +16,17 @@
         </div>
         <!-- Promo Image -->
         <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
-         <img src="{{ asset('promo-traveloka.jpg') }}" alt="Traveloka" class="w-full h-full object-cover">
+         <img loading="lazy" src="{{ asset('promo-traveloka.jpg') }}" alt="Traveloka" class="w-full h-full object-cover">
         </div>
        </div>
        <!-- Card Content Below Image -->
-       <div class="flex flex-col p-3 space-y-2">
+       <div class="flex flex-col p-3 space-y-2 flex-1">
         <!-- Title -->
         <h3 class="text-sm font-bold text-neutral-900 leading-tight">Voucher Traveloka Rp100 ribu</h3>
         <!-- Description -->
         <p class="text-xs text-neutral-600 leading-relaxed">Voucher Hotel Traveloka Rp 100,000</p>
         <!-- Stock & Valid Until -->
-        <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100">
+        <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
           <span class="font-medium">Stock:</span>
           <span class="font-semibold text-neutral-800">100</span>
@@ -43,7 +43,7 @@
        <div class="grid grid-cols-2 gap-0">
         <div class="p-3 md:p-4 flex flex-col">
          <div class="mb-1">
-          <img src="{{ asset('traveloka.png') }}" alt="TRAVELOKA" class="w-[180px] h-[82px] object-contain">
+          <img loading="lazy" src="{{ asset('traveloka.png') }}" alt="TRAVELOKA" class="w-[180px] h-[82px] object-contain">
          </div>
          <div class="pl-10 md:pl-14">
           <div class="text-rose-600 font-bold text-base md:text-3xl mb-0.5">Voucher</div>
@@ -57,7 +57,7 @@
         </div>
         <div class="p-2">
          <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
-          <img src="{{ asset('promo-traveloka.jpg') }}" alt="" class="w-full h-full object-cover">
+          <img loading="lazy" src="{{ asset('promo-traveloka.jpg') }}" alt="" class="w-full h-full object-cover">
          </div>
         </div>
        </div>
@@ -68,7 +68,7 @@
       </div>
      </article>
 
-      <article class="group overflow-hidden rounded-xl md:rounded-2xl border border-neutral-200 bg-white shadow-md transition-all hover:shadow-xl hover:scale-[1.01] hover:border-cyan-200">
+      <article onclick="window.open('https://instagram.com', '_blank')" class="group overflow-hidden rounded-xl md:rounded-2xl border border-neutral-200 bg-white shadow-md transition-all hover:shadow-xl hover:scale-[1.01] hover:border-cyan-200 cursor-pointer h-full min-h-[280px]">
       <!-- Mobile Layout (default) -->
       <div class="md:hidden flex flex-col h-full">
        <div class="relative">
@@ -81,17 +81,17 @@
         </div>
         <!-- Promo Image -->
         <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
-         <img src="{{ asset('promo-tiketcom.jpg') }}" alt="Tiket.com" class="w-full h-full object-cover">
+         <img loading="lazy" src="{{ asset('promo-tiketcom.jpg') }}" alt="Tiket.com" class="w-full h-full object-cover">
         </div>
        </div>
        <!-- Card Content Below Image -->
-       <div class="flex flex-col p-3 space-y-2">
+       <div class="flex flex-col p-3 space-y-2 flex-1">
         <!-- Title -->
         <h3 class="text-sm font-bold text-neutral-900 leading-tight">Voucher Tiket.com Rp75 ribu</h3>
         <!-- Description -->
         <p class="text-xs text-neutral-600 leading-relaxed">Voucher Tiket.com Rp 75,000</p>
         <!-- Stock & Valid Until -->
-        <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100">
+        <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
           <span class="font-medium">Stock:</span>
           <span class="font-semibold text-neutral-800">120</span>
@@ -108,7 +108,7 @@
        <div class="grid grid-cols-2 gap-0">
         <div class="p-3 md:p-4 flex flex-col">
          <div class="mb-1">
-          <img src="{{ asset('tiketcom.png') }}" alt="TIKET.COM" class="w-[180px] h-[82px] object-contain">
+          <img loading="lazy" src="{{ asset('tiketcom.png') }}" alt="TIKET.COM" class="w-[180px] h-[82px] object-contain">
          </div>
          <div class="pl-10 md:pl-14">
           <div class="text-rose-600 font-bold text-base md:text-3xl mb-0.5">Voucher</div>
@@ -122,7 +122,7 @@
         </div>
         <div class="p-2">
          <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
-          <img src="{{ asset('promo-tiketcom.jpg') }}" alt="" class="w-full h-full object-cover">
+          <img loading="lazy" src="{{ asset('promo-tiketcom.jpg') }}" alt="" class="w-full h-full object-cover">
          </div>
         </div>
        </div>
@@ -133,7 +133,7 @@
       </div>
       </article>
 
-      <article id="extraVacationCard" class="group overflow-hidden rounded-xl md:rounded-2xl border border-neutral-200 bg-white shadow-md transition-all duration-500 ease-in-out hover:shadow-xl hover:scale-[1.01] hover:border-sky-200 max-h-0 opacity-0 scale-y-0 origin-top">
+      <article id="extraVacationCard" onclick="window.open('https://instagram.com', '_blank')" class="mt-2 group overflow-hidden rounded-xl md:rounded-2xl border border-neutral-200 bg-white shadow-md transition-all duration-500 ease-in-out hover:shadow-xl hover:scale-[1.01] hover:border-sky-200 max-h-0 opacity-0 scale-y-0 origin-top cursor-pointer h-full">
       <!-- Mobile Layout (default) -->
       <div class="md:hidden flex flex-col h-full">
        <div class="relative">
@@ -146,17 +146,17 @@
         </div>
         <!-- Promo Image -->
         <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
-         <img src="{{ asset('promo-pegipegi.jpg') }}" alt="PegiPegi" class="w-full h-full object-cover">
+         <img loading="lazy" src="{{ asset('promo-pegipegi.jpg') }}" alt="PegiPegi" class="w-full h-full object-cover">
         </div>
        </div>
        <!-- Card Content Below Image -->
-       <div class="flex flex-col p-3 space-y-2">
+       <div class="flex flex-col p-3 space-y-2 flex-1">
         <!-- Title -->
         <h3 class="text-sm font-bold text-neutral-900 leading-tight">Voucher PegiPegi Rp50 ribu</h3>
         <!-- Description -->
         <p class="text-xs text-neutral-600 leading-relaxed">Voucher PegiPegi Hotel Rp 50,000</p>
         <!-- Stock & Valid Until -->
-        <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100">
+        <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
           <span class="font-medium">Stock:</span>
           <span class="font-semibold text-neutral-800">140</span>
@@ -173,7 +173,7 @@
        <div class="grid grid-cols-2 gap-0">
         <div class="p-3 md:p-4 flex flex-col">
          <div class="mb-1">
-          <img src="{{ asset('pegipegi.png') }}" alt="PEGIPEGI" class="w-[180px] h-[82px] object-contain">
+          <img loading="lazy" src="{{ asset('pegipegi.png') }}" alt="PEGIPEGI" class="w-[180px] h-[82px] object-contain">
          </div>
          <div class="pl-10 md:pl-14">
           <div class="text-rose-600 font-bold text-base md:text-3xl mb-0.5">Voucher</div>
@@ -187,7 +187,7 @@
         </div>
         <div class="p-2">
          <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
-          <img src="{{ asset('promo-pegipegi.jpg') }}" alt="" class="w-full h-full object-cover">
+          <img loading="lazy" src="{{ asset('promo-pegipegi.jpg') }}" alt="" class="w-full h-full object-cover">
          </div>
         </div>
        </div>

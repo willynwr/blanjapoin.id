@@ -11,7 +11,14 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
  </head>
- <body class="bg-white text-neutral-900 antialiased font-poppins min-h-screen">
+ <body class="bg-white text-neutral-900 antialiased font-poppins min-h-screen" id="pageBody">
+  <!-- Loading Spinner -->
+  <div id="loadingSpinner" class="fixed inset-0 bg-white z-50 flex items-center justify-center" style="opacity: 1; display: flex;">
+   <div class="flex flex-col items-center gap-4">
+    <div class="w-12 h-12 border-4 border-orange-200 border-t-orange-500 rounded-full animate-spin"></div>
+    <div class="text-sm font-semibold text-neutral-600">Loading Please wait...</div>
+   </div>
+  </div>
    <nav id="navbar" class="sticky top-0 z-20 bg-white transition-shadow duration-300 w-full">
     <div class="mx-auto max-w-[1120px] px-4 md:px-6 lg:px-8 py-4 md:py-5 lg:py-6">
      <div class="flex items-center justify-between">
@@ -33,7 +40,7 @@
           <path d="M7 10l5 5 5-5z"/>
          </svg>
         </button>
-        <div id="userDropdown" class="absolute right-0 mt-2 w-48 rounded-xl bg-white shadow-xl ring-1 ring-neutral-200 overflow-hidden opacity-0 invisible scale-95 origin-top-right transition-all duration-300 ease-out z-50">
+        <div id="userDropdown" class="absolute right-0 mt-2 w-48 rounded-xl bg-white shadow-xl ring-1 ring-neutral-200 overflow-hidden opacity-0 invisible scale-95 origin-top-right transition-all duration-300 ease-out z-50 backdrop-blur-sm">
          <div class="py-1">
           <form method="POST" action="{{ route('logout') }}">
            @csrf
@@ -54,26 +61,45 @@
 
   <div class="mx-auto max-w-[1120px]">
    <main class="px-4 md:px-7 lg:px-8 pb-12 md:pb-16">
-    <section class="mt-6 md:mt-8">
-     <div class="relative flex items-center gap-3 md:gap-4 group">
-      <button onclick="prevSlide()" class="hidden md:grid h-10 w-10 md:h-12 md:w-12 place-items-center rounded-full bg-white shadow-xl transition-all hover:bg-neutral-50 hover:scale-110 active:scale-95 text-neutral-700 font-bold text-xl md:text-2xl flex-shrink-0">‹</button>
+    <section class="mt-1 md:mt-1 opacity-0 translate-y-8 transition-all duration-700 ease-out" id="bannerSection">
+     <div class="relative group">
+      <!-- Navigation Arrows -->
+      <button onclick="prevSlide()" class="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-10 grid h-10 w-10 md:h-14 md:w-14 place-items-center rounded-full bg-white/95 backdrop-blur-sm shadow-xl transition-all hover:bg-white hover:scale-110 active:scale-95 text-neutral-700 font-bold text-xl md:text-3xl">
+       ‹
+      </button>
       
-      <div class="flex-1">
-       <div class="h-48 sm:h-52 md:h-64 lg:h-72 rounded-2xl md:rounded-[2rem] bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-xl md:shadow-2xl shadow-neutral-400/30 drop-shadow-xl md:drop-shadow-2xl overflow-hidden ring-1 ring-neutral-200/50 transition-all duration-200">
-        <img id="bannerImage" src="{{ asset('iklan1.jpeg') }}" alt="Banner Promo" class="w-full h-full object-cover transition-opacity duration-500">
-       </div>
-       <div class="mt-4 md:mt-5 flex items-center justify-center gap-2 md:gap-2.5">
-        <span onclick="goToSlide(0)" class="carousel-dot h-2 w-2 md:h-2.5 md:w-2.5 rounded-full bg-neutral-300 transition-all hover:scale-125 cursor-pointer hover:bg-neutral-400"></span>
-        <span onclick="goToSlide(1)" class="carousel-dot h-2 w-2 md:h-2.5 md:w-2.5 rounded-full bg-neutral-300 transition-all hover:scale-125 cursor-pointer hover:bg-neutral-400"></span>
-        <span onclick="goToSlide(2)" class="carousel-dot h-2 w-2 md:h-2.5 md:w-2.5 rounded-full bg-neutral-300 transition-all hover:scale-125 cursor-pointer hover:bg-neutral-400"></span>
-       </div>
+      <button onclick="nextSlide()" class="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-10 grid h-10 w-10 md:h-14 md:w-14 place-items-center rounded-full bg-white/95 backdrop-blur-sm shadow-xl transition-all hover:bg-white hover:scale-110 active:scale-95 text-neutral-700 font-bold text-xl md:text-3xl">
+       ›
+      </button>
+      
+      <div class="relative h-56 sm:h-64 md:h-80 lg:h-96 rounded-3xl md:rounded-[2.5rem] overflow-hidden shadow-2xl md:shadow-3xl shadow-neutral-400/20 drop-shadow-2xl md:drop-shadow-3xl ring-1 ring-white/20 transition-all duration-300 hover:shadow-3xl hover:scale-[1.02]">
+
+      <!-- Background Image -->
+      <img id="bannerImage"
+          src="{{ asset('iklan1.jpeg') }}"
+          alt="Banner Promo"
+          class="w-full h-full object-cover transition-all duration-700 rounded-3xl md:rounded-[2.5rem]"
+          loading="lazy">
+
+      <!-- Gradient Overlay 1 -->
+      <div class="absolute inset-0 bg-gradient-to-br from-black/20 via-black/10 to-transparent rounded-3xl md:rounded-[2.5rem]"></div>
+
+      <!-- Gradient Overlay 2 -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent rounded-3xl md:rounded-[2.5rem]"></div>
+
       </div>
+
       
-      <button onclick="nextSlide()" class="hidden md:grid h-10 w-10 md:h-12 md:w-12 place-items-center rounded-full bg-white shadow-xl transition-all hover:bg-neutral-50 hover:scale-110 active:scale-95 text-neutral-700 font-bold text-xl md:text-2xl flex-shrink-0">›</button>
+      <!-- Carousel Dots -->
+      <div class="mt-8 md:mt-10 flex items-center justify-center gap-4 md:gap-5">
+       <span onclick="goToSlide(0)" class="carousel-dot h-4 w-4 md:h-5 md:w-5 rounded-full bg-neutral-300 transition-all hover:scale-125 cursor-pointer hover:bg-orange-400 shadow-lg"></span>
+       <span onclick="goToSlide(1)" class="carousel-dot h-4 w-4 md:h-5 md:w-5 rounded-full bg-neutral-300 transition-all hover:scale-125 cursor-pointer hover:bg-orange-400 shadow-lg"></span>
+       <span onclick="goToSlide(2)" class="carousel-dot h-4 w-4 md:h-5 md:w-5 rounded-full bg-neutral-300 transition-all hover:scale-125 cursor-pointer hover:bg-orange-400 shadow-lg"></span>
+      </div>
      </div>
     </section>
 
-    <section class="mt-8 md:mt-10">
+    <section class="mt-8 md:mt-10 opacity-0 translate-y-8 transition-all duration-700 ease-out delay-200" id="categorySection">
      <div class="grid grid-cols-3 gap-2.5 md:gap-4 sm:grid-cols-6">
       <button onclick="filterCategory('food')" class="group flex flex-col items-center gap-2 md:gap-3 rounded-xl md:rounded-2xl bg-white p-3 md:p-5 text-center shadow-md md:shadow-lg drop-shadow-sm md:drop-shadow-md ring-1 ring-neutral-100/50 transition-all hover:shadow-2xl hover:drop-shadow-xl hover:scale-110 hover:ring-rose-300 hover:-translate-y-1 active:scale-95">
        <span class="grid h-12 w-12 md:h-16 md:w-16 place-items-center rounded-full bg-gradient-to-br from-rose-100 to-rose-200 text-2xl md:text-3xl transition-transform group-hover:scale-125 group-hover:rotate-12 shadow-sm md:shadow-md drop-shadow-sm">🍔</span>
@@ -102,7 +128,7 @@
      </div>
     </section>
 
-    <section class="mt-8 md:mt-12">
+    <section class="mt-8 md:mt-12 opacity-0 translate-y-8 transition-all duration-700 ease-out delay-400" id="searchSection">
      <div class="flex flex-col md:flex-row items-stretch md:items-center gap-2 md:gap-3 max-w-3xl">
       <div class="flex-1 rounded-lg md:rounded-xl bg-white px-3 md:px-4 py-2 md:py-2.5 shadow-md ring-1 ring-neutral-200/50 transition-all focus-within:ring-2 focus-within:ring-orange-400 focus-within:shadow-lg">
        <div class="flex items-center gap-2 text-neutral-500">
@@ -117,33 +143,64 @@
         </svg>
         <input id="locationInput" autocomplete="off" class="bg-transparent text-xs md:text-sm outline-none placeholder:text-neutral-400 font-semibold w-32" placeholder="Location" />
        </div>
-       <div id="locationDropdown" class="absolute left-0 right-0 mt-1 z-20 bg-white border border-neutral-200 rounded-lg shadow-lg max-h-56 overflow-auto hidden"></div>
+       <div id="locationDropdown" class="absolute left-0 right-0 mt-1 z-50 bg-white border border-neutral-200 rounded-lg shadow-lg max-h-56 overflow-auto hidden backdrop-blur-sm"></div>
       </div>
-      <select class="rounded-lg md:rounded-xl border border-neutral-200 bg-white px-3 md:px-4 py-2 md:py-2.5 text-xs md:text-sm font-semibold shadow-md transition-all hover:shadow-lg hover:border-orange-400 focus:ring-2 focus:ring-orange-400 outline-none cursor-pointer">
-       <option>According To Your Point</option>
-       <option>Lowest</option>
-       <option>Highest</option>
-      </select>
+      <div class="relative">
+       <button onclick="toggleSortDropdown()" id="sortDropdownBtn" class="flex items-center justify-between w-full rounded-lg md:rounded-xl border border-neutral-200 bg-white px-3 md:px-4 py-2 md:py-2.5 text-xs md:text-sm font-semibold shadow-md transition-all hover:shadow-lg hover:border-orange-400 focus:ring-2 focus:ring-orange-400 outline-none cursor-pointer min-w-[180px]">
+        <span id="sortSelectedText">According To Your Point</span>
+        <svg id="sortDropdownArrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4 text-neutral-500 transition-transform duration-300">
+         <path d="M7 10l5 5 5-5z"/>
+        </svg>
+       </button>
+       <div id="sortDropdown" class="absolute left-0 right-0 mt-1 w-full rounded-lg md:rounded-xl bg-white shadow-xl ring-1 ring-neutral-200 overflow-hidden opacity-0 invisible scale-95 origin-top transition-all duration-300 ease-out z-50 backdrop-blur-sm">
+        <div class="py-1">
+         <button onclick="selectSortOption('Lowest')" class="w-full text-left px-3 md:px-4 py-2 md:py-2.5 text-xs md:text-sm font-semibold text-neutral-700 hover:bg-orange-50 hover:text-orange-600 transition-colors flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4 text-green-500">
+           <path d="M7 14l5-5 5 5z"/>
+          </svg>
+          <span>Lowest</span>
+         </button>
+         <button onclick="selectSortOption('Highest')" class="w-full text-left px-3 md:px-4 py-2 md:py-2.5 text-xs md:text-sm font-semibold text-neutral-700 hover:bg-orange-50 hover:text-orange-600 transition-colors flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4 text-red-500">
+           <path d="M7 10l5 5 5-5z"/>
+          </svg>
+          <span>Highest</span>
+         </button>
+        </div>
+       </div>
+      </div>
      </div>
     </section>
 
     <!-- shop Section -->
-    @include('merchant.shop')
-
+    <div class="opacity-0 translate-y-4 transition-all duration-300 ease-out delay-100" id="shopSection">
+     @include('merchant.shop')
+    </div>
+ 
     <!-- food Section -->
-    @include('merchant.food')
-
+    <div class="opacity-0 translate-y-4 transition-all duration-300 ease-out delay-100" id="foodSection">
+     @include('merchant.food')
+    </div>
+ 
     <!-- telkomsel Section -->
-    @include('merchant.telkomsel')
-
+    <div class="opacity-0 translate-y-4 transition-all duration-300 ease-out delay-100" id="telkomselSection">
+     @include('merchant.telkomsel')
+    </div>
+ 
     <!-- entertain Section -->
-    @include('merchant.entertain')
-
+    <div class="opacity-0 translate-y-4 transition-all duration-300 ease-out delay-100" id="entertainSection">
+     @include('merchant.entertain')
+    </div>
+ 
     <!-- vacation Section -->
-    @include('merchant.vacation')
-
+    <div class="opacity-0 translate-y-4 transition-all duration-300 ease-out delay-100" id="vacationSection">
+     @include('merchant.vacation')
+    </div>
+ 
     <!-- beauty Section -->
-    @include('merchant.beautyncare')
+    <div class="opacity-0 translate-y-4 transition-all duration-300 ease-out delay-350" id="beautySection">
+     @include('merchant.beautyncare')
+    </div>
    
 
     <footer class="mt-16 pb-12 text-center">
@@ -156,6 +213,81 @@
   </div>
 
   <script>
+   // Page Load Animation
+   document.addEventListener('DOMContentLoaded', function() {
+    const loadingSpinner = document.getElementById('loadingSpinner');
+    const pageBody = document.getElementById('pageBody');
+    
+    // Show spinner immediately
+    if (loadingSpinner) {
+     loadingSpinner.style.opacity = '1';
+     loadingSpinner.style.display = 'flex';
+    }
+    
+    // Hide spinner after 800ms
+    setTimeout(() => {
+     if (loadingSpinner) {
+      loadingSpinner.style.opacity = '0';
+      loadingSpinner.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+       loadingSpinner.style.display = 'none';
+      }, 500);
+     }
+    }, 300);
+    
+    // Animate sections with intersection observer
+    const sections = [
+     'bannerSection',
+     'categorySection', 
+     'searchSection',
+     'shopSection',
+     'foodSection',
+     'telkomselSection',
+     'entertainSection',
+     'vacationSection',
+     'beautySection'
+    ];
+    
+    const observerOptions = {
+     threshold: 0.1,
+     rootMargin: '0px 0px -20px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+     entries.forEach(entry => {
+      if (entry.isIntersecting) {
+       entry.target.style.opacity = '1';
+       entry.target.style.transform = 'translateY(0)';
+       observer.unobserve(entry.target);
+      }
+     });
+    }, observerOptions);
+    
+    sections.forEach(sectionId => {
+     const section = document.getElementById(sectionId);
+     if (section) {
+      observer.observe(section);
+     }
+    });
+    
+    // Animate cards within sections with faster timing
+    const cardObserver = new IntersectionObserver((entries) => {
+     entries.forEach(entry => {
+      if (entry.isIntersecting) {
+       entry.target.style.opacity = '1';
+       entry.target.style.transform = 'translateY(0)';
+       cardObserver.unobserve(entry.target);
+      }
+     });
+    }, { threshold: 0.05, rootMargin: '0px 0px -10px 0px' });
+    
+    // Observe all cards
+    const cards = document.querySelectorAll('article[class*="opacity-0"]');
+    cards.forEach(card => {
+     cardObserver.observe(card);
+    });
+   });
+
    // Carousel configuration
    const slides = [
     '{{ asset("iklan1.jpeg") }}',
@@ -443,6 +575,59 @@
       dropdown.classList.add('opacity-0', 'invisible', 'scale-95');
       arrow.classList.remove('rotate-180');
       userDropdownOpen = false;
+     }
+    }
+   });
+
+   // Toggle Sort Dropdown
+   let sortDropdownOpen = false;
+
+   function toggleSortDropdown() {
+    const dropdown = document.getElementById('sortDropdown');
+    const arrow = document.getElementById('sortDropdownArrow');
+    
+    if (!sortDropdownOpen) {
+     dropdown.classList.remove('opacity-0', 'invisible', 'scale-95');
+     dropdown.classList.add('opacity-100', 'visible', 'scale-100');
+     arrow.classList.add('rotate-180');
+     sortDropdownOpen = true;
+    } else {
+     dropdown.classList.remove('opacity-100', 'visible', 'scale-100');
+     dropdown.classList.add('opacity-0', 'invisible', 'scale-95');
+     arrow.classList.remove('rotate-180');
+     sortDropdownOpen = false;
+    }
+   }
+
+   function selectSortOption(option) {
+    const selectedText = document.getElementById('sortSelectedText');
+    const dropdown = document.getElementById('sortDropdown');
+    const arrow = document.getElementById('sortDropdownArrow');
+    
+    selectedText.textContent = option;
+    
+    // Close dropdown
+    dropdown.classList.remove('opacity-100', 'visible', 'scale-100');
+    dropdown.classList.add('opacity-0', 'invisible', 'scale-95');
+    arrow.classList.remove('rotate-180');
+    sortDropdownOpen = false;
+    
+    // Here you can add logic to actually sort the content based on the selected option
+    console.log('Sort by:', option);
+   }
+
+   // Close sort dropdown when clicking outside
+   document.addEventListener('click', function(event) {
+    const dropdown = document.getElementById('sortDropdown');
+    const button = document.getElementById('sortDropdownBtn');
+    const arrow = document.getElementById('sortDropdownArrow');
+    
+    if (dropdown && button && !button.contains(event.target) && !dropdown.contains(event.target)) {
+     if (sortDropdownOpen) {
+      dropdown.classList.remove('opacity-100', 'visible', 'scale-100');
+      dropdown.classList.add('opacity-0', 'invisible', 'scale-95');
+      arrow.classList.remove('rotate-180');
+      sortDropdownOpen = false;
      }
     }
    });
