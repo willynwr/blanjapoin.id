@@ -76,7 +76,7 @@
 
       <!-- Background Image -->
       <img id="bannerImage"
-          src="{{ asset('iklan1.jpeg') }}"
+          src="{{ asset('storage/iklan/iklan1.jpeg') }}"
           alt="Banner Promo"
           class="w-full h-full object-cover transition-all duration-700 rounded-3xl md:rounded-[2.5rem]"
           loading="lazy">
@@ -290,9 +290,9 @@
 
    // Carousel configuration
    const slides = [
-    '{{ asset("iklan1.jpeg") }}',
-    '{{ asset("iklan2.jpeg") }}',
-    '{{ asset("iklan3.jpeg") }}'
+    '{{ asset("storage/iklan/iklan1.jpeg") }}',
+    '{{ asset("storage/iklan/iklan2.jpeg") }}',
+    '{{ asset("storage/iklan/iklan3.jpeg") }}'
    ];
    
    let currentSlide = 0;
