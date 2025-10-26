@@ -10,36 +10,63 @@
     
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <!-- Google Fonts - Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Font optimization for Poppins */
+        body {
+            font-family: 'Poppins', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: 'kern' 1;
+            letter-spacing: -0.01em;
+        }
+    </style>
+
+    
 </head>
 
-<body class="min-h-screen bg-gray-50">
+<body class="min-h-screen bg-white font-poppins">
     <!-- Header -->
-    <header class="bg-white shadow-sm border-b">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <div class="flex-shrink-0">
-                    <img src="{{ asset('logo.png') }}" class="h-12 w-auto">
-                </div>
-                
-                <!-- User Profile -->
-                <div class="flex items-center space-x-3">
-                    <div class="relative">
-                        <button class="flex items-center px-3 py-2 rounded-md bg-gradient-to-r from-[#F81611] to-[#F0B100] text-white font-medium text-sm hover:shadow-lg transition-all">
-                            <i class="fas fa-user mr-1"></i>
-                            Willy
-                            <i class="fas fa-chevron-down ml-1"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+   <nav id="navbar" class="sticky top-0 z-20 bg-white transition-shadow duration-300 w-full">
+    <div class="mx-auto max-w-7xl px-2 sm:px-4 md:px-6 lg:px-8 py-4 md:py-5 lg:py-6">
+     <div class="flex items-center justify-between">
+      <div class="flex items-center gap-3">
+       <img src="/logo.png" alt="BlanjaPoin" class="h-10 md:h-12 lg:h-14 w-auto" />
+      </div>
+
+       <div class="relative">
+        <button onclick="toggleUserDropdown()" id="userDropdownBtn" class="inline-flex items-center gap-1.5 md:gap-2 rounded-xl md:rounded-2xl bg-gradient-to-r from-[#FF3B30] via-[#FF6B2C] to-[#FF9F0A] px-4 md:px-6 py-2 md:py-2.5 text-xs md:text-sm font-semibold text-white shadow-lg shadow-orange-300/50 drop-shadow-lg ring-1 ring-white/30 transition-all hover:shadow-xl hover:shadow-orange-400/50 hover:drop-shadow-xl hover:scale-105 active:scale-95">
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5 md:h-4 md:w-4 opacity-95">
+          <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5Z"/>
+         </svg>
+         <span class="tracking-tight">{{ Auth::user()->username }}</span>
+         <svg id="userDropdownArrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-3 w-3 md:h-3.5 md:w-3.5 opacity-95 transition-transform duration-300">
+          <path d="M7 10l5 5 5-5z"/>
+         </svg>
+        </button>
+        <div id="userDropdown" class="absolute right-0 mt-2 w-48 rounded-xl bg-white shadow-xl ring-1 ring-neutral-200 overflow-hidden opacity-0 invisible scale-95 origin-top-right transition-all duration-300 ease-out z-50 backdrop-blur-sm">
+         <div class="py-1">
+          <form method="POST" action="{{ route('logout') }}">
+           @csrf
+           <button type="submit" class="w-full text-left flex items-center gap-3 px-4 py-3 text-sm font-semibold text-red-600 hover:bg-red-50 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+             <path fill-rule="evenodd" d="M7.5 3.75A1.5 1.5 0 006 5.25v13.5a1.5 1.5 0 001.5 1.5h6a1.5 1.5 0 001.5-1.5V15a.75.75 0 011.5 0v3.75a3 3 0 01-3 3h-6a3 3 0 01-3-3V5.25a3 3 0 013-3h6a3 3 0 013 3V9A.75.75 0 0115 9V5.25a1.5 1.5 0 00-1.5-1.5h-6zm10.72 4.72a.75.75 0 011.06 0l3 3a.75.75 0 010 1.06l-3 3a.75.75 0 11-1.06-1.06l1.72-1.72H9a.75.75 0 010-1.5h10.94l-1.72-1.72a.75.75 0 010-1.06z" clip-rule="evenodd" />
+            </svg>
+            <span>Logout</span>
+           </button>
+          </form>
+         </div>
         </div>
-    </header>
+       </div>
+      </div>
+     </div>
+    </div>
+   </nav>
 
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-8">
@@ -82,6 +109,25 @@
                         dropdown.style.opacity = '';
                         dropdown.style.transform = '';
                     }, 200);
+                }
+            }
+
+            // Function to toggle User dropdown
+            function toggleUserDropdown() {
+                const dropdown = document.getElementById('userDropdown');
+                const arrow = document.getElementById('userDropdownArrow');
+                if (!dropdown) return;
+                
+                if (dropdown.classList.contains('opacity-0')) {
+                    // Show dropdown
+                    dropdown.classList.remove('opacity-0', 'invisible', 'scale-95');
+                    dropdown.classList.add('opacity-100', 'visible', 'scale-100');
+                    if (arrow) arrow.style.transform = 'rotate(180deg)';
+                } else {
+                    // Hide dropdown
+                    dropdown.classList.remove('opacity-100', 'visible', 'scale-100');
+                    dropdown.classList.add('opacity-0', 'invisible', 'scale-95');
+                    if (arrow) arrow.style.transform = 'rotate(0deg)';
                 }
             }
 
@@ -521,6 +567,17 @@
 
             // Click outside to close dropdowns
             document.addEventListener('click', function(event) {
+                // Handle user dropdown
+                const userDropdownBtn = document.getElementById('userDropdownBtn');
+                const userDropdown = document.getElementById('userDropdown');
+                
+                if (userDropdownBtn && userDropdown && 
+                    !userDropdownBtn.contains(event.target) && 
+                    !userDropdown.contains(event.target) &&
+                    !userDropdown.classList.contains('opacity-0')) {
+                    toggleUserDropdown();
+                }
+                
                 // Handle main section dropdown
                 const kategoriBtn = document.getElementById('kategoriBtn');
                 const kategoriDropdown = document.getElementById('kategoriDropdown');
