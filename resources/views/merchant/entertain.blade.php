@@ -2,10 +2,10 @@
      <div class="mb-4 md:mb-6 flex items-center justify-between">
       <h2 class="text-2xl md:text-3xl font-black text-neutral-900">🎬 Entertain</h2>
      </div>
-     <div class="grid grid-cols-2 gap-3 md:grid-cols-1 md:gap-5 items-stretch">
+     <div class="grid grid-cols-2 gap-3 lg:grid-cols-1 lg:gap-5 items-stretch">
       <article onclick="window.open('https://instagram.com', '_blank')" class="group overflow-hidden rounded-xl md:rounded-2xl border border-neutral-200 bg-white shadow-md transition-all hover:shadow-xl hover:scale-[1.01] hover:border-indigo-200 cursor-pointer opacity-0 translate-y-2 transition-all duration-200 ease-out h-full min-h-[280px]" style="animation-delay: 0.05s">
        <!-- Mobile Layout (default) -->
-       <div class="md:hidden flex flex-col h-full">
+       <div class="lg:hidden flex flex-col h-full">
         <div class="relative">
          <!-- Badge Points at top-right -->
          <div class="absolute top-2 right-2 z-10">
@@ -17,7 +17,7 @@
          
          <!-- Promo Image -->
          <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
-          <img src="{{ asset('promo-cgv.jpg') }}" alt="CGV Cinema" class="w-full h-full object-cover" loading="lazy">
+          <img src="{{ asset('storage/promo/promo-cgv.jpg') }}" alt="CGV Cinema" class="w-full h-full object-cover" loading="lazy">
          </div>
         </div>
         
@@ -44,11 +44,11 @@
        </div>
        
        <!-- Desktop Layout (md and up) -->
-       <div class="hidden md:block">
+       <div class="hidden lg:block">
         <div class="grid grid-cols-2 gap-0">
          <div class="card-content p-4 flex flex-col">
           <div class="mb-1">
-           <img src="{{ asset('cgv.png') }}" alt="CGV" class="card-logo w-[180px] h-[82px] object-contain" loading="lazy">
+           <img src="{{ asset('storage/logo/cgv.png') }}" alt="CGV" class="card-logo w-[180px] h-[82px] object-contain" loading="lazy">
           </div>
           <div class="pl-10 md:pl-14">
            <div class="card-title text-rose-600 font-bold text-base md:text-3xl mb-0.5">Voucher</div>
@@ -62,14 +62,14 @@
          </div>  
          <div class="card-image-wrapper p-2">
           <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
-           <img src="{{ asset('promo-cgv.jpg') }}" alt="" class="w-full h-full object-cover" loading="lazy">
+           <img src="{{ asset('storage/promo/promo-cgv.jpg') }}" alt="" class="w-full h-full object-cover" loading="lazy">
           </div>
          </div>
         </div>
        </div>
        
        <!-- Desktop Footer -->
-       <div class="hidden md:flex flex-col md:flex-row items-start md:items-center justify-between px-3 md:px-4 py-2 bg-neutral-50 text-[10px] md:text-[11px] text-neutral-600 gap-1.5 md:gap-0">
+       <div class="hidden lg:flex flex-col md:flex-row items-start md:items-center justify-between px-3 md:px-4 py-2 bg-neutral-50 text-[10px] md:text-[11px] text-neutral-600 gap-1.5 md:gap-0">
         <span class="font-medium">Stock • 180</span>
         <span class="font-medium">Valid until • 31 Mar 2025</span>
        </div>
@@ -77,7 +77,7 @@
 
       <article onclick="window.open('https://instagram.com', '_blank')" class="group overflow-hidden rounded-xl md:rounded-2xl border border-neutral-200 bg-white shadow-md transition-all hover:shadow-xl hover:scale-[1.01] hover:border-purple-200 cursor-pointer opacity-0 translate-y-2 transition-all duration-200 ease-out h-full min-h-[280px]" style="animation-delay: 0.08s">
        <!-- Mobile Layout (default) -->
-       <div class="md:hidden flex flex-col h-full">
+       <div class="lg:hidden flex flex-col h-full">
         <div class="relative">
          <!-- Badge Points at top-right -->
          <div class="absolute top-2 right-2 z-10">
@@ -89,7 +89,7 @@
          
          <!-- Promo Image -->
          <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
-          <img src="{{ asset('promo-spotify.jpg') }}" alt="Spotify Premium" class="w-full h-full object-cover" loading="lazy">
+          <img src="{{ asset('storage/promo/promo-spotify.jpg') }}" alt="Spotify Premium" class="w-full h-full object-cover" loading="lazy">
          </div>
         </div>
         
@@ -116,11 +116,11 @@
        </div>
        
        <!-- Desktop Layout (md and up) -->
-       <div class="hidden md:block">
+       <div class="hidden lg:block">
         <div class="grid grid-cols-2 gap-0">
          <div class="card-content p-4 flex flex-col">
           <div class="mb-1">
-           <img src="{{ asset('spotify.png') }}" alt="SPOTIFY" class="card-logo w-[180px] h-[82px] object-contain" loading="lazy">
+           <img src="{{ asset('storage/logo/spotify.png') }}" alt="SPOTIFY" class="card-logo w-[180px] h-[82px] object-contain" loading="lazy">
           </div>
           <div class="pl-10 md:pl-14">
            <div class="card-title text-rose-600 font-bold text-base md:text-3xl mb-0.5">Premium</div>
@@ -134,14 +134,14 @@
          </div>  
          <div class="card-image-wrapper p-2">
           <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
-           <img src="{{ asset('promo-spotify.jpg') }}" alt="" class="w-full h-full object-cover" loading="lazy">
+           <img src="{{ asset('storage/promo/promo-spotify.jpg') }}" alt="" class="w-full h-full object-cover" loading="lazy">
           </div>
          </div>
         </div>
        </div>
        
        <!-- Desktop Footer -->
-       <div class="hidden md:flex flex-col md:flex-row items-start md:items-center justify-between px-3 md:px-4 py-2 bg-neutral-50 text-[10px] md:text-[11px] text-neutral-600 gap-1.5 md:gap-0">
+       <div class="hidden lg:flex flex-col md:flex-row items-start md:items-center justify-between px-3 md:px-4 py-2 bg-neutral-50 text-[10px] md:text-[11px] text-neutral-600 gap-1.5 md:gap-0">
         <span class="font-medium">Stock • 250</span>
         <span class="font-medium">Valid until • 31 Dec 2025</span>
        </div>
@@ -149,7 +149,7 @@
 
       <article id="extraEntertainCard" onclick="window.open('https://instagram.com', '_blank')" class="mt-2 group overflow-hidden rounded-xl md:rounded-2xl border border-neutral-200 bg-white shadow-md transition-all duration-500 ease-in-out hover:shadow-xl hover:scale-[1.01] hover:border-pink-200 max-h-0 opacity-0 scale-y-0 origin-top cursor-pointer h-full">
        <!-- Mobile Layout (default) -->
-       <div class="md:hidden flex flex-col h-full">
+       <div class="lg:hidden flex flex-col h-full">
         <div class="relative">
          <!-- Badge Points at top-right -->
          <div class="absolute top-2 right-2 z-10">
@@ -161,7 +161,7 @@
          
          <!-- Promo Image -->
          <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
-          <img src="{{ asset('promo-netflix.jpg') }}" alt="Netflix Premium" class="w-full h-full object-cover" loading="lazy">
+          <img src="{{ asset('storage/promo/promo-netflix.jpg') }}" alt="Netflix Premium" class="w-full h-full object-cover" loading="lazy">
          </div>
         </div>
         
@@ -188,11 +188,11 @@
        </div>
        
        <!-- Desktop Layout (md and up) -->
-       <div class="hidden md:block">
+       <div class="hidden lg:block">
         <div class="grid grid-cols-2 gap-0">
          <div class="card-content p-4 flex flex-col">
           <div class="mb-1">
-           <img src="{{ asset('netflix.png') }}" alt="NETFLIX" class="card-logo w-[180px] h-[82px] object-contain" loading="lazy">
+           <img src="{{ asset('storage/logo/netflix.png') }}" alt="NETFLIX" class="card-logo w-[180px] h-[82px] object-contain" loading="lazy">
           </div>
           <div class="pl-10 md:pl-14">
            <div class="card-title text-rose-600 font-bold text-base md:text-3xl mb-0.5">Premium</div>
@@ -206,14 +206,14 @@
          </div>  
          <div class="card-image-wrapper p-2">
           <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
-           <img src="{{ asset('promo-netflix.jpg') }}" alt="" class="w-full h-full object-cover" loading="lazy">
+           <img src="{{ asset('storage/promo/promo-netflix.jpg') }}" alt="" class="w-full h-full object-cover" loading="lazy">
           </div>
          </div>
         </div>
        </div>
        
        <!-- Desktop Footer -->
-       <div class="hidden md:flex flex-col md:flex-row items-start md:items-center justify-between px-3 md:px-4 py-2 bg-neutral-50 text-[10px] md:text-[11px] text-neutral-600 gap-1.5 md:gap-0">
+       <div class="hidden lg:flex flex-col md:flex-row items-start md:items-center justify-between px-3 md:px-4 py-2 bg-neutral-50 text-[10px] md:text-[11px] text-neutral-600 gap-1.5 md:gap-0">
         <span class="font-medium">Stock • 150</span>
         <span class="font-medium">Valid until • 31 Dec 2025</span>
        </div>
