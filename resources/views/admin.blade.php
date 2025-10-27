@@ -532,17 +532,6 @@
                 const formData = new FormData(form);
                 
                 // In a real application, you would send this data to your server
-                // For now, we'll just show an alert with the data
-                let message = 'Form Data:\n';
-                for (let [key, value] of formData.entries()) {
-                    if (key === 'images[]') {
-                        message += `${key}: ${event.target.elements[key].files.length} file(s)\n`;
-                    } else {
-                        message += `${key}: ${value}\n`;
-                    }
-                }
-                
-                alert(message);
                 
                 // Reset form and hide it
                 form.reset();
@@ -691,12 +680,15 @@
             ////////////////////////////////////////////////////////////////////
 
             // Store current active tab
-            let currentActiveTab = 'merchant';
+            let currentActiveTab = 'all';
+            // Make it accessible from partials
+            window.currentActiveTab = currentActiveTab;
 
             // Trigger file input for All section
             function switchTab(tab) {
                 // Store the current active tab
                 currentActiveTab = tab;
+                window.currentActiveTab = tab;
                 
                 // Reset all tabs
                 const tabs = ['all', 'merchant', 'merchandise', 'telkom'];
@@ -735,6 +727,9 @@
                 }
             }
 
+            // Keep track of selected category per table for toggle behavior
+            const selectedCategory = { merchant: 'All', merchandise: 'All', telkom: 'All' };
+
             // Function to filter table based on category
             function filterTable(tableType, category) {
                 // Close the dropdown after selection
@@ -754,9 +749,37 @@
                     else if (tableType === 'telkom') buttonId = 'kategoriBtnTelkom';
                 }
                 
+                // Toggle: clicking the same category again resets to All
+                if (selectedCategory[tableType] === category) {
+                    category = 'All';
+                }
+                selectedCategory[tableType] = category;
+
                 const button = document.getElementById(buttonId);
                 if (button) {
-                    button.innerHTML = `<i class="fas fa-list mr-2"></i>${category}<i class="fas fa-chevron-down ml-2 text-xs"></i>`;
+                    const label = category === 'All' ? 'Kategori' : category;
+                    
+                    // Reset button classes
+                    button.className = 'flex items-center px-4 py-2 text-sm rounded-full border transition-all duration-300';
+                    
+                    // Apply category-specific styling
+                    if (category === 'All') {
+                        button.classList.add('border-gray-300', 'text-gray-700', 'hover:bg-gray-50');
+                    } else if (category === 'F&B') {
+                        button.classList.add('border-orange-300', 'text-orange-800', 'bg-gradient-to-r', 'from-orange-100', 'to-red-100', 'hover:from-orange-200', 'hover:to-red-200');
+                    } else if (category === 'Entertain') {
+                        button.classList.add('border-purple-300', 'text-purple-800', 'bg-gradient-to-r', 'from-purple-100', 'to-pink-100', 'hover:from-purple-200', 'hover:to-pink-200');
+                    } else if (category === 'Vacation') {
+                        button.classList.add('border-blue-300', 'text-blue-800', 'bg-gradient-to-r', 'from-blue-100', 'to-cyan-100', 'hover:from-blue-200', 'hover:to-cyan-200');
+                    } else if (category === 'Shopping') {
+                        button.classList.add('border-green-300', 'text-green-800', 'bg-gradient-to-r', 'from-green-100', 'to-emerald-100', 'hover:from-green-200', 'hover:to-emerald-200');
+                    } else if (category === 'Beauty & Care') {
+                        button.classList.add('border-pink-300', 'text-pink-800', 'bg-gradient-to-r', 'from-pink-100', 'to-rose-100', 'hover:from-pink-200', 'hover:to-rose-200');
+                    } else if (category === 'Telkomsel Packet') {
+                        button.classList.add('border-indigo-300', 'text-indigo-800', 'bg-gradient-to-r', 'from-indigo-100', 'to-blue-100', 'hover:from-indigo-200', 'hover:to-blue-200');
+                    }
+                    
+                    button.innerHTML = `<i class="fas fa-list mr-2"></i>${label}<i class=\"fas fa-chevron-down ml-2 text-xs\"></i>`;
                 }
                 
                 // Filter the table rows based on category
@@ -791,104 +814,7 @@
             ////////////////////////////////////////////////////////////////////
             // Modal Functions
             ////////////////////////////////////////////////////////////////////
-
-            // Function to toggle merchant upload modal
-            function toggleMerchantUploadModal() {
-                const modal = document.getElementById('merchantUploadModal');
-                const modalContent = modal.querySelector('div.relative');
-                const backdrop = modal.querySelector('div.fixed');
-                const modalTitle = document.querySelector('#merchantUploadModal h3');
-                
-                if (modal.classList.contains('hidden')) {
-                    // Update modal title based on current active tab
-                    const tabTitles = {
-                        'all': 'Upload Data',
-                        'merchant': 'Upload Merchant Data',
-                        'merchandise': 'Upload Merchandise Data',
-                        'telkom': 'Upload Telkom Package Data'
-                    };
-                    
-                    if (modalTitle) {
-                        modalTitle.textContent = tabTitles[currentActiveTab] || 'Upload Data';
-                    }
-                    
-                    // Show modal with transitions
-                    modal.classList.remove('hidden');
-                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-                    
-                    // Animate backdrop
-                    setTimeout(() => {
-                        backdrop.style.opacity = '0.5';
-                    }, 10);
-                    
-                    // Animate modal content
-                    setTimeout(() => {
-                        modalContent.style.transform = 'scale(1)';
-                        modalContent.style.opacity = '1';
-                    }, 50);
-                    
-                    // Animate form elements with staggered delays
-                    const formElements = modalContent.querySelectorAll('h3, button, label, input, select, textarea, button.px-3, span, div#imagesPreview, button.px-4');
-                    formElements.forEach((el, index) => {
-                        setTimeout(() => {
-                            el.style.transform = 'translateY(0)';
-                            el.style.opacity = '1';
-                        }, 100 + (index * 30));
-                    });
-                } else {
-                    // Hide modal with transitions
-                    
-                    // Animate form elements out
-                    const formElements = modalContent.querySelectorAll('h3, button, label, input, select, textarea, button.px-3, span, div#imagesPreview, button.px-4');
-                    formElements.forEach((el, index) => {
-                        setTimeout(() => {
-                            el.style.transform = 'translateY(10px)';
-                            el.style.opacity = '0';
-                        }, index * 20);
-                    });
-                    
-                    // Animate modal content
-                    setTimeout(() => {
-                        modalContent.style.transform = 'scale(0.95)';
-                        modalContent.style.opacity = '0';
-                    }, 100);
-                    
-                    // Animate backdrop
-                    setTimeout(() => {
-                        backdrop.style.opacity = '0';
-                    }, 150);
-                    
-                    // Hide modal completely after animations
-                    setTimeout(() => {
-                        modal.classList.add('hidden');
-                        document.body.style.overflow = ''; // Restore scrolling
-                        
-                        // Reset form when closing
-                        const form = document.getElementById('merchantUploadFormElement');
-                        form.reset();
-                        document.getElementById('logoPreview').innerHTML = '<div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>';
-                        document.getElementById('imagesPreview').innerHTML = '';
-                        document.getElementById('logoFileName').textContent = 'No file chosen';
-                        document.getElementById('imagesCount').textContent = 'No files chosen';
-                        
-                        // Reset form element positions
-                        formElements.forEach(el => {
-                            el.style.transform = 'translateY(10px)';
-                            el.style.opacity = '0';
-                        });
-                        modalContent.style.transform = 'scale(0.95)';
-                        modalContent.style.opacity = '0';
-                        backdrop.style.opacity = '0';
-                    }, 400);
-                }
-            }
-
-            // Close modal when clicking outside
-            document.getElementById('merchantUploadModal').addEventListener('click', function(event) {
-                if (event.target === this) {
-                    toggleMerchantUploadModal();
-                }
-            });
+            // Note: toggleMerchantUploadModal() has been moved to upload-modal.blade.php
         </script>
 
         <!-- All Tables Section -->
@@ -908,19 +834,19 @@
                         </button>
                         <div id="kategoriDropdownAll1" class="hidden absolute left-0 mt-2 bg-white rounded-2xl shadow-2xl p-3 border border-gray-200 w-64 z-50">
                             <div class="py-1">
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'F&B'); return false;">F&B</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'Entertain'); return false;">Entertain</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'Vacation'); return false;">Vacation</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'Shopping'); return false;">Shopping</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'Beauty & Care'); return false;">Beauty & Care</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'Telkomsel Packet'); return false;">Telkomsel Packet</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-orange-100 hover:to-red-100 hover:text-orange-800 rounded-lg transition-all duration-300" onclick="filterTable('merchant', 'F&B'); return false;">F&B</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-purple-100 hover:to-pink-100 hover:text-purple-800 rounded-lg transition-all duration-300" onclick="filterTable('merchant', 'Entertain'); return false;">Entertain</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-blue-100 hover:to-cyan-100 hover:text-blue-800 rounded-lg transition-all duration-300" onclick="filterTable('merchant', 'Vacation'); return false;">Vacation</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-green-100 hover:to-emerald-100 hover:text-green-800 rounded-lg transition-all duration-300" onclick="filterTable('merchant', 'Shopping'); return false;">Shopping</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-pink-100 hover:to-rose-100 hover:text-pink-800 rounded-lg transition-all duration-300" onclick="filterTable('merchant', 'Beauty & Care'); return false;">Beauty & Care</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-indigo-100 hover:to-blue-100 hover:text-indigo-800 rounded-lg transition-all duration-300" onclick="filterTable('merchant', 'Telkomsel Packet'); return false;">Telkomsel Packet</a>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Upload Button -->
                     <div class="relative">
-                        <button type="button" onclick="toggleMerchantUploadModal()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
+                        <button type="button" onclick="openUploadMerchant()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
                             <i class="fas fa-upload mr-2"></i>
                             Upload
                         </button>
@@ -947,28 +873,9 @@
             <!-- Merchandise Controls -->
             <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
                 <div class="flex space-x-3">
-                    <!-- Kategori Dropdown -->
-                    <!-- <div class="relative">
-                        <button id="kategoriBtnAll2" onclick="toggleKategoriDropdownAll2()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
-                            <i class="fas fa-list mr-2"></i>
-                            Kategori
-                            <i class="fas fa-chevron-down ml-2 text-xs"></i>
-                        </button>
-                        <div id="kategoriDropdownAll2" class="hidden absolute left-0 mt-2 bg-white rounded-2xl shadow-2xl p-3 border border-gray-200 w-64 z-50">
-                            <div class="py-1">
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'F&B'); return false;">F&B</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'Entertain'); return false;">Entertain</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'Vacation'); return false;">Vacation</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'Shopping'); return false;">Shopping</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'Beauty & Care'); return false;">Beauty & Care</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'Telkomsel Packet'); return false;">Telkomsel Packet</a>
-                            </div>
-                        </div>
-                    </div> -->
-                    
                     <!-- Upload Button -->
                     <div class="relative">
-                        <button type="button" onclick="toggleMerchantUploadModal()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
+                        <button type="button" onclick="openUploadMerchandise()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
                             <i class="fas fa-upload mr-2"></i>
                             Upload
                         </button>
@@ -995,28 +902,9 @@
             <!-- Telkom Controls -->
             <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
                 <div class="flex space-x-3">
-                    <!-- Kategori Dropdown -->
-                    <!-- <div class="relative">
-                        <button id="kategoriBtnAll3" onclick="toggleKategoriDropdownAll3()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
-                            <i class="fas fa-list mr-2"></i>
-                            Kategori
-                            <i class="fas fa-chevron-down ml-2 text-xs"></i>
-                        </button>
-                        <div id="kategoriDropdownAll3" class="hidden absolute left-0 mt-2 bg-white rounded-2xl shadow-2xl p-3 border border-gray-200 w-64 z-50">
-                            <div class="py-1">
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'F&B'); return false;">F&B</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'Entertain'); return false;">Entertain</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'Vacation'); return false;">Vacation</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'Shopping'); return false;">Shopping</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'Beauty & Care'); return false;">Beauty & Care</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'Telkomsel Packet'); return false;">Telkomsel Packet</a>
-                            </div>
-                        </div>
-                    </div> -->
-                    
                     <!-- Upload Button -->
                     <div class="relative">
-                        <button type="button" onclick="toggleMerchantUploadModal()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
+                        <button type="button" onclick="openUploadTelkom()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
                             <i class="fas fa-upload mr-2"></i>
                             Upload
                         </button>
@@ -1054,20 +942,20 @@
                         </button>
                         <div id="kategoriDropdownAll1" class="hidden absolute left-0 mt-2 bg-white rounded-2xl shadow-2xl p-3 border border-gray-200 w-64 z-50">
                             <div class="py-1">
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'All'); return false;">All</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'F&B'); return false;">F&B</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'Entertain'); return false;">Entertain</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'Vacation'); return false;">Vacation</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'Shopping'); return false;">Shopping</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'Beauty & Care'); return false;">Beauty & Care</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchant', 'Telkomsel Packet'); return false;">Telkomsel Packet</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-200 hover:text-gray-800 rounded-lg transition-all duration-300" onclick="filterTable('merchant', 'All'); return false;">All</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-orange-100 hover:to-red-100 hover:text-orange-800 rounded-lg transition-all duration-300" onclick="filterTable('merchant', 'F&B'); return false;">F&B</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-purple-100 hover:to-pink-100 hover:text-purple-800 rounded-lg transition-all duration-300" onclick="filterTable('merchant', 'Entertain'); return false;">Entertain</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-blue-100 hover:to-cyan-100 hover:text-blue-800 rounded-lg transition-all duration-300" onclick="filterTable('merchant', 'Vacation'); return false;">Vacation</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-green-100 hover:to-emerald-100 hover:text-green-800 rounded-lg transition-all duration-300" onclick="filterTable('merchant', 'Shopping'); return false;">Shopping</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-pink-100 hover:to-rose-100 hover:text-pink-800 rounded-lg transition-all duration-300" onclick="filterTable('merchant', 'Beauty & Care'); return false;">Beauty & Care</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gradient-to-r hover:from-indigo-100 hover:to-blue-100 hover:text-indigo-800 rounded-lg transition-all duration-300" onclick="filterTable('merchant', 'Telkomsel Packet'); return false;">Telkomsel Packet</a>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Upload Button with File Input -->
                     <div class="relative">
-                        <button type="button" onclick="toggleMerchantUploadModal()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
+                        <button type="button" onclick="openUploadMerchant()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
                             <i class="fas fa-upload mr-2"></i>
                             Upload
                         </button>
@@ -1096,33 +984,12 @@
             <!-- Merchandise Controls -->
             <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
                 <div class="flex space-x-3">
-                    <!-- Kategori Dropdown -->
+                    <!-- Upload Button -->
                     <div class="relative">
-                        <button id="kategoriBtnMerchandise" onclick="toggleKategoriDropdownMerchandise()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
-                            <i class="fas fa-list mr-2"></i>
-                            Kategori
-                            <i class="fas fa-chevron-down ml-2 text-xs"></i>
-                        </button>
-                        <div id="kategoriDropdownAll2" class="hidden absolute left-0 mt-2 bg-white rounded-2xl shadow-2xl p-3 border border-gray-200 w-64 z-50">
-                            <div class="py-1">
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'All'); return false;">All</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'F&B'); return false;">F&B</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'Entertain'); return false;">Entertain</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'Vacation'); return false;">Vacation</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'Shopping'); return false;">Shopping</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'Beauty & Care'); return false;">Beauty & Care</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('merchandise', 'Telkomsel Packet'); return false;">Telkomsel Packet</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Upload Button with File Input -->
-                    <div class="relative">
-                        <button type="button" onclick="toggleMerchantUploadModal()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
+                        <button type="button" onclick="openUploadMerchandise()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
                             <i class="fas fa-upload mr-2"></i>
                             Upload
                         </button>
-                        <input type="file" id="fileInputMerchandise" accept="image/*" class="hidden" onchange="handleFileUploadMerchandise(event)">
                     </div>
                 </div>
                 
@@ -1148,33 +1015,12 @@
             <!-- Telkom Controls -->
             <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
                 <div class="flex space-x-3">
-                    <!-- Kategori Dropdown -->
+                    <!-- Upload Button -->
                     <div class="relative">
-                        <button id="kategoriBtnTelkom" onclick="toggleKategoriDropdownTelkom()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
-                            <i class="fas fa-list mr-2"></i>
-                            Kategori
-                            <i class="fas fa-chevron-down ml-2 text-xs"></i>
-                        </button>
-                        <div id="kategoriDropdownAll3" class="hidden absolute left-0 mt-2 bg-white rounded-2xl shadow-2xl p-3 border border-gray-200 w-64 z-50">
-                            <div class="py-1">
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'All'); return false;">All</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'F&B'); return false;">F&B</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'Entertain'); return false;">Entertain</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'Vacation'); return false;">Vacation</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'Shopping'); return false;">Shopping</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'Beauty & Care'); return false;">Beauty & Care</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg" onclick="filterTable('telkom', 'Telkomsel Packet'); return false;">Telkomsel Packet</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Upload Button with File Input -->
-                    <div class="relative">
-                        <button type="button" onclick="toggleMerchantUploadModal()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
+                        <button type="button" onclick="openUploadTelkom()" class="flex items-center px-4 py-2 text-sm rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
                             <i class="fas fa-upload mr-2"></i>
                             Upload
                         </button>
-                        <input type="file" id="fileInputTelkom" accept="image/*" class="hidden" onchange="handleFileUploadTelkom(event)">
                     </div>
                 </div>
                 
@@ -1194,8 +1040,12 @@
         </div>
     </main>
     
-    @include('partials.upload-modal')
+    @include('partials.upload-modal-merchant')
     @include('partials.upload-modal-merchandise')
     @include('partials.upload-modal-telkom')
+    @include('partials.edit-modal-merchant')
+    @include('partials.edit-modal-merchandise')
+    @include('partials.edit-modal-telkom')
+    @include('partials.delete-confirmation-modal')
 </body>
 </html>
