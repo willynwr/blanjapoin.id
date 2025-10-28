@@ -102,27 +102,39 @@
     <section class="mt-8 md:mt-10 opacity-0 translate-y-8 transition-all duration-700 ease-out delay-200" id="categorySection">
      <div class="grid grid-cols-3 gap-2.5 md:gap-4 sm:grid-cols-6">
       <button onclick="filterCategory('food')" class="group flex flex-col items-center gap-2 md:gap-3 rounded-xl md:rounded-2xl bg-white p-3 md:p-5 text-center shadow-md md:shadow-lg drop-shadow-sm md:drop-shadow-md ring-1 ring-neutral-100/50 transition-all hover:shadow-2xl hover:drop-shadow-xl hover:scale-110 hover:ring-rose-300 hover:-translate-y-1 active:scale-95">
-       <span class="grid h-12 w-12 md:h-16 md:w-16 place-items-center rounded-full bg-gradient-to-br from-rose-100 to-rose-200 text-2xl md:text-3xl transition-transform group-hover:scale-125 group-hover:rotate-12 shadow-sm md:shadow-md drop-shadow-sm">🍔</span>
+       <span class="grid h-12 w-12 md:h-16 md:w-16 place-items-center rounded-full bg-white transition-transform group-hover:scale-125 group-hover:rotate-12">
+        <img src="{{ asset('images/categories/food.png') }}" alt="Food" class="w-full h-full object-contain">
+       </span>
        <span class="text-[10px] md:text-xs font-bold text-neutral-700 group-hover:text-rose-600 transition-colors leading-tight">Food & Beverage</span>
       </button>
       <button onclick="filterCategory('entertain')" class="group flex flex-col items-center gap-2 md:gap-3 rounded-xl md:rounded-2xl bg-white p-3 md:p-5 text-center shadow-md md:shadow-lg drop-shadow-sm md:drop-shadow-md ring-1 ring-neutral-100/50 transition-all hover:shadow-2xl hover:drop-shadow-xl hover:scale-110 hover:ring-indigo-300 hover:-translate-y-1 active:scale-95">
-       <span class="grid h-12 w-12 md:h-16 md:w-16 place-items-center rounded-full bg-gradient-to-br from-indigo-100 to-indigo-200 text-2xl md:text-3xl transition-transform group-hover:scale-125 group-hover:rotate-12 shadow-sm md:shadow-md drop-shadow-sm">🎬</span>
+       <span class="grid h-12 w-12 md:h-16 md:w-16 place-items-center rounded-full bg-white transition-transform group-hover:scale-125 group-hover:rotate-12">
+        <img src="{{ asset('images/categories/entertain.png') }}" alt="Entertain" class="w-full h-full object-contain">
+       </span>
        <span class="text-[10px] md:text-xs font-bold text-neutral-700 group-hover:text-indigo-600 transition-colors leading-tight">Entertain</span>
       </button>
       <button onclick="filterCategory('vacation')" class="group flex flex-col items-center gap-2 md:gap-3 rounded-xl md:rounded-2xl bg-white p-3 md:p-5 text-center shadow-md md:shadow-lg drop-shadow-sm md:drop-shadow-md ring-1 ring-neutral-100/50 transition-all hover:shadow-2xl hover:drop-shadow-xl hover:scale-110 hover:ring-purple-300 hover:-translate-y-1 active:scale-95">
-       <span class="grid h-12 w-12 md:h-16 md:w-16 place-items-center rounded-full bg-gradient-to-br from-purple-100 to-purple-200 text-2xl md:text-3xl transition-transform group-hover:scale-125 group-hover:rotate-12 shadow-sm md:shadow-md drop-shadow-sm">🏖️</span>
+       <span class="grid h-12 w-12 md:h-16 md:w-16 place-items-center rounded-full bg-white transition-transform group-hover:scale-125 group-hover:rotate-12">
+        <img src="{{ asset('images/categories/vacation.png') }}" alt="Vacation" class="w-full h-full object-contain">
+       </span>
        <span class="text-[10px] md:text-xs font-bold text-neutral-700 group-hover:text-purple-600 transition-colors leading-tight">Vacation</span>
       </button>
       <button onclick="filterCategory('beauty')" class="group flex flex-col items-center gap-2 md:gap-3 rounded-xl md:rounded-2xl bg-white p-3 md:p-5 text-center shadow-md md:shadow-lg drop-shadow-sm md:drop-shadow-md ring-1 ring-neutral-100/50 transition-all hover:shadow-2xl hover:drop-shadow-xl hover:scale-110 hover:ring-pink-300 hover:-translate-y-1 active:scale-95">
-       <span class="grid h-12 w-12 md:h-16 md:w-16 place-items-center rounded-full bg-gradient-to-br from-pink-100 to-pink-200 text-2xl md:text-3xl transition-transform group-hover:scale-125 group-hover:rotate-12 shadow-sm md:shadow-md drop-shadow-sm">💄</span>
+       <span class="grid h-12 w-12 md:h-16 md:w-16 place-items-center rounded-full bg-white transition-transform group-hover:scale-125 group-hover:rotate-12">
+        <img src="{{ asset('images/categories/beauty.png') }}" alt="Beauty" class="w-full h-full object-contain">
+       </span>
        <span class="text-[10px] md:text-xs font-bold text-neutral-700 group-hover:text-pink-600 transition-colors leading-tight">Beauty & Care</span>
       </button>
       <button onclick="filterCategory('shop')" class="group flex flex-col items-center gap-2 md:gap-3 rounded-xl md:rounded-2xl bg-white p-3 md:p-5 text-center shadow-md md:shadow-lg drop-shadow-sm md:drop-shadow-md ring-1 ring-neutral-100/50 transition-all hover:shadow-2xl hover:drop-shadow-xl hover:scale-110 hover:ring-orange-300 hover:-translate-y-1 active:scale-95">
-       <span class="grid h-12 w-12 md:h-16 md:w-16 place-items-center rounded-full bg-gradient-to-br from-orange-100 to-orange-200 text-2xl md:text-3xl transition-transform group-hover:scale-125 group-hover:rotate-12 shadow-sm md:shadow-md drop-shadow-sm">🛍️</span>
+       <span class="grid h-12 w-12 md:h-16 md:w-16 place-items-center rounded-full bg-white transition-transform group-hover:scale-125 group-hover:rotate-12">
+        <img src="{{ asset('images/categories/shop.png') }}" alt="Shop" class="w-full h-full object-contain">
+       </span>
        <span class="text-[10px] md:text-xs font-bold text-neutral-700 group-hover:text-orange-600 transition-colors leading-tight">Shop</span>
       </button>
       <button onclick="filterCategory('telkomsel')" class="group flex flex-col items-center gap-2 md:gap-3 rounded-xl md:rounded-2xl bg-white p-3 md:p-5 text-center shadow-md md:shadow-lg drop-shadow-sm md:drop-shadow-md ring-1 ring-neutral-100/50 transition-all hover:shadow-2xl hover:drop-shadow-xl hover:scale-110 hover:ring-red-300 hover:-translate-y-1 active:scale-95">
-       <span class="grid h-12 w-12 md:h-16 md:w-16 place-items-center rounded-full bg-gradient-to-br from-red-100 to-red-200 text-2xl md:text-3xl transition-transform group-hover:scale-125 group-hover:rotate-12 shadow-sm md:shadow-md drop-shadow-sm">📶</span>
+       <span class="grid h-12 w-12 md:h-16 md:w-16 place-items-center rounded-full bg-white transition-transform group-hover:scale-125 group-hover:rotate-12">
+        <img src="{{ asset('images/categories/telkomsel.png') }}" alt="telkomsel" class="w-20 h-20 md:w-15 md:h-15 object-contain mx-auto">
+       </span>
        <span class="text-[10px] md:text-xs font-bold text-neutral-700 group-hover:text-red-600 transition-colors leading-tight">Telkomsel Data</span>
       </button>
      </div>

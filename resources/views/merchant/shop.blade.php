@@ -14,7 +14,6 @@
            <span class="text-[10px] font-bold text-rose-600">100.000</span>
           </div>
          </div>
-         
          <!-- Promo Image -->
          <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
           <img src="{{ asset('storage/promo/promo-wingstop.jpg') }}" alt="Wingstop Jemursari" class="w-full h-full object-cover" loading="lazy">
@@ -45,22 +44,39 @@
        
        <!-- Desktop Layout (md and up) -->
        <div class="hidden lg:block">
-        <div class="grid grid-cols-2 gap-0">
-         <div class="card-content p-4 flex flex-col">
-          <div class="mb-1">
-           <img src="{{ asset('storage/logo/wingstop.png') }}" alt="WINGSTOP" class="card-logo w-[180px] h-[82px] object-contain" loading="lazy">
+        <div class="grid grid-cols-[auto_1fr_auto] gap-0 items-center">
+         <!-- Kolom Kiri: Poin + Logo -->
+         <div class="p-4 flex flex-col items-start gap-3">
+          <!-- Badge Poin -->
+          <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-3 py-1.5 shadow-md border border-orange-200">
+           <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[10px] font-bold shadow-sm">P</span>
+           <span class="text-sm font-bold text-red-600">100000</span>
           </div>
-          <div class="pl-10 md:pl-14">
-           <div class="card-title text-rose-600 font-bold text-base md:text-3xl mb-0.5">Diskon</div>
-           <div class="card-price text-rose-600 font-bold text-xl md:text-2xl leading-none mb-2">Rp100<span class="text-xl md:text-2xl">ribu</span></div>
+          <!-- Logo -->
+          <div>
+           <img src="{{ asset('storage/logo/wingstop.png') }}" alt="WINGSTOP" class="w-[140px] h-[140px] object-contain rounded-full" loading="lazy">
           </div>
-          <div class="card-description mt-1 md:mt-2 text-[11px] md:text-xs text-neutral-800 font-medium">Diskon Rp 100,000 Wingstop melalui PaysQift</div>
-          <div class="card-points mt-1 md:mt-2 inline-flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-orange-600">
-           <span class="inline-flex h-5 w-5 md:h-6 md:w-6 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[10px] md:text-xs font-bold shadow-sm">P</span>
-           <span>100000 Poin</span>
+         </div>
+         
+         <!-- Kolom Tengah: Nama Merchant + Diskon + Deskripsi -->
+         <div class="p-4 flex flex-col justify-center">
+          <!-- Nama Merchant -->
+          <h3 class="text-5xl font-bold text-neutral-900 mb-3 leading-tight">Wingstop</h3>
+          
+          <!-- Diskon -->
+          <div class="mb-2">
+           <div class="text-xl font-bold text-neutral-900 mb-1">Diskon</div>
+           <div class="text-6xl font-bold text-neutral-900 leading-none mb-1">Rp<span class="text-6xl">100</span><span class="text-2xl font-bold">ribu</span></div>
           </div>
-         </div>  
-         <div class="card-image-wrapper p-2">
+          
+          <!-- Deskripsi -->
+          <div class="text-sm text-neutral-700 font-normal">
+           Diskon Rp 100,000 Wingstop melalui PaysQift
+          </div>
+         </div>
+         
+         <!-- Kolom Kanan: Gambar Promo -->
+         <div class="card-image-wrapper p-2 max-w-[520px]">
           <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
            <img src="{{ asset('storage/promo/promo-wingstop.jpg') }}" alt="" class="w-full h-full object-cover" loading="lazy">
           </div>
@@ -117,23 +133,40 @@
                 
        <!-- Desktop Layout (md and up) -->
        <div class="hidden lg:block">
-        <div class="grid grid-cols-2 gap-0">
-         <div class="card-content p-4 flex flex-col">
-          <div class="mb-1">
-           <img src="{{ asset('storage/logo/transmart.png') }}" alt="TRANSMART" class="card-logo w-[180px] h-[82px] object-contain" loading="lazy">
+        <div class="grid grid-cols-[auto_1fr_auto] gap-0 items-center">
+         <!-- Kolom Kiri: Poin + Logo -->
+         <div class="p-4 flex flex-col items-start gap-3">
+          <!-- Badge Poin -->
+          <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-3 py-1.5 shadow-md border border-orange-200">
+           <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[10px] font-bold shadow-sm">P</span>
+           <span class="text-sm font-bold text-red-600">100000</span>
           </div>
-          <div class="pl-10 md:pl-14">
-           <div class="card-title text-rose-600 font-bold text-base md:text-3xl mb-0.5">Diskon</div>
-           <div class="card-price text-rose-600 font-bold text-xl md:text-2xl leading-none mb-2">Rp100<span class="text-xl md:text-2xl">ribu</span></div>
-          </div>
-          <div class="card-description mt-1 md:mt-2 text-[11px] md:text-xs text-neutral-800 font-medium">Diskon Rp 100,000 Transmart melalui PaysQift</div>
-          <div class="card-points mt-1 md:mt-2 inline-flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-orange-600">
-           <span class="inline-flex h-5 w-5 md:h-6 md:w-6 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[10px] md:text-xs font-bold shadow-sm">P</span>
-           <span>100000 Poin</span>
+          <!-- Logo -->
+          <div>
+           <img src="{{ asset('storage/logo/transmart.png') }}" alt="TRANSMART" class="w-[140px] h-[140px] object-contain rounded-full" loading="lazy">
           </div>
          </div>
-         <div class="card-image-wrapper p-2">
-          <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden"> 
+         
+         <!-- Kolom Tengah: Nama Merchant + Diskon + Deskripsi -->
+         <div class="p-4 flex flex-col justify-center">
+          <!-- Nama Merchant -->
+          <h3 class="text-5xl font-bold text-neutral-900 mb-3 leading-tight">Transmart</h3>
+          
+          <!-- Diskon -->
+          <div class="mb-2">
+           <div class="text-xl font-bold text-neutral-900 mb-1">Diskon</div>
+           <div class="text-6xl font-bold text-neutral-900 leading-none mb-1">Rp<span class="text-6xl">100</span><span class="text-2xl font-bold">ribu</span></div>
+          </div>
+          
+          <!-- Deskripsi -->
+          <div class="text-sm text-neutral-700 font-normal">
+           Diskon Rp 100,000 Transmart melalui PaysQift
+          </div>
+         </div>
+         
+         <!-- Kolom Kanan: Gambar Promo -->
+         <div class="card-image-wrapper p-2 max-w-[520px]">
+          <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
            <img src="{{ asset('storage/promo/promo-transmart.jpeg') }}" alt="" class="w-full h-full object-cover" loading="lazy">
           </div>
          </div>
@@ -190,22 +223,39 @@
        
        <!-- Desktop Layout (md and up) -->
        <div class="hidden lg:block">
-        <div class="grid grid-cols-2 gap-0">
-         <div class="card-content p-4 flex flex-col">
-          <div class="mb-1">
-           <img src="{{ asset('storage/logo/indomaret.png') }}" alt="INDOMARET" class="card-logo w-[180px] h-[82px] object-contain" loading="lazy">
+        <div class="grid grid-cols-[auto_1fr_auto] gap-0 items-center">
+         <!-- Kolom Kiri: Poin + Logo -->
+         <div class="p-4 flex flex-col items-start gap-3">
+          <!-- Badge Poin -->
+          <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-3 py-1.5 shadow-md border border-orange-200">
+           <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[10px] font-bold shadow-sm">P</span>
+           <span class="text-sm font-bold text-red-600">50000</span>
           </div>
-          <div class="pl-10 md:pl-14">
-           <div class="card-title text-rose-600 font-bold text-base md:text-3xl mb-0.5">Voucher</div>
-           <div class="card-price text-rose-600 font-bold text-xl md:text-2xl leading-none mb-2">Rp50<span class="text-xl md:text-2xl">ribu</span></div>
-          </div>
-          <div class="card-description mt-1 md:mt-2 text-[11px] md:text-xs text-neutral-800 font-medium">Voucher Belanja Rp 50,000 Indomaret</div>
-          <div class="card-points mt-1 md:mt-2 inline-flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-orange-600">
-           <span class="inline-flex h-5 w-5 md:h-6 md:w-6 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[10px] md:text-xs font-bold shadow-sm">P</span>
-           <span>50000 Poin</span>
+          <!-- Logo -->
+          <div>
+           <img src="{{ asset('storage/logo/indomaret.png') }}" alt="INDOMARET" class="w-[140px] h-[140px] object-contain rounded-full" loading="lazy">
           </div>
          </div>
-         <div class="card-image-wrapper p-2">
+         
+         <!-- Kolom Tengah: Nama Merchant + Diskon + Deskripsi -->
+         <div class="p-4 flex flex-col justify-center">
+          <!-- Nama Merchant -->
+          <h3 class="text-5xl font-bold text-neutral-900 mb-3 leading-tight">Indomaret</h3>
+          
+          <!-- Diskon -->
+          <div class="mb-2">
+           <div class="text-xl font-bold text-neutral-900 mb-1">Voucher</div>
+           <div class="text-6xl font-bold text-neutral-900 leading-none mb-1">Rp<span class="text-6xl">50</span><span class="text-2xl font-bold">ribu</span></div>
+          </div>
+          
+          <!-- Deskripsi -->
+          <div class="text-sm text-neutral-700 font-normal">
+           Voucher Belanja Rp 50,000 Indomaret
+          </div>
+         </div>
+         
+         <!-- Kolom Kanan: Gambar Promo -->
+         <div class="card-image-wrapper p-2 max-w-[520px]">
           <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
            <img src="{{ asset('storage/promo/promo-indomaret.jpg') }}" alt="" class="w-full h-full object-cover" loading="lazy">
           </div>
