@@ -7,13 +7,7 @@
       <!-- Mobile Layout (default) -->
       <div class="lg:hidden flex flex-col h-full">
        <div class="relative">
-        <!-- Badge Points at top-right -->
-        <div class="absolute top-2 right-2 z-10">
-         <div class="inline-flex items-center gap-1 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 shadow-md">
-          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-          <span class="text-[10px] font-bold text-rose-600">120.000</span>
-         </div>
-        </div>
+
         <!-- Promo Image -->
         <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
          <img loading="lazy" src="{{ asset('storage/promo/promo-traveloka.jpg') }}" alt="Traveloka" class="w-full h-full object-cover">
@@ -25,6 +19,11 @@
         <h3 class="text-sm font-bold text-neutral-900 leading-tight">Voucher Traveloka Rp100 ribu</h3>
         <!-- Description -->
         <p class="text-xs text-neutral-600 leading-relaxed">Voucher Hotel Traveloka Rp 100,000</p>
+        <!-- Badge Points -->
+         <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
+          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[10px] font-bold text-red-600">100.000</span>
+         </div>
         <!-- Stock & Valid Until -->
         <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
@@ -89,13 +88,6 @@
       <!-- Mobile Layout (default) -->
       <div class="lg:hidden flex flex-col h-full">
        <div class="relative">
-        <!-- Badge Points at top-right -->
-        <div class="absolute top-2 right-2 z-10">
-         <div class="inline-flex items-center gap-1 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 shadow-md">
-          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-          <span class="text-[10px] font-bold text-rose-600">90.000</span>
-         </div>
-        </div>
         <!-- Promo Image -->
         <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
          <img loading="lazy" src="{{ asset('storage/promo/promo-tiketcom.jpg') }}" alt="Tiket.com" class="w-full h-full object-cover">
@@ -106,7 +98,12 @@
         <!-- Title -->
         <h3 class="text-sm font-bold text-neutral-900 leading-tight">Voucher Tiket.com Rp75 ribu</h3>
         <!-- Description -->
-        <p class="text-xs text-neutral-600 leading-relaxed">Voucher Tiket.com Rp 75,000</p>
+        <p class="text-xs text-neutral-600 leading-relaxed">Voucher Bus Tiket.com Rp 75,000</p>
+        <!-- Badge Points -->
+         <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
+          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[10px] font-bold text-red-600">75.000</span>
+         </div>
         <!-- Stock & Valid Until -->
         <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
@@ -171,13 +168,6 @@
       <!-- Mobile Layout (default) -->
       <div class="lg:hidden flex flex-col h-full">
        <div class="relative">
-        <!-- Badge Points at top-right -->
-        <div class="absolute top-2 right-2 z-10">
-         <div class="inline-flex items-center gap-1 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 shadow-md">
-          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-          <span class="text-[10px] font-bold text-rose-600">60.000</span>
-         </div>
-        </div>
         <!-- Promo Image -->
         <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
          <img loading="lazy" src="{{ asset('storage/promo/promo-pegipegi.jpg') }}" alt="PegiPegi" class="w-full h-full object-cover">
@@ -189,6 +179,11 @@
         <h3 class="text-sm font-bold text-neutral-900 leading-tight">Voucher PegiPegi Rp50 ribu</h3>
         <!-- Description -->
         <p class="text-xs text-neutral-600 leading-relaxed">Voucher PegiPegi Hotel Rp 50,000</p>
+        <!-- Badge Points -->
+         <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
+          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[10px] font-bold text-red-600">100.000</span>
+         </div>
         <!-- Stock & Valid Until -->
         <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">

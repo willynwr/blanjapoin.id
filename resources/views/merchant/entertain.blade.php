@@ -7,13 +7,6 @@
        <!-- Mobile Layout (default) -->
        <div class="lg:hidden flex flex-col h-full">
         <div class="relative">
-         <!-- Badge Points at top-right -->
-         <div class="absolute top-2 right-2 z-10">
-          <div class="inline-flex items-center gap-1 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 shadow-md">
-           <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-           <span class="text-[10px] font-bold text-rose-600">60.000</span>
-          </div>
-         </div>
          
          <!-- Promo Image -->
          <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
@@ -29,6 +22,12 @@
          <!-- Description -->
          <p class="text-xs text-neutral-600 leading-relaxed">Voucher Nonton CGV Cinema Rp 50,000</p>
          
+         <!-- Badge Points -->
+         <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
+          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[10px] font-bold text-red-600">50.000</span>
+         </div>
+
          <!-- Stock & Valid Until -->
          <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
           <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
@@ -96,13 +95,6 @@
        <!-- Mobile Layout (default) -->
        <div class="lg:hidden flex flex-col h-full">
         <div class="relative">
-         <!-- Badge Points at top-right -->
-         <div class="absolute top-2 right-2 z-10">
-          <div class="inline-flex items-center gap-1 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 shadow-md">
-           <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-           <span class="text-[10px] font-bold text-rose-600">80.000</span>
-          </div>
-         </div>
          
          <!-- Promo Image -->
          <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
@@ -118,6 +110,12 @@
          <!-- Description -->
          <p class="text-xs text-neutral-600 leading-relaxed">Spotify Premium 1 Bulan Individual</p>
          
+         <!-- Badge Points -->
+         <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
+          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[10px] font-bold text-red-600">100.000</span>
+         </div>
+
          <!-- Stock & Valid Until -->
          <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
           <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
@@ -185,13 +183,6 @@
        <!-- Mobile Layout (default) -->
        <div class="lg:hidden flex flex-col h-full">
         <div class="relative">
-         <!-- Badge Points at top-right -->
-         <div class="absolute top-2 right-2 z-10">
-          <div class="inline-flex items-center gap-1 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 shadow-md">
-           <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-           <span class="text-[10px] font-bold text-rose-600">70.000</span>
-          </div>
-         </div>
          
          <!-- Promo Image -->
          <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
@@ -207,6 +198,12 @@
          <!-- Description -->
          <p class="text-xs text-neutral-600 leading-relaxed">Netflix Premium 1 Bulan Subscription</p>
          
+         <!-- Badge Points -->
+         <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
+          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[10px] font-bold text-red-600">100.000</span>
+         </div>
+
          <!-- Stock & Valid Until -->
          <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
           <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
