@@ -3,7 +3,7 @@
     <div class="fixed inset-0 bg-black opacity-0 transition-opacity duration-300 ease-out"></div>
     <div class="relative bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col transform transition-all duration-300 ease-out scale-95 opacity-0">
         <!-- Sticky Header -->
-        <div class="sticky top-0 z-10 flex justify-between items-center px-6 py-4 border-b bg-white rounded-t-xl">
+        <div class="sticky top-0 z-10 flex justify-between items-center px-4 py-3 md:px-6 md:py-4 border-b bg-white rounded-t-xl">
             <h3 class="text-xl font-semibold text-gray-800 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Upload Merchant Data</h3>
             <button type="button" onclick="closeUploadMerchant()" class="text-gray-400 hover:text-gray-600 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
                 <i class="fas fa-times text-xl"></i>
@@ -12,115 +12,94 @@
         
         <!-- Scrollable Form Content -->
         <form id="formUploadMerchant" class="flex-1 overflow-y-auto">
-            <div class="p-6 space-y-4">
-                <div class="space-y-4" id="formGrid">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="firstRow">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Nama Merchant</label>
-                            <input type="text" name="nama" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter merchant name">
-                        </div>
-                        
-                        <div id="categoryField">
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Kategori</label>
-                            <div class="relative">
-                                <button type="button" id="categoryDropdownBtn" onclick="toggleCategoryDropdown()" class="w-full px-4 py-2.5 text-left bg-white border-2 border-gray-300 rounded-xl hover:border-orange-400 focus:outline-none focus:border-orange-500 transition-all duration-300 flex items-center justify-between group">
-                                    <span id="categorySelected" class="text-gray-700">Pilih Kategori</span>
-                                    <i class="fas fa-chevron-down text-gray-400 group-hover:text-orange-500 transition-transform duration-300" id="categoryIcon"></i>
-                                </button>
-                                <input type="hidden" id="kategoriInput" name="kategori" value="">
-                                
-                                <!-- Dropdown Menu -->
-                                <div id="categoryDropdown" class="hidden absolute z-10 w-full mt-2 bg-white border-2 border-gray-200 rounded-xl shadow-xl overflow-hidden">
-                                    <div class="py-2 max-h-64 overflow-y-auto">
-                                        <button type="button" onclick="selectCategory('F&B', 'F&B')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-orange-50 hover:to-red-50 hover:text-orange-700 transition-all duration-200">
-                                            <span>F&B</span>
-                                        </button>
-                                        <button type="button" onclick="selectCategory('Entertain', 'Entertain')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:text-purple-700 transition-all duration-200">
-                                            <span>Entertain</span>
-                                        </button>
-                                        <button type="button" onclick="selectCategory('Vacation', 'Vacation')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50 hover:text-blue-700 transition-all duration-200">
-                                            <span>Vacation</span>
-                                        </button>
-                                        <button type="button" onclick="selectCategory('Shopping', 'Shopping')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:text-green-700 transition-all duration-200">
-                                            <span>Shopping</span>
-                                        </button>
-                                        <button type="button" onclick="selectCategory('Beauty & Care', 'Beauty & Care')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-pink-50 hover:to-rose-50 hover:text-pink-700 transition-all duration-200">
-                                            <span>Beauty & Care</span>
-                                        </button>
-                                        <button type="button" onclick="selectCategory('Telkomsel Packet', 'Telkomsel Packet')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-blue-50 hover:text-indigo-700 transition-all duration-200">
-                                            <span>Telkomsel Packet</span>
-                                        </button>
+            <div class="p-4 md:p-6 space-y-4">
+                <div class="">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-x-6 md:gap-y-3">
+                        <!-- Row 1: Nama Merchant + Kategori | SKB (kanan) -->
+                        <div class="flex flex-col">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Nama Merchant</label>
+                            <input type="text" name="nama" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter merchant name"> 
+                            <div class="mt-4">
+                                <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Kategori</label>
+                                <!-- Kategori dropdown & input field as is -->
+                                <div class="relative">
+                                    <button type="button" id="categoryDropdownBtn" onclick="toggleCategoryDropdown()" class="w-full px-4 py-2.5 text-left bg-white border-2 border-gray-300 rounded-xl hover:border-orange-400 focus:outline-none focus:border-orange-500 transition-all duration-300 flex items-center justify-between group">
+                                        <span id="categorySelected" class="text-gray-700">Pilih Kategori</span>
+                                        <i class="fas fa-chevron-down text-gray-400 group-hover:text-orange-500 transition-transform duration-300" id="categoryIcon"></i>
+                                    </button>
+                                    <input type="hidden" id="kategoriInput" name="kategori" value="">
+                                    <div id="categoryDropdown" class="hidden absolute z-10 w-full mt-2 bg-white border-2 border-gray-200 rounded-xl shadow-xl overflow-hidden">
+                                        <div class="py-2 max-h-64 overflow-y-auto">
+                                            <button type="button" onclick="selectCategory('F&B', 'F&B')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-orange-50 hover:to-red-50 hover:text-orange-700 transition-all duration-200"><span>F&B</span></button>
+                                            <button type="button" onclick="selectCategory('Entertain', 'Entertain')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:text-purple-700 transition-all duration-200"><span>Entertain</span></button>
+                                            <button type="button" onclick="selectCategory('Vacation', 'Vacation')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50 hover:text-blue-700 transition-all duration-200"><span>Vacation</span></button>
+                                            <button type="button" onclick="selectCategory('Shopping', 'Shopping')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:text-green-700 transition-all duration-200"><span>Shopping</span></button>
+                                            <button type="button" onclick="selectCategory('Beauty & Care', 'Beauty & Care')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-pink-50 hover:to-rose-50 hover:text-pink-700 transition-all duration-200"><span>Beauty & Care</span></button>
+                                            <button type="button" onclick="selectCategory('Telkomsel Packet', 'Telkomsel Packet')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-blue-50 hover:text-indigo-700 transition-all duration-200"><span>Telkomsel Packet</span></button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Diskon</label>
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">SKB</label>
+                            <textarea name="skb" rows="5" class="w-full px-4 pt-3 h-[140px] border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0 resize-none" placeholder="Enter SKB"></textarea>
+                        </div>
+                        <!-- Row 2: Diskon -->
+                        <div>
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Diskon</label>
                             <div class="relative">
-                                <input type="number" name="diskon" min="0" max="100" class="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="0">
-                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                    <span class="text-gray-500 text-sm">%</span>
-                                </div>
+                                <input type="number" name="diskon" min="0" max="100" class="w-full px-4 h-12 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="0">
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none"><span class="text-gray-500 text-sm">%</span></div>
                             </div>
                         </div>
-                        
+                        <!-- Row 3: CTA -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">SKB</label>
-                            <input type="text" name="skb" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter SKB">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">CTA</label>
+                            <input type="url" name="cta" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="https://example.com">
                         </div>
-                        
+                        <!-- Row 4: Start Date | End Date -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Redeem Point</label>
-                            <input type="text" name="redeem_point" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter redeem points">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Start Date</label>
+                            <input type="text" name="start_date" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" maxlength="10" placeholder="DD/MM/YYYY" onkeyup="formatDateInput(this)" onkeypress="return isNumberKey(event)">
                         </div>
-                        
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Stock</label>
-                            <input type="number" name="stock" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter stock">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">End Date</label>
+                            <input type="text" name="end_date" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" maxlength="10" placeholder="DD/MM/YYYY" onkeyup="formatDateInput(this)" onkeypress="return isNumberKey(event)">
                         </div>
-
+                        <!-- Row 5: Stock | Redeem Point (kanan) -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Start Date</label>
-                            <input type="text" name="start_date" placeholder="DD/MM/YYYY" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" maxlength="10" onkeyup="formatDateInput(this)" onkeypress="return isNumberKey(event)">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Stock</label>
+                            <input type="number" name="stock" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter stock">
                         </div>
-                        
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">End Date</label>
-                            <input type="text" name="end_date" placeholder="DD/MM/YYYY" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" maxlength="10" onkeyup="formatDateInput(this)" onkeypress="return isNumberKey(event)">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Redeem Point</label>
+                            <input type="text" name="redeem_point" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter redeem points">
                         </div>
-                        
+                        <!-- Row 6:  Logo Merchant | Images -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">CTA</label>
-                            <input type="url" name="cta" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="https://example.com">
-                        </div>
-                        
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Logo Merchant</label>
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Logo Merchant</label>
                             <div class="relative">
                                 <input type="file" id="logoMerchantInput" name="logo_merchant" accept="image/*" class="hidden" onchange="previewLogoMerchant(this)">
-                                <button type="button" onclick="document.getElementById('logoMerchantInput').click()" class="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg hover:border-orange-400 focus:outline-none focus:border-orange-500 transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-orange-600 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
-                                    <i class="fas fa-cloud-upload-alt mr-2"></i>
-                                    <span id="logoMerchantText">Click to upload logo</span>
+                                <button type="button" onclick="document.getElementById('logoMerchantInput').click()" class="w-full min-h-[92px] px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg hover:border-orange-400 focus:outline-none focus:border-orange-500 flex flex-col items-center justify-center text-gray-600 hover:text-orange-600 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
+                                    <i class="fas fa-upload text-2xl mb-2"></i>
+                                    <span id="logoMerchantText" class="text-[15px]">Click to upload logo</span>
                                 </button>
                                 <div id="logoMerchantPreview" class="mt-3 hidden">
                                     <img src="" alt="Logo Preview" class="w-full h-32 object-cover rounded-lg">
-                                    <button type="button" onclick="removeLogoMerchant()" class="mt-2 text-sm text-red-600 hover:text-red-800">
-                                        <i class="fas fa-times mr-1"></i> Remove
-                                    </button>
+                                    <button type="button" onclick="removeLogoMerchant()" class="mt-2 text-sm text-red-600 hover:text-red-800"><i class="fas fa-times mr-1"></i> Remove</button>
                                 </div>
                             </div>
                         </div>
-                        
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Images</label>
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Images</label>
                             <div class="relative">
                                 <input type="file" id="merchantImagesInput" name="images[]" accept="image/*" multiple class="hidden" onchange="previewMerchantImages(this)">
-                                <button type="button" onclick="document.getElementById('merchantImagesInput').click()" class="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg hover:border-orange-400 focus:outline-none focus:border-orange-500 transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-orange-600 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
-                                    <i class="fas fa-images mr-2"></i>
-                                    <span id="merchantImagesText">Click to upload images</span>
+                                <button type="button" onclick="document.getElementById('merchantImagesInput').click()" class="w-full min-h-[92px] px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg hover:border-orange-400 focus:outline-none focus:border-orange-500 flex flex-col items-center justify-center text-gray-600 hover:text-orange-600 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
+                                    <i class="fas fa-upload text-2xl mb-2"></i>
+                                    <span id="merchantImagesText" class="text-[15px]">Click to upload images</span>
                                 </button>
-                                <div id="merchantImagesPreview" class="mt-3 grid grid-cols-3 gap-2 hidden"></div>
+                                <div id="merchantImagesPreview" class="mt-3 grid grid-cols-2 md:grid-cols-3 gap-2 hidden"></div>
                             </div>
                         </div>
                     </div>
@@ -128,7 +107,7 @@
             </div>
             
             <!-- Sticky Footer -->
-            <div class="sticky bottom-0 z-10 flex justify-end space-x-3 px-6 py-4 border-t bg-white rounded-b-xl">
+            <div class="sticky bottom-0 z-10 flex justify-end space-x-3 px-4 py-3 md:px-6 md:py-4 border-t bg-white rounded-b-xl">
                 <button type="button" onclick="closeUploadMerchant()" class="px-5 py-2.5 text-sm font-medium border border-gray-300 rounded-lg hover:bg-gray-50 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Cancel</button>
                 <button type="submit" class="px-5 py-2.5 text-sm font-medium bg-gradient-to-r from-[#F81611] to-[#F0B100] text-white rounded-lg hover:shadow-lg transition-all duration-300 ease-out transform translate-y-2 opacity-0">Upload</button>
             </div>
@@ -302,7 +281,7 @@ function openUploadMerchant() {
     }, 50);
     
     // Animate form elements with staggered delays
-    const formElements = modalContent.querySelectorAll('h3, button, label, input, select, textarea, button.px-3, span:not([class*="fa-"])');
+    const formElements = modalContent.querySelectorAll('h3, button, label, input, select, textarea');
     formElements.forEach((el, index) => {
         setTimeout(() => {
             el.style.transform = 'translateY(0)';
@@ -319,7 +298,7 @@ function closeUploadMerchant() {
     const backdrop = modal.querySelector('div.fixed');
     
     // Animate form elements out
-    const formElements = modalContent.querySelectorAll('h3, button, label, input, select, textarea, button.px-3, span:not([class*="fa-"])');
+    const formElements = modalContent.querySelectorAll('h3, button, label, input, select, textarea');
     formElements.forEach((el, index) => {
         setTimeout(() => {
             el.style.transform = 'translateY(10px)';

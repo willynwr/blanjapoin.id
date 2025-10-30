@@ -12,115 +12,93 @@
         
         <!-- Scrollable Form Content -->
         <form id="formEditMerchant" class="flex-1 overflow-y-auto">
-            <div class="p-6 space-y-4">
-                <div class="space-y-4" id="formGridEdit">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="firstRowEdit">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Nama Merchant</label>
-                            <input type="text" id="editMerchantNama" name="nama" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter merchant name">
-                        </div>
-                        
-                        <div id="categoryFieldEdit">
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Kategori</label>
-                            <div class="relative">
-                                <button type="button" id="categoryDropdownBtnEdit" onclick="toggleCategoryDropdownEdit()" class="w-full px-4 py-2.5 text-left bg-white border-2 border-gray-300 rounded-xl hover:border-orange-400 focus:outline-none focus:border-orange-500 transition-all duration-300 flex items-center justify-between group">
-                                    <span id="categorySelectedEdit" class="text-gray-700">Pilih Kategori</span>
-                                    <i class="fas fa-chevron-down text-gray-400 group-hover:text-orange-500 transition-transform duration-300" id="categoryIconEdit"></i>
-                                </button>
-                                <input type="hidden" id="kategoriInputEdit" name="kategori" value="">
-                                
-                                <!-- Dropdown Menu -->
-                                <div id="categoryDropdownEdit" class="hidden absolute z-10 w-full mt-2 bg-white border-2 border-gray-200 rounded-xl shadow-xl overflow-hidden">
-                                    <div class="py-2 max-h-64 overflow-y-auto">
-                                        <button type="button" onclick="selectCategoryEdit('F&B', 'F&B')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-orange-50 hover:to-red-50 hover:text-orange-700 transition-all duration-200">
-                                            <span>F&B</span>
-                                        </button>
-                                        <button type="button" onclick="selectCategoryEdit('Entertain', 'Entertain')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:text-purple-700 transition-all duration-200">
-                                            <span>Entertain</span>
-                                        </button>
-                                        <button type="button" onclick="selectCategoryEdit('Vacation', 'Vacation')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50 hover:text-blue-700 transition-all duration-200">
-                                            <span>Vacation</span>
-                                        </button>
-                                        <button type="button" onclick="selectCategoryEdit('Shopping', 'Shopping')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:text-green-700 transition-all duration-200">
-                                            <span>Shopping</span>
-                                        </button>
-                                        <button type="button" onclick="selectCategoryEdit('Beauty & Care', 'Beauty & Care')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-pink-50 hover:to-rose-50 hover:text-pink-700 transition-all duration-200">
-                                            <span>Beauty & Care</span>
-                                        </button>
-                                        <button type="button" onclick="selectCategoryEdit('Telkomsel Packet', 'Telkomsel Packet')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-blue-50 hover:text-indigo-700 transition-all duration-200">
-                                            <span>Telkomsel Packet</span>
-                                        </button>
+            <div class="p-4 md:p-6 space-y-4">
+                <div class="">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-x-6 md:gap-y-3">
+                        <!-- Row 1: Nama Merchant + Kategori | SKB (kanan) -->
+                        <div class="flex flex-col">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Nama Merchant</label>
+                            <input type="text" id="editMerchantNama" name="nama" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter merchant name"> 
+                            <div class="mt-4">
+                                <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Kategori</label>
+                                <div class="relative">
+                                    <button type="button" id="categoryDropdownBtnEdit" onclick="toggleCategoryDropdownEdit()" class="w-full px-4 py-2.5 text-left bg-white border-2 border-gray-300 rounded-xl hover:border-orange-400 focus:outline-none focus:border-orange-500 transition-all duration-300 flex items-center justify-between group">
+                                        <span id="categorySelectedEdit" class="text-gray-700">Pilih Kategori</span>
+                                        <i class="fas fa-chevron-down text-gray-400 group-hover:text-orange-500 transition-transform duration-300" id="categoryIconEdit"></i>
+                                    </button>
+                                    <input type="hidden" id="kategoriInputEdit" name="kategori" value="">
+                                    <div id="categoryDropdownEdit" class="hidden absolute z-10 w-full mt-2 bg-white border-2 border-gray-200 rounded-xl shadow-xl overflow-hidden">
+                                        <div class="py-2 max-h-64 overflow-y-auto">
+                                            <button type="button" onclick="selectCategoryEdit('F&B', 'F&B')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-orange-50 hover:to-red-50 hover:text-orange-700 transition-all duration-200"><span>F&B</span></button>
+                                            <button type="button" onclick="selectCategoryEdit('Entertain', 'Entertain')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:text-purple-700 transition-all duration-200"><span>Entertain</span></button>
+                                            <button type="button" onclick="selectCategoryEdit('Vacation', 'Vacation')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50 hover:text-blue-700 transition-all duration-200"><span>Vacation</span></button>
+                                            <button type="button" onclick="selectCategoryEdit('Shopping', 'Shopping')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:text-green-700 transition-all duration-200"><span>Shopping</span></button>
+                                            <button type="button" onclick="selectCategoryEdit('Beauty & Care', 'Beauty & Care')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-pink-50 hover:to-rose-50 hover:text-pink-700 transition-all duration-200"><span>Beauty & Care</span></button>
+                                            <button type="button" onclick="selectCategoryEdit('Telkomsel Packet', 'Telkomsel Packet')" class="w-full px-4 py-2.5 text-left text-gray-700 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-blue-50 hover:text-indigo-700 transition-all duration-200"><span>Telkomsel Packet</span></button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Diskon</label>
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">SKB</label>
+                            <textarea id="editMerchantSkb" name="skb" rows="5" class="w-full px-4 pt-3 h-[140px] border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0 resize-none" placeholder="Enter SKB"></textarea>
+                        </div>
+                        <!-- Row 2: Diskon -->
+                        <div>
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Diskon</label>
                             <div class="relative">
-                                <input type="number" id="editMerchantDiskon" name="diskon" min="0" max="100" class="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="0">
-                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                    <span class="text-gray-500 text-sm">%</span>
-                                </div>
+                                <input type="number" id="editMerchantDiskon" name="diskon" min="0" max="100" class="w-full px-4 h-12 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="0">
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none"><span class="text-gray-500 text-sm">%</span></div>
                             </div>
                         </div>
-                        
+                        <!-- Row 3: CTA -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">SKB</label>
-                            <input type="text" id="editMerchantSkb" name="skb" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter SKB">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">CTA</label>
+                            <input type="url" id="editMerchantCta" name="cta" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="https://example.com">
                         </div>
-                        
+                        <!-- Row 4: Start Date | End Date -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Redeem Point</label>
-                            <input type="text" id="editMerchantRedeemPoint" name="redeem_point" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter redeem points">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Start Date</label>
+                            <input type="text" id="editMerchantStartDate" name="start_date" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" maxlength="10" placeholder="DD/MM/YYYY" onkeyup="formatDateInput(this)" onkeypress="return isNumberKey(event)">
                         </div>
-                        
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Stock</label>
-                            <input type="number" id="editMerchantStock" name="stock" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter stock">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">End Date</label>
+                            <input type="text" id="editMerchantEndDate" name="end_date" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" maxlength="10" placeholder="DD/MM/YYYY" onkeyup="formatDateInput(this)" onkeypress="return isNumberKey(event)">
                         </div>
-
+                        <!-- Row 5: Stock | Redeem Point -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Start Date</label>
-                            <input type="text" id="editMerchantStartDate" name="start_date" placeholder="DD/MM/YYYY" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" maxlength="10" onkeyup="formatDateInput(this)" onkeypress="return isNumberKey(event)">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Stock</label>
+                            <input type="number" id="editMerchantStock" name="stock" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter stock">
                         </div>
-                        
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">End Date</label>
-                            <input type="text" id="editMerchantEndDate" name="end_date" placeholder="DD/MM/YYYY" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" maxlength="10" onkeyup="formatDateInput(this)" onkeypress="return isNumberKey(event)">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Redeem Point</label>
+                            <input type="text" id="editMerchantRedeemPoint" name="redeem_point" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter redeem points">
                         </div>
-                        
+                        <!-- Row 6: Logo Merchant | Images -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">CTA</label>
-                            <input type="url" id="editMerchantCta" name="cta" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="https://example.com">
-                        </div>
-                        
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Logo Merchant</label>
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Logo Merchant</label>
                             <div class="relative">
                                 <input type="file" id="editLogoMerchantInput" name="logo_merchant" accept="image/*" class="hidden" onchange="previewEditLogoMerchant(this)">
-                                <button type="button" onclick="document.getElementById('editLogoMerchantInput').click()" class="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg hover:border-orange-400 focus:outline-none focus:border-orange-500 transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-orange-600 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
-                                    <i class="fas fa-cloud-upload-alt mr-2"></i>
-                                    <span id="editLogoMerchantText">Click to change logo</span>
+                                <button type="button" onclick="document.getElementById('editLogoMerchantInput').click()" class="w-full min-h-[92px] px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg hover:border-orange-400 focus:outline-none focus:border-orange-500 flex flex-col items-center justify-center text-gray-600 hover:text-orange-600 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
+                                    <i class="fas fa-upload text-2xl mb-2"></i>
+                                    <span id="editLogoMerchantText" class="text-[15px]">Click to change logo</span>
                                 </button>
                                 <div id="editLogoMerchantPreview" class="mt-3 hidden">
                                     <img src="" alt="Logo Preview" class="w-full h-32 object-cover rounded-lg">
-                                    <button type="button" onclick="removeEditLogoMerchant()" class="mt-2 text-sm text-red-600 hover:text-red-800">
-                                        <i class="fas fa-times mr-1"></i> Remove
-                                    </button>
+                                    <button type="button" onclick="removeEditLogoMerchant()" class="mt-2 text-sm text-red-600 hover:text-red-800"><i class="fas fa-times mr-1"></i> Remove</button>
                                 </div>
                             </div>
                         </div>
-                        
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Images</label>
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Images</label>
                             <div class="relative">
                                 <input type="file" id="editMerchantImagesInput" name="images[]" accept="image/*" multiple class="hidden" onchange="previewEditMerchantImages(this)">
-                                <button type="button" onclick="document.getElementById('editMerchantImagesInput').click()" class="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg hover:border-orange-400 focus:outline-none focus:border-orange-500 transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-orange-600 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
-                                    <i class="fas fa-images mr-2"></i>
-                                    <span id="editMerchantImagesText">Click to change images</span>
+                                <button type="button" onclick="document.getElementById('editMerchantImagesInput').click()" class="w-full min-h-[92px] px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg hover:border-orange-400 focus:outline-none focus:border-orange-500 flex flex-col items-center justify-center text-gray-600 hover:text-orange-600 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
+                                    <i class="fas fa-upload text-2xl mb-2"></i>
+                                    <span id="editMerchantImagesText" class="text-[15px]">Click to change images</span>
                                 </button>
-                                <div id="editMerchantImagesPreview" class="mt-3 grid grid-cols-3 gap-2 hidden"></div>
+                                <div id="editMerchantImagesPreview" class="mt-3 grid grid-cols-2 md:grid-cols-3 gap-2 hidden"></div>
                             </div>
                         </div>
                     </div>

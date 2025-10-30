@@ -19,7 +19,7 @@
         /* Font optimization for Poppins */
         body {
             font-family: 'Poppins', sans-serif;
-            -webkit-font-smoothing: antialiased;
+            -webkit-font-smoothing: antialiased;    
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
             font-feature-settings: 'kern' 1;

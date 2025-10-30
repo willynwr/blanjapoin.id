@@ -12,51 +12,49 @@
         
         <!-- Scrollable Form Content -->
         <form id="formEditTelkom" class="flex-1 overflow-y-auto">
-            <div class="p-6 space-y-4">
-                <div class="space-y-4" id="formGridEditTelkom">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="firstRowEditTelkom">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Nama Package</label>
-                            <input type="text" id="editTelkomNama" name="nama" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter package name">
+            <div class="p-4 md:p-6 space-y-4">
+                <div class="">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-x-6 md:gap-y-3">
+                        <!-- Row 1: Nama Paket + Redeem Point | SKB (kanan) -->
+                        <div class="flex flex-col">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Nama Package</label>
+                            <input type="text" id="editTelkomNama" name="nama" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter package name">
+                            <div class="mt-4">
+                                <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Redeem Point</label>
+                                <input type="text" id="editTelkomRedeemPoint" name="redeem_point" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter redeem points">
+                            </div>
                         </div>
-                        
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Deskripsi</label>
-                            <input type="text" id="editTelkomDeskripsi" name="deskripsi" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter description">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Deskripsi</label>
+                            <textarea id="editTelkomDeskripsi" name="deskripsi" rows="5" class="w-full px-4 pt-3 h-[140px] border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0 resize-none" placeholder="Enter description"></textarea>
                         </div>
-                        
+                        <!-- Row 2: Stock -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Redeem Point</label>
-                            <input type="text" id="editTelkomRedeemPoint" name="redeem_point" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter redeem points">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Stock</label>
+                            <input type="number" id="editTelkomStock" name="stock" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter stock">
                         </div>
-                        
+                        <!-- Row 3: CTA -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Stock</label>
-                            <input type="number" id="editTelkomStock" name="stock" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter stock">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">CTA</label>
+                            <input type="url" id="editTelkomCta" name="cta" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="https://example.com">
                         </div>
-
+                        <!-- Row 4: Start Date | End Date -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Start Date</label>
-                            <input type="text" id="editTelkomStartDate" name="start_date" placeholder="DD/MM/YYYY" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" maxlength="10" onkeyup="formatDateInput(this)" onkeypress="return isNumberKey(event)">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Start Date</label>
+                            <input type="text" id="editTelkomStartDate" name="start_date" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" maxlength="10" placeholder="DD/MM/YYYY" onkeyup="formatDateInput(this)" onkeypress="return isNumberKey(event)">
                         </div>
-                        
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">End Date</label>
-                            <input type="text" id="editTelkomEndDate" name="end_date" placeholder="DD/MM/YYYY" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" maxlength="10" onkeyup="formatDateInput(this)" onkeypress="return isNumberKey(event)">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">End Date</label>
+                            <input type="text" id="editTelkomEndDate" name="end_date" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" maxlength="10" placeholder="DD/MM/YYYY" onkeyup="formatDateInput(this)" onkeypress="return isNumberKey(event)">
                         </div>
-                        
+                        <!-- Row 5: Logo | Image -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">CTA</label>
-                            <input type="url" id="editTelkomCta" name="cta" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="https://example.com">
-                        </div>
-                        
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Logo</label>
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Logo</label>
                             <div class="relative">
                                 <input type="file" id="editLogoTelkomInput" name="logo" accept="image/*" class="hidden" onchange="previewEditLogoTelkom(this)">
-                                <button type="button" onclick="document.getElementById('editLogoTelkomInput').click()" class="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg hover:border-orange-400 focus:outline-none focus:border-orange-500 transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-orange-600 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
-                                    <i class="fas fa-cloud-upload-alt mr-2"></i>
-                                    <span id="editLogoTelkomText">Click to change logo</span>
+                                <button type="button" onclick="document.getElementById('editLogoTelkomInput').click()" class="w-full min-h-[92px] px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg hover:border-orange-400 focus:outline-none focus:border-orange-500 flex flex-col items-center justify-center text-gray-600 hover:text-orange-600 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
+                                    <i class="fas fa-upload text-2xl mb-2"></i>
+                                    <span id="editLogoTelkomText" class="text-[15px]">Click to change logo</span>
                                 </button>
                                 <div id="editLogoTelkomPreview" class="mt-3 hidden">
                                     <img src="" alt="Logo Preview" class="w-full h-32 object-cover rounded-lg">
@@ -66,14 +64,13 @@
                                 </div>
                             </div>
                         </div>
-                        
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Image</label>
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Image</label>
                             <div class="relative">
                                 <input type="file" id="editTelkomImageInput" name="image" accept="image/*" class="hidden" onchange="previewEditTelkomImage(this)">
-                                <button type="button" onclick="document.getElementById('editTelkomImageInput').click()" class="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg hover:border-orange-400 focus:outline-none focus:border-orange-500 transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-orange-600 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
-                                    <i class="fas fa-image mr-2"></i>
-                                    <span id="editTelkomImageText">Click to change image</span>
+                                <button type="button" onclick="document.getElementById('editTelkomImageInput').click()" class="w-full min-h-[92px] px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg hover:border-orange-400 focus:outline-none focus:border-orange-500 flex flex-col items-center justify-center text-gray-600 hover:text-orange-600 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
+                                    <i class="fas fa-upload text-2xl mb-2"></i>
+                                    <span id="editTelkomImageText" class="text-[15px]">Click to change image</span>
                                 </button>
                                 <div id="editTelkomImagePreview" class="mt-3 hidden">
                                     <img src="" alt="Image Preview" class="w-full h-32 object-cover rounded-lg">
@@ -144,7 +141,10 @@ function openEditTelkom(id, data) {
     currentEditTelkomId = id;
     const modal = document.getElementById('editModalTelkom');
     if (!modal) return;
-    
+
+    // Pastikan data selalu berupa object agar aman saat akses properti
+    data = data || {};
+
     // Populate form with existing data
     document.getElementById('editTelkomNama').value = data.nama || '';
     document.getElementById('editTelkomDeskripsi').value = data.deskripsi || '';

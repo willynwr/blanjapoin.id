@@ -6,6 +6,7 @@
                 <tr>
                     <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">No</th>
                     <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Merchandise</th>
+                    <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">SKB</th>
                     <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Point</th>
                     <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Stock</th>
                     <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Periode</th>
@@ -22,8 +23,8 @@
                     <td class="px-4 py-4 text-sm font-medium text-gray-900">1</td>
                     <td class="px-4 py-4 text-sm">
                         <div class="font-medium text-gray-900">Gourmet Gift Box</div>
-                        <div class="text-xs text-gray-500">Premium gift package</div>
                     </td>
+                    <td class="px-4 py-4 text-xs text-gray-500">Premium gift package</td>
                     <td class="px-4 py-4 text-sm text-gray-900">1000 pts</td>
                     <td class="px-4 py-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">50</span></td>
                     <td class="px-4 py-4 text-xs text-gray-500"><div>01/01/2025</div><div>31/12/2025</div></td>
@@ -32,7 +33,7 @@
                     <td class="px-4 py-4 text-gray-500"><div class="flex space-x-1"><div class="bg-gray-200 border-2 border-dashed rounded w-8 h-8"></div><div class="bg-gray-200 border-2 border-dashed rounded w-8 h-8"></div></div></td>
                     <td class="px-4 py-4">
                         <div class="flex space-x-2">
-                            <button onclick="openEditMerchandise(1, {nama:'Gourmet Gift Box', deskripsi:'Premium gift package', redeem_point:'1000', stock:50, start_date:'01/01/2025', end_date:'31/12/2025', cta:'https://example.com/giftbox'})" class="text-blue-600 hover:text-blue-900"><i class="fas fa-edit"></i></button>
+                            <button onclick="openEditMerchandise(1, {nama:'Gourmet Gift Box', SKB:'Premium gift package', redeem_point:'1000', stock:50, start_date:'01/01/2025', end_date:'31/12/2025', cta:'https://example.com/giftbox'})" class="text-blue-600 hover:text-blue-900"><i class="fas fa-edit"></i></button>
                             <button onclick="showDeleteConfirmation('Merchandise','Gourmet Gift Box','1','Merchandise Gourmet Gift Box akan dihapus dari sistem')" class="text-red-600 hover:text-red-900"><i class="fas fa-trash"></i></button>
                         </div>
                     </td>
@@ -43,8 +44,8 @@
                     <td class="px-4 py-4 text-sm font-medium text-gray-900">2</td>
                     <td class="px-4 py-4 text-sm">
                         <div class="font-medium text-gray-900">Movie Tickets</div>
-                        <div class="text-xs text-gray-500">Cinema vouchers</div>
                     </td>
+                    <td class="px-4 py-4 text-xs text-gray-500">Cinema vouchers</td>
                     <td class="px-4 py-4 text-sm text-gray-900">750 pts</td>
                     <td class="px-4 py-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">100</span></td>
                     <td class="px-4 py-4 text-xs text-gray-500"><div>01/02/2025</div><div>30/11/2025</div></td>
@@ -53,7 +54,7 @@
                     <td class="px-4 py-4 text-gray-500"><div class="flex space-x-1"><div class="bg-gray-200 border-2 border-dashed rounded w-8 h-8"></div><div class="bg-gray-200 border-2 border-dashed rounded w-8 h-8"></div></div></td>
                     <td class="px-4 py-4">
                         <div class="flex space-x-2">
-                            <button onclick="openEditMerchandise(2, {nama:'Movie Tickets', deskripsi:'Cinema vouchers', redeem_point:'750', stock:100, start_date:'01/02/2025', end_date:'30/11/2025', cta:'https://example.com/movietickets'})" class="text-blue-600 hover:text-blue-900"><i class="fas fa-edit"></i></button>
+                            <button onclick="openEditMerchandise(2, {nama:'Movie Tickets', SKB:'Cinema vouchers', redeem_point:'750', stock:100, start_date:'01/02/2025', end_date:'30/11/2025', cta:'https://example.com/movietickets'})" class="text-blue-600 hover:text-blue-900"><i class="fas fa-edit"></i></button>
                             <button onclick="showDeleteConfirmation('Merchandise','Movie Tickets','2','Merchandise Movie Tickets akan dihapus dari sistem')" class="text-red-600 hover:text-red-900"><i class="fas fa-trash"></i></button>
                         </div>
                     </td>
@@ -64,8 +65,8 @@
                     <td class="px-4 py-4 text-sm font-medium text-gray-900">3</td>
                     <td class="px-4 py-4 text-sm">
                         <div class="font-medium text-gray-900">Travel Voucher</div>
-                        <div class="text-xs text-gray-500">Holiday packages</div>
                     </td>
+                    <td class="px-4 py-4 text-xs text-gray-500">Holiday packages</td>
                     <td class="px-4 py-4 text-sm text-gray-900">2000 pts</td>
                     <td class="px-4 py-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">25</span></td>
                     <td class="px-4 py-4 text-xs text-gray-500"><div>01/03/2025</div><div>31/10/2025</div></td>
@@ -74,7 +75,7 @@
                     <td class="px-4 py-4 text-gray-500"><div class="flex space-x-1"><div class="bg-gray-200 border-2 border-dashed rounded w-8 h-8"></div><div class="bg-gray-200 border-2 border-dashed rounded w-8 h-8"></div></div></td>
                     <td class="px-4 py-4">
                         <div class="flex space-x-2">
-                            <button onclick="openEditMerchandise(3, {nama:'Travel Voucher', deskripsi:'Holiday packages', redeem_point:'2000', stock:25, start_date:'01/03/2025', end_date:'31/10/2025', cta:'https://example.com/travelvoucher'})" class="text-blue-600 hover:text-blue-900"><i class="fas fa-edit"></i></button>
+                            <button onclick="openEditMerchandise(3, {nama:'Travel Voucher', SKB:'Holiday packages', redeem_point:'2000', stock:25, start_date:'01/03/2025', end_date:'31/10/2025', cta:'https://example.com/travelvoucher'})" class="text-blue-600 hover:text-blue-900"><i class="fas fa-edit"></i></button>
                             <button onclick="showDeleteConfirmation('Merchandise','Travel Voucher','3','Merchandise Travel Voucher akan dihapus dari sistem')" class="text-red-600 hover:text-red-900"><i class="fas fa-trash"></i></button>
                         </div>
                     </td>
@@ -85,8 +86,8 @@
                     <td class="px-4 py-4 text-sm font-medium text-gray-900">4</td>
                     <td class="px-4 py-4 text-sm">
                         <div class="font-medium text-gray-900">Designer Handbag</div>
-                        <div class="text-xs text-gray-500">Luxury fashion item</div>
                     </td>
+                    <td class="px-4 py-4 text-xs text-gray-500">Luxury fashion item</td>
                     <td class="px-4 py-4 text-sm text-gray-900">1500 pts</td>
                     <td class="px-4 py-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">10</span></td>
                     <td class="px-4 py-4 text-xs text-gray-500"><div>01/04/2025</div><div>30/09/2025</div></td>
@@ -95,7 +96,7 @@
                     <td class="px-4 py-4 text-gray-500"><div class="flex space-x-1"><div class="bg-gray-200 border-2 border-dashed rounded w-8 h-8"></div><div class="bg-gray-200 border-2 border-dashed rounded w-8 h-8"></div></div></td>
                     <td class="px-4 py-4">
                         <div class="flex space-x-2">
-                            <button onclick="openEditMerchandise(4, {nama:'Designer Handbag', deskripsi:'Luxury fashion item', redeem_point:'1500', stock:10, start_date:'01/04/2025', end_date:'30/09/2025', cta:'https://example.com/handbag'})" class="text-blue-600 hover:text-blue-900"><i class="fas fa-edit"></i></button>
+                            <button onclick="openEditMerchandise(4, {nama:'Designer Handbag', SKB:'Luxury fashion item', redeem_point:'1500', stock:10, start_date:'01/04/2025', end_date:'30/09/2025', cta:'https://example.com/handbag'})" class="text-blue-600 hover:text-blue-900"><i class="fas fa-edit"></i></button>
                             <button onclick="showDeleteConfirmation('Merchandise','Designer Handbag','4','Merchandise Designer Handbag akan dihapus dari sistem')" class="text-red-600 hover:text-red-900"><i class="fas fa-trash"></i></button>
                         </div>
                     </td>
@@ -106,8 +107,8 @@
                     <td class="px-4 py-4 text-sm font-medium text-gray-900">5</td>
                     <td class="px-4 py-4 text-sm">
                         <div class="font-medium text-gray-900">Skincare Set</div>
-                        <div class="text-xs text-gray-500">Beauty products</div>
                     </td>
+                    <td class="px-4 py-4 text-xs text-gray-500">Beauty products</td>
                     <td class="px-4 py-4 text-sm text-gray-900">500 pts</td>
                     <td class="px-4 py-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">75</span></td>
                     <td class="px-4 py-4 text-xs text-gray-500"><div>01/05/2025</div><div>31/08/2025</div></td>

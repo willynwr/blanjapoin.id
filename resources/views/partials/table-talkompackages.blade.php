@@ -6,6 +6,7 @@
                 <tr>
                     <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">No</th>
                     <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Nama Paket</th>
+                    <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">SKB</th>
                     <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Redeem Point</th>
                     <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Stock</th>
                     <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Periode</th>
@@ -22,8 +23,8 @@
                     <td class="px-4 py-4 text-sm font-medium text-gray-900">1</td>
                     <td class="px-4 py-4 text-sm">
                         <div class="font-medium text-gray-900">Unlimited Data 10GB</div>
-                        <div class="text-xs text-gray-500">Paket data internet</div>
                     </td>
+                    <td class="px-4 py-4 text-xs text-gray-500">Paket data internet</td>
                     <td class="px-4 py-4 text-sm text-gray-900">500 pts</td>
                     <td class="px-4 py-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">200</span></td>
                     <td class="px-4 py-4 text-xs text-gray-500"><div>01/01/2025</div><div>31/12/2025</div></td>
@@ -43,8 +44,8 @@
                     <td class="px-4 py-4 text-sm font-medium text-gray-900">2</td>
                     <td class="px-4 py-4 text-sm">
                         <div class="font-medium text-gray-900">Unlimited Calls 500min</div>
-                        <div class="text-xs text-gray-500">Paket telepon unlimited</div>
                     </td>
+                    <td class="px-4 py-4 text-xs text-gray-500">Paket telepon unlimited</td>
                     <td class="px-4 py-4 text-sm text-gray-900">300 pts</td>
                     <td class="px-4 py-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">150</span></td>
                     <td class="px-4 py-4 text-xs text-gray-500"><div>02/01/2025</div><div>30/11/2025</div></td>
@@ -64,8 +65,8 @@
                     <td class="px-4 py-4 text-sm font-medium text-gray-900">3</td>
                     <td class="px-4 py-4 text-sm">
                         <div class="font-medium text-gray-900">Combo Package 5GB+300min</div>
-                        <div class="text-xs text-gray-500">Paket combo data dan telepon</div>
                     </td>
+                    <td class="px-4 py-4 text-xs text-gray-500">Paket combo data dan telepon</td>
                     <td class="px-4 py-4 text-sm text-gray-900">700 pts</td>
                     <td class="px-4 py-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">100</span></td>
                     <td class="px-4 py-4 text-xs text-gray-500"><div>01/03/2025</div><div>31/10/2025</div></td>
@@ -85,8 +86,8 @@
                     <td class="px-4 py-4 text-sm font-medium text-gray-900">4</td>
                     <td class="px-4 py-4 text-sm">
                         <div class="font-medium text-gray-900">Unlimited Data 20GB</div>
-                        <div class="text-xs text-gray-500">Paket data internet premium</div>
                     </td>
+                    <td class="px-4 py-4 text-xs text-gray-500">Paket data internet premium</td>
                     <td class="px-4 py-4 text-sm text-gray-900">900 pts</td>
                     <td class="px-4 py-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">75</span></td>
                     <td class="px-4 py-4 text-xs text-gray-500"><div>01/04/2025</div><div>30/09/2025</div></td>
@@ -106,8 +107,8 @@
                     <td class="px-4 py-4 text-sm font-medium text-gray-900">5</td>
                     <td class="px-4 py-4 text-sm">
                         <div class="font-medium text-gray-900">Premium Package 50GB</div>
-                        <div class="text-xs text-gray-500">Paket data super premium</div>
                     </td>
+                    <td class="px-4 py-4 text-xs text-gray-500">Paket data super premium</td>
                     <td class="px-4 py-4 text-sm text-gray-900">1500 pts</td>
                     <td class="px-4 py-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800">50</span></td>
                     <td class="px-4 py-4 text-xs text-gray-500"><div>01/05/2025</div><div>31/08/2025</div></td>

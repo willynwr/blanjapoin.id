@@ -12,51 +12,60 @@
         
         <!-- Scrollable Form Content -->
         <form id="formEditMerchandise" class="flex-1 overflow-y-auto">
-            <div class="p-6 space-y-4">
-                <div class="space-y-4" id="formGridEditMerchandise">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="firstRowEditMerchandise">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Nama Merchandise</label>
-                            <input type="text" id="editMerchandiseNama" name="nama" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter merchandise name">
+            <div class="p-4 md:p-6 space-y-4">
+                <div class="">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-x-6 md:gap-y-3">
+                        <!-- Row 1: Nama Merchandise + Redeem Point | SKB (kanan) -->
+                        <div class="flex flex-col">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Nama Merchandise</label>
+                            <input type="text" id="editMerchandiseNama" name="nama" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter merchandise name">
+                            <div class="mt-4">
+                                <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Redeem Point</label>
+                                <input type="text" id="editMerchandiseRedeemPoint" name="redeem_point" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter redeem points">
+                            </div>
                         </div>
-                        
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Deskripsi</label>
-                            <input type="text" id="editMerchandiseDeskripsi" name="deskripsi" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter description">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">SKB</label>
+                            <textarea id="editMerchandiseDeskripsi" name="deskripsi" rows="5" class="w-full px-4 pt-3 h-[140px] border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0 resize-none" placeholder="Enter SKB"></textarea>
                         </div>
-                        
+                        <!-- Row 2: Stock -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Redeem Point</label>
-                            <input type="text" id="editMerchandiseRedeemPoint" name="redeem_point" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter redeem points">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Stock</label>
+                            <input type="number" id="editMerchandiseStock" name="stock" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter stock">
                         </div>
-                        
+                        <!-- Row 3: CTA -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Stock</label>
-                            <input type="number" id="editMerchandiseStock" name="stock" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="Enter stock">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">CTA</label>
+                            <input type="url" id="editMerchandiseCta" name="cta" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="https://example.com">
                         </div>
-
+                        <!-- Row 4: Start Date | End Date -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Start Date</label>
-                            <input type="text" id="editMerchandiseStartDate" name="start_date" placeholder="DD/MM/YYYY" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" maxlength="10" onkeyup="formatDateInput(this)" onkeypress="return isNumberKey(event)">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Start Date</label>
+                            <input type="text" id="editMerchandiseStartDate" name="start_date" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" maxlength="10" placeholder="DD/MM/YYYY" onkeyup="formatDateInput(this)" onkeypress="return isNumberKey(event)">
                         </div>
-                        
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">End Date</label>
-                            <input type="text" id="editMerchandiseEndDate" name="end_date" placeholder="DD/MM/YYYY" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" maxlength="10" onkeyup="formatDateInput(this)" onkeypress="return isNumberKey(event)">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">End Date</label>
+                            <input type="text" id="editMerchandiseEndDate" name="end_date" class="w-full px-4 h-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-orange-400 text-[15px] transition-all duration-300 ease-out transform translate-y-2 opacity-0" maxlength="10" placeholder="DD/MM/YYYY" onkeyup="formatDateInput(this)" onkeypress="return isNumberKey(event)">
                         </div>
-                        
+                        <!-- Row 5: Images | Gambar Merchandise -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">CTA</label>
-                            <input type="url" id="editMerchandiseCta" name="cta" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300 ease-out transform translate-y-2 opacity-0" placeholder="https://example.com">
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Images</label>
+                            <div class="relative">
+                                <input type="file" id="editMerchandiseImagesInput" name="images[]" accept="image/*" multiple class="hidden" onchange="previewEditMerchandiseImages(this)">
+                                <button type="button" onclick="document.getElementById('editMerchandiseImagesInput').click()" class="w-full min-h-[92px] px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg hover:border-orange-400 focus:outline-none focus:border-orange-500 flex flex-col items-center justify-center text-gray-600 hover:text-orange-600 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
+                                    <i class="fas fa-upload text-2xl mb-2"></i>
+                                    <span id="editMerchandiseImagesText" class="text-[15px]">Click to upload images</span>
+                                </button>
+                                <div id="editMerchandiseImagesPreview" class="mt-3 grid grid-cols-2 md:grid-cols-3 gap-2 hidden"></div>
+                            </div>
                         </div>
-                        
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Gambar Merchandise</label>
+                            <label class="block text-[15px] font-medium text-gray-700 mb-1 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Gambar Merchandise</label>
                             <div class="relative">
                                 <input type="file" id="editMerchandiseImageInput" name="image" accept="image/*" class="hidden" onchange="previewEditMerchandiseImage(this)">
-                                <button type="button" onclick="document.getElementById('editMerchandiseImageInput').click()" class="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg hover:border-orange-400 focus:outline-none focus:border-orange-500 transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-orange-600 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
-                                    <i class="fas fa-image mr-2"></i>
-                                    <span id="editMerchandiseImageText">Click to change image</span>
+                                <button type="button" onclick="document.getElementById('editMerchandiseImageInput').click()" class="w-full min-h-[92px] px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg hover:border-orange-400 focus:outline-none focus:border-orange-500 flex flex-col items-center justify-center text-gray-600 hover:text-orange-600 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
+                                    <i class="fas fa-upload text-2xl mb-2"></i>
+                                    <span id="editMerchandiseImageText" class="text-[15px]">Click to change image</span>
                                 </button>
                                 <div id="editMerchandiseImagePreview" class="mt-3 hidden">
                                     <img src="" alt="Image Preview" class="w-full h-32 object-cover rounded-lg">
@@ -64,18 +73,6 @@
                                         <i class="fas fa-times mr-1"></i> Remove
                                     </button>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2 transition-all duration-300 ease-out transform translate-y-2 opacity-0">Images</label>
-                            <div class="relative">
-                                <input type="file" id="editMerchandiseImagesInput" name="images[]" accept="image/*" multiple class="hidden" onchange="previewEditMerchandiseImages(this)">
-                                <button type="button" onclick="document.getElementById('editMerchandiseImagesInput').click()" class="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg hover:border-orange-400 focus:outline-none focus:border-orange-500 transition-all duration-300 flex items-center justify-center text-gray-600 hover:text-orange-600 transition-all duration-300 ease-out transform translate-y-2 opacity-0">
-                                    <i class="fas fa-images mr-2"></i>
-                                    <span id="editMerchandiseImagesText">Click to upload images</span>
-                                </button>
-                                <div id="editMerchandiseImagesPreview" class="mt-3 grid grid-cols-3 gap-2 hidden"></div>
                             </div>
                         </div>
                     </div>
