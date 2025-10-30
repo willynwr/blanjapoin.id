@@ -16,28 +16,31 @@
         <!-- Card Content Below Image -->
         <div class="flex flex-col p-3 space-y-2 flex-1">
          <!-- Title -->
-         <h3 class="text-sm font-bold text-neutral-900 leading-tight">Wingstop</h3>
+         <h3 class="text-2xl font-bold text-neutral-900 leading-tight">Wingstop</h3>
          
          <!-- Description -->
-         <p class="text-xs text-neutral-600 leading-relaxed">Diskon Rp 100,000 Wingstop melalui PaysQift</p>
+        <div class="text-sm text-neutral-600 leading-relaxed">
+          <div class="font-bold text-neutral-800">Diskon <span class="text-xl font-bold text-neutral-800">Rp 100.000</span></div>
+          <div>Diskon Makan Rp 100.000 di Wingstop melalui PaysQift</div>
+        </div>
          
-         <!-- Badge Points -->
-         <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
-          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-          <span class="text-[10px] font-bold text-red-600">100.000</span>
+        <!-- Badge Points -->
+        <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-0.5 self-start">
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[20px] font-bold text-red-600">100.000</span>
+        </div>
+
+        <!-- Stock & Valid Until -->
+        <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100">
+         <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
+          <span class="font-medium">Stock:</span>
+          <span class="font-semibold text-neutral-800">250</span>
          </div>
-         
-         <!-- Stock & Valid Until -->
-         <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
-          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
-           <span class="font-medium">Stock:</span>
-           <span class="font-semibold text-neutral-800">250</span>
-          </div>
-          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
-           <span class="font-medium">Valid until:</span>
-           <span class="font-semibold text-neutral-800">20 Jan 2025</span>
-          </div>
+         <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
+          <span class="font-medium">Valid until:</span>
+          <span class="font-semibold text-neutral-800">20 Jan 2025</span>
          </div>
+        </div>
         </div>
        </div>
        
@@ -105,16 +108,19 @@
         <div class="flex flex-col p-3 space-y-2 flex-1">
 
          <!-- Title -->
-         <h3 class="text-sm font-bold text-neutral-900 leading-tight">Transmart</h3>
+         <h3 class="text-2xl font-bold text-neutral-900 leading-tight">Transmart</h3>
          
          <!-- Description -->
-         <p class="text-xs text-neutral-600 leading-relaxed">Diskon Rp 100,000 Transmart melalui PaysQift</p>
-         
-          <!-- Badge Points -->
-         <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
-          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-          <span class="text-[10px] font-bold text-red-600">100.000</span>
-         </div>
+         <div class="text-sm text-neutral-600 leading-relaxed">
+          <div class="font-bold text-neutral-800">Diskon <span class="text-xl font-bold text-neutral-800">Rp 100.000</span></div>
+          <div>Diskon Makan Rp 100.000 di Transmart melalui PaysQift</div>
+        </div>
+
+         <!-- Badge Points -->
+          <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-0.5 self-start">
+            <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+            <span class="text-[20px] font-bold text-red-600">100.000</span>
+          </div>
 
          <!-- Stock & Valid Until -->
          <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
@@ -194,15 +200,17 @@
         <!-- Card Content Below Image -->
         <div class="flex flex-col p-3 space-y-2 flex-1">
          <!-- Title -->
-         <h3 class="text-sm font-bold text-neutral-900 leading-tight">Voucher Indomaret</h3>
+         <h3 class="text-2xl font-bold text-neutral-900 leading-tight">Indomaret</h3>
          
          <!-- Description -->
-         <p class="text-xs text-neutral-600 leading-relaxed">Voucher Belanja Rp 50,000 Indomaret</p>
-         
+         <div class="text-sm text-neutral-600 leading-relaxed">
+          <div class="font-bold text-neutral-800">Voucher <span class="text-xl font-bold text-neutral-800">Rp 50.000</span></div>
+          <div>Voucher belanja Rp 50.000 di Indomaret melalui PaysQift</div>
+        </div>
           <!-- Badge Points -->
          <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
-          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-          <span class="text-[10px] font-bold text-red-600">50.000</span>
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[20px] font-bold text-red-600">50.000</span>
          </div>
 
          <!-- Stock & Valid Until -->

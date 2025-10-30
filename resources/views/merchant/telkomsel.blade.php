@@ -17,30 +17,32 @@
        <!-- Card Content Below Image -->
        <div class="flex flex-col p-3 space-y-2 flex-1">
         <!-- Title -->
-        <h3 class="text-sm font-bold text-neutral-900 leading-tight">Paket Data 10GB</h3>
+        <h3 class="text-2xl font-bold text-neutral-900 leading-tight">Paket Data </h3>
         
-        <!-- Description -->
-        <p class="text-xs text-neutral-600 leading-relaxed">Paket Data Telkomsel 10GB masa aktif 30 hari</p>
-        
-        <!-- Badge Points -->
+         <!-- Description -->
+         <div class="text-sm text-neutral-600 leading-relaxed">
+          <div class="font-bold text-neutral-800">Paket data <span class="text-xl font-bold text-neutral-800">10GB</span></div>
+          <div>Paket data 10GB aktif 30 hari</div>
+         </div>
+          <!-- Badge Points -->
          <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
-          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-          <span class="text-[10px] font-bold text-red-600">50.000</span>
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[20px] font-bold text-red-600">75.000</span>
          </div>
 
-        <!-- Stock & Valid Until -->
-        <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
-         <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
-          <span class="font-medium">Stock:</span>
-          <span class="font-semibold text-neutral-800">500</span>
-         </div>
-         <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
-          <span class="font-medium">Valid until:</span>
-          <span class="font-semibold text-neutral-800">31 Dec 2025</span>
+         <!-- Stock & Valid Until -->
+         <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
+          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
+           <span class="font-medium">Stock:</span>
+           <span class="font-semibold text-neutral-800">150</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
+           <span class="font-medium">Valid until:</span>
+           <span class="font-semibold text-neutral-800">20 Jan 2025</span>
+          </div>
          </div>
         </div>
        </div>
-      </div>
       
       <!-- Desktop Layout (md and up) -->
       <div class="hidden lg:block">
@@ -105,30 +107,32 @@
        <!-- Card Content Below Image -->
        <div class="flex flex-col p-3 space-y-2 flex-1">
         <!-- Title -->
-        <h3 class="text-sm font-bold text-neutral-900 leading-tight">Paket Data 25GB</h3>
+        <h3 class="text-2xl font-bold text-neutral-900 leading-tight">Paket Data </h3>
         
-        <!-- Description -->
-        <p class="text-xs text-neutral-600 leading-relaxed">Paket Data Telkomsel 25GB masa aktif 30 hari</p>
-        
-        <!-- Badge Points -->
+         <!-- Description -->
+         <div class="text-sm text-neutral-600 leading-relaxed">
+          <div class="font-bold text-neutral-800">Paket data <span class="text-xl font-bold text-neutral-800">25GB</span></div>
+          <div>Paket data 25GB aktif 30 hari</div>
+         </div>
+          <!-- Badge Points -->
          <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
-          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-          <span class="text-[10px] font-bold text-red-600">100.000</span>
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[20px] font-bold text-red-600">100.000</span>
          </div>
 
-        <!-- Stock & Valid Until -->
-        <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
-         <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
-          <span class="font-medium">Stock:</span>
-          <span class="font-semibold text-neutral-800">300</span>
-         </div>
-         <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
-          <span class="font-medium">Valid until:</span>
-          <span class="font-semibold text-neutral-800">31 Dec 2025</span>
+         <!-- Stock & Valid Until -->
+         <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
+          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
+           <span class="font-medium">Stock:</span>
+           <span class="font-semibold text-neutral-800">250</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
+           <span class="font-medium">Valid until:</span>
+           <span class="font-semibold text-neutral-800">20 Dec 2025</span>
+          </div>
          </div>
         </div>
        </div>
-      </div>
       
       <!-- Desktop Layout (md and up) -->
       <div class="hidden lg:block">
@@ -193,30 +197,32 @@
        <!-- Card Content Below Image -->
        <div class="flex flex-col p-3 space-y-2 flex-1">
         <!-- Title -->
-        <h3 class="text-sm font-bold text-neutral-900 leading-tight">Paket Data 50GB</h3>
+        <h3 class="text-2xl font-bold text-neutral-900 leading-tight">Paket Data</h3>
         
-        <!-- Description -->
-        <p class="text-xs text-neutral-600 leading-relaxed">Paket Data Telkomsel 50GB masa aktif 30 hari</p>
-        
-        <!-- Badge Points -->
+         <!-- Description -->
+         <div class="text-sm text-neutral-600 leading-relaxed">
+          <div class="font-bold text-neutral-800">Paket data <span class="text-xl font-bold text-neutral-800">50GB</span></div>
+          <div>Paket data 50GB aktif 30 hari</div>
+         </div>
+          <!-- Badge Points -->
          <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
-          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-          <span class="text-[10px] font-bold text-red-600">150.000</span>
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[20px] font-bold text-red-600">150.000</span>
          </div>
 
-        <!-- Stock & Valid Until -->
-        <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
-         <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
-          <span class="font-medium">Stock:</span>
-          <span class="font-semibold text-neutral-800">200</span>
-         </div>
-         <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
-          <span class="font-medium">Valid until:</span>
-          <span class="font-semibold text-neutral-800">31 Dec 2025</span>
+         <!-- Stock & Valid Until -->
+         <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
+          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
+           <span class="font-medium">Stock:</span>
+           <span class="font-semibold text-neutral-800">150</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
+           <span class="font-medium">Valid until:</span>
+           <span class="font-semibold text-neutral-800">20 Dec 2025</span>
+          </div>
          </div>
         </div>
        </div>
-      </div>
       
       <!-- Desktop Layout (md and up) -->
       <div class="hidden lg:block">

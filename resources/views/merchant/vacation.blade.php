@@ -16,27 +16,32 @@
        <!-- Card Content Below Image -->
        <div class="flex flex-col p-3 space-y-2 flex-1">
         <!-- Title -->
-        <h3 class="text-sm font-bold text-neutral-900 leading-tight">Voucher Traveloka Rp100 ribu</h3>
-        <!-- Description -->
-        <p class="text-xs text-neutral-600 leading-relaxed">Voucher Hotel Traveloka Rp 100,000</p>
-        <!-- Badge Points -->
+        <h3 class="text-2xl font-bold text-neutral-900 leading-tight">Traveloka</h3>
+         <!-- Description -->
+         <div class="text-sm text-neutral-600 leading-relaxed">
+          <div class="font-bold text-neutral-800">Voucher <span class="text-xl font-bold text-neutral-800">Rp 80.000</span></div>
+          <div>Voucher Hotel Traveloka Rp 80.000</div>
+         </div>
+          <!-- Badge Points -->
          <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
-          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-          <span class="text-[10px] font-bold text-red-600">100.000</span>
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[20px] font-bold text-red-600">80.000</span>
          </div>
-        <!-- Stock & Valid Until -->
-        <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
-         <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
-          <span class="font-medium">Stock:</span>
-          <span class="font-semibold text-neutral-800">100</span>
-         </div>
-         <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
-          <span class="font-medium">Valid until:</span>
-          <span class="font-semibold text-neutral-800">30 Jun 2025</span>
+
+         <!-- Stock & Valid Until -->
+         <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
+          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
+           <span class="font-medium">Stock:</span>
+           <span class="font-semibold text-neutral-800">150</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
+           <span class="font-medium">Valid until:</span>
+           <span class="font-semibold text-neutral-800">20 Oct 2025</span>
+          </div>
          </div>
         </div>
        </div>
-      </div>
+
       <!-- Desktop Layout (md and up) -->
       <div class="hidden lg:block">
        <div class="grid grid-cols-[auto_1fr_auto] gap-0 items-center">
@@ -96,27 +101,32 @@
        <!-- Card Content Below Image -->
        <div class="flex flex-col p-3 space-y-2 flex-1">
         <!-- Title -->
-        <h3 class="text-sm font-bold text-neutral-900 leading-tight">Voucher Tiket.com Rp75 ribu</h3>
-        <!-- Description -->
-        <p class="text-xs text-neutral-600 leading-relaxed">Voucher Bus Tiket.com Rp 75,000</p>
-        <!-- Badge Points -->
+        <h3 class="text-2xl font-bold text-neutral-900 leading-tight">Tiket.com</h3>
+         <!-- Description -->
+         <div class="text-sm text-neutral-600 leading-relaxed">
+          <div class="font-bold text-neutral-800">Voucher <span class="text-xl font-bold text-neutral-800">Rp 75.000</span></div>
+          <div>Voucher Bus Tiket.com Rp 75.000</div>
+         </div>
+          <!-- Badge Points -->
          <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
-          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-          <span class="text-[10px] font-bold text-red-600">75.000</span>
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[20px] font-bold text-red-600">75.000</span>
          </div>
-        <!-- Stock & Valid Until -->
-        <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
-         <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
-          <span class="font-medium">Stock:</span>
-          <span class="font-semibold text-neutral-800">120</span>
-         </div>
-         <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
-          <span class="font-medium">Valid until:</span>
-          <span class="font-semibold text-neutral-800">30 Jun 2025</span>
+
+         <!-- Stock & Valid Until -->
+         <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
+          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
+           <span class="font-medium">Stock:</span>
+           <span class="font-semibold text-neutral-800">250</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
+           <span class="font-medium">Valid until:</span>
+           <span class="font-semibold text-neutral-800">20 Oct 2025</span>
+          </div>
          </div>
         </div>
        </div>
-      </div>
+
       <!-- Desktop Layout (md and up) -->
       <div class="hidden lg:block">
        <div class="grid grid-cols-[auto_1fr_auto] gap-0 items-center">
@@ -176,27 +186,32 @@
        <!-- Card Content Below Image -->
        <div class="flex flex-col p-3 space-y-2 flex-1">
         <!-- Title -->
-        <h3 class="text-sm font-bold text-neutral-900 leading-tight">Voucher PegiPegi Rp50 ribu</h3>
-        <!-- Description -->
-        <p class="text-xs text-neutral-600 leading-relaxed">Voucher PegiPegi Hotel Rp 50,000</p>
-        <!-- Badge Points -->
+        <h3 class="text-2xl font-bold text-neutral-900 leading-tight">PegiPegi</h3>
+         <!-- Description -->
+         <div class="text-sm text-neutral-600 leading-relaxed">
+          <div class="font-bold text-neutral-800">Voucher <span class="text-xl font-bold text-neutral-800">Rp 50.000</span></div>
+          <div>Voucher Hotel PegiPegi Rp 50.000</div>
+         </div>
+          <!-- Badge Points -->
          <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
-          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-          <span class="text-[10px] font-bold text-red-600">100.000</span>
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[20px] font-bold text-red-600">50.000</span>
          </div>
-        <!-- Stock & Valid Until -->
-        <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
-         <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
-          <span class="font-medium">Stock:</span>
-          <span class="font-semibold text-neutral-800">140</span>
-         </div>
-         <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
-          <span class="font-medium">Valid until:</span>
-          <span class="font-semibold text-neutral-800">30 Jun 2025</span>
+
+         <!-- Stock & Valid Until -->
+         <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
+          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
+           <span class="font-medium">Stock:</span>
+           <span class="font-semibold text-neutral-800">150</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
+           <span class="font-medium">Valid until:</span>
+           <span class="font-semibold text-neutral-800">20 Oct 2025</span>
+          </div>
          </div>
         </div>
        </div>
-      </div>
+
       <!-- Desktop Layout (md and up) -->
       <div class="hidden lg:block">
        <div class="grid grid-cols-[auto_1fr_auto] gap-0 items-center">

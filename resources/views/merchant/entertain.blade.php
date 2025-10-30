@@ -17,26 +17,28 @@
         <!-- Card Content Below Image -->
         <div class="flex flex-col p-3 space-y-2 flex-1">
          <!-- Title -->
-         <h3 class="text-sm font-bold text-neutral-900 leading-tight">Voucher CGV Rp50 ribu</h3>
+         <h3 class="text-2xl font-bold text-neutral-900 leading-tight">Voucher CGV </h3>
          
          <!-- Description -->
-         <p class="text-xs text-neutral-600 leading-relaxed">Voucher Nonton CGV Cinema Rp 50,000</p>
-         
-         <!-- Badge Points -->
+         <div class="text-sm text-neutral-600 leading-relaxed">
+          <div class="font-bold text-neutral-800">Voucher <span class="text-xl font-bold text-neutral-800">Rp 50.000</span></div>
+          <div>Voucher Nonton CGV Cinema senilai Rp 50,000</div>
+         </div>
+          <!-- Badge Points -->
          <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
-          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-          <span class="text-[10px] font-bold text-red-600">50.000</span>
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[20px] font-bold text-red-600">50.000</span>
          </div>
 
          <!-- Stock & Valid Until -->
          <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
           <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
            <span class="font-medium">Stock:</span>
-           <span class="font-semibold text-neutral-800">180</span>
+           <span class="font-semibold text-neutral-800">250</span>
           </div>
           <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
            <span class="font-medium">Valid until:</span>
-           <span class="font-semibold text-neutral-800">31 Mar 2025</span>
+           <span class="font-semibold text-neutral-800">20 Jun 2025</span>
           </div>
          </div>
         </div>
@@ -105,26 +107,28 @@
         <!-- Card Content Below Image -->
         <div class="flex flex-col p-3 space-y-2 flex-1">
          <!-- Title -->
-         <h3 class="text-sm font-bold text-neutral-900 leading-tight">Spotify Premium 1 Bulan</h3>
+         <h3 class="text-2xl font-bold text-neutral-900 leading-tight">Spotify </h3>
          
          <!-- Description -->
-         <p class="text-xs text-neutral-600 leading-relaxed">Spotify Premium 1 Bulan Individual</p>
-         
-         <!-- Badge Points -->
+         <div class="text-sm text-neutral-600 leading-relaxed">
+          <div class="font-bold text-neutral-800">Premium <span class="text-xl font-bold text-neutral-800">1 Bulan</span></div>
+          <div>Spotify Premium selama 1 Bulan untuk akun Individual</div>
+         </div>
+          <!-- Badge Points -->
          <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
-          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-          <span class="text-[10px] font-bold text-red-600">100.000</span>
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[20px] font-bold text-red-600">80.000</span>
          </div>
 
          <!-- Stock & Valid Until -->
          <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
           <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
            <span class="font-medium">Stock:</span>
-           <span class="font-semibold text-neutral-800">250</span>
+           <span class="font-semibold text-neutral-800">150</span>
           </div>
           <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
            <span class="font-medium">Valid until:</span>
-           <span class="font-semibold text-neutral-800">31 Dec 2025</span>
+           <span class="font-semibold text-neutral-800">20 Jun 2025</span>
           </div>
          </div>
         </div>
@@ -193,15 +197,17 @@
         <!-- Card Content Below Image -->
         <div class="flex flex-col p-3 space-y-2 flex-1">
          <!-- Title -->
-         <h3 class="text-sm font-bold text-neutral-900 leading-tight">Netflix Premium 1 Bulan</h3>
+         <h3 class="text-2xl font-bold text-neutral-900 leading-tight">Netflix </h3>
          
          <!-- Description -->
-         <p class="text-xs text-neutral-600 leading-relaxed">Netflix Premium 1 Bulan Subscription</p>
-         
-         <!-- Badge Points -->
+         <div class="text-sm text-neutral-600 leading-relaxed">
+          <div class="font-bold text-neutral-800">Premium <span class="text-xl font-bold text-neutral-800">1 Bulan</span></div>
+          <div>Netflix Premium 1 Bulan Individual</div>
+         </div>
+          <!-- Badge Points -->
          <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
-          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-          <span class="text-[10px] font-bold text-red-600">100.000</span>
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[20px] font-bold text-red-600">100.000</span>
          </div>
 
          <!-- Stock & Valid Until -->
@@ -212,7 +218,7 @@
           </div>
           <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
            <span class="font-medium">Valid until:</span>
-           <span class="font-semibold text-neutral-800">31 Dec 2025</span>
+           <span class="font-semibold text-neutral-800">20 Jun 2025</span>
           </div>
          </div>
         </div>
