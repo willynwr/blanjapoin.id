@@ -7,13 +7,6 @@
        <!-- Mobile Layout (default) -->
        <div class="lg:hidden flex flex-col h-full">
         <div class="relative">
-         <!-- Badge Points at top-right -->
-         <div class="absolute top-2 right-2 z-10">
-          <div class="inline-flex items-center gap-1 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 shadow-md">
-           <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-           <span class="text-[10px] font-bold text-rose-600">60.000</span>
-          </div>
-         </div>
          
          <!-- Promo Image -->
          <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
@@ -24,20 +17,28 @@
         <!-- Card Content Below Image -->
         <div class="flex flex-col p-3 space-y-2 flex-1">
          <!-- Title -->
-         <h3 class="text-sm font-bold text-neutral-900 leading-tight">Voucher CGV Rp50 ribu</h3>
+         <h3 class="text-2xl font-bold text-neutral-900 leading-tight">Voucher CGV </h3>
          
          <!-- Description -->
-         <p class="text-xs text-neutral-600 leading-relaxed">Voucher Nonton CGV Cinema Rp 50,000</p>
-         
+         <div class="text-sm text-neutral-600 leading-relaxed">
+          <div class="font-bold text-neutral-800">Voucher <span class="text-xl font-bold text-neutral-800">Rp 50.000</span></div>
+          <div>Voucher Nonton CGV Cinema senilai Rp 50,000</div>
+         </div>
+          <!-- Badge Points -->
+         <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[20px] font-bold text-red-600">50.000</span>
+         </div>
+
          <!-- Stock & Valid Until -->
          <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
           <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
            <span class="font-medium">Stock:</span>
-           <span class="font-semibold text-neutral-800">180</span>
+           <span class="font-semibold text-neutral-800">250</span>
           </div>
           <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
            <span class="font-medium">Valid until:</span>
-           <span class="font-semibold text-neutral-800">31 Mar 2025</span>
+           <span class="font-semibold text-neutral-800">20 Jun 2025</span>
           </div>
          </div>
         </div>
@@ -45,22 +46,39 @@
        
        <!-- Desktop Layout (md and up) -->
        <div class="hidden lg:block">
-        <div class="grid grid-cols-2 gap-0">
-         <div class="card-content p-4 flex flex-col">
-          <div class="mb-1">
-           <img src="{{ asset('storage/logo/cgv.png') }}" alt="CGV" class="card-logo w-[180px] h-[82px] object-contain" loading="lazy">
+        <div class="grid grid-cols-[auto_1fr_auto] gap-0 items-center">
+         <!-- Kolom Kiri: Poin + Logo -->
+         <div class="p-4 flex flex-col items-start gap-3">
+          <!-- Badge Poin -->
+          <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-3 py-1.5 shadow-md border border-orange-200">
+           <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[10px] font-bold shadow-sm">P</span>
+           <span class="text-sm font-bold text-red-600">60000</span>
           </div>
-          <div class="pl-10 md:pl-14">
-           <div class="card-title text-rose-600 font-bold text-base md:text-3xl mb-0.5">Voucher</div>
-           <div class="card-price text-rose-600 font-bold text-xl md:text-2xl leading-none mb-2">Rp50<span class="text-xl md:text-2xl">ribu</span></div>
+          <!-- Logo -->
+          <div>
+           <img src="{{ asset('storage/logo/cgv.png') }}" alt="CGV" class="w-[140px] h-[140px] object-contain rounded-full" loading="lazy">
           </div>
-          <div class="card-description mt-1 md:mt-2 text-[11px] md:text-xs text-neutral-800 font-medium">Voucher Nonton CGV Cinema Rp 50,000</div>
-          <div class="card-points mt-1 md:mt-2 inline-flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-orange-600">
-           <span class="inline-flex h-5 w-5 md:h-6 md:w-6 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[10px] md:text-xs font-bold shadow-sm">P</span>
-           <span>60000 Poin</span>
+         </div>
+         
+         <!-- Kolom Tengah: Nama Merchant + Diskon + Deskripsi -->
+         <div class="p-4 flex flex-col justify-center">
+          <!-- Nama Merchant -->
+          <h3 class="text-5xl font-bold text-neutral-900 mb-3 leading-tight">CGV Cinema</h3>
+          
+          <!-- Diskon -->
+          <div class="mb-2">
+           <div class="text-xl font-bold text-neutral-900 mb-1">Voucher</div>
+           <div class="text-6xl font-bold text-neutral-900 leading-none mb-1">Rp<span class="text-6xl">50</span><span class="text-2xl font-bold">ribu</span></div>
           </div>
-         </div>  
-         <div class="card-image-wrapper p-2">
+          
+          <!-- Deskripsi -->
+          <div class="text-sm text-neutral-700 font-normal">
+           Voucher Nonton CGV Cinema Rp 50,000
+          </div>
+         </div>
+         
+         <!-- Kolom Kanan: Gambar Promo -->
+         <div class="card-image-wrapper p-2 max-w-[520px]">
           <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
            <img src="{{ asset('storage/promo/promo-cgv.jpg') }}" alt="" class="w-full h-full object-cover" loading="lazy">
           </div>
@@ -79,13 +97,6 @@
        <!-- Mobile Layout (default) -->
        <div class="lg:hidden flex flex-col h-full">
         <div class="relative">
-         <!-- Badge Points at top-right -->
-         <div class="absolute top-2 right-2 z-10">
-          <div class="inline-flex items-center gap-1 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 shadow-md">
-           <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-           <span class="text-[10px] font-bold text-rose-600">80.000</span>
-          </div>
-         </div>
          
          <!-- Promo Image -->
          <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
@@ -96,20 +107,28 @@
         <!-- Card Content Below Image -->
         <div class="flex flex-col p-3 space-y-2 flex-1">
          <!-- Title -->
-         <h3 class="text-sm font-bold text-neutral-900 leading-tight">Spotify Premium 1 Bulan</h3>
+         <h3 class="text-2xl font-bold text-neutral-900 leading-tight">Spotify </h3>
          
          <!-- Description -->
-         <p class="text-xs text-neutral-600 leading-relaxed">Spotify Premium 1 Bulan Individual</p>
-         
+         <div class="text-sm text-neutral-600 leading-relaxed">
+          <div class="font-bold text-neutral-800">Premium <span class="text-xl font-bold text-neutral-800">1 Bulan</span></div>
+          <div>Spotify Premium selama 1 Bulan untuk akun Individual</div>
+         </div>
+          <!-- Badge Points -->
+         <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[20px] font-bold text-red-600">80.000</span>
+         </div>
+
          <!-- Stock & Valid Until -->
          <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
           <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
            <span class="font-medium">Stock:</span>
-           <span class="font-semibold text-neutral-800">250</span>
+           <span class="font-semibold text-neutral-800">150</span>
           </div>
           <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
            <span class="font-medium">Valid until:</span>
-           <span class="font-semibold text-neutral-800">31 Dec 2025</span>
+           <span class="font-semibold text-neutral-800">20 Jun 2025</span>
           </div>
          </div>
         </div>
@@ -117,22 +136,39 @@
        
        <!-- Desktop Layout (md and up) -->
        <div class="hidden lg:block">
-        <div class="grid grid-cols-2 gap-0">
-         <div class="card-content p-4 flex flex-col">
-          <div class="mb-1">
-           <img src="{{ asset('storage/logo/spotify.png') }}" alt="SPOTIFY" class="card-logo w-[180px] h-[82px] object-contain" loading="lazy">
+        <div class="grid grid-cols-[auto_1fr_auto] gap-0 items-center">
+         <!-- Kolom Kiri: Poin + Logo -->
+         <div class="p-4 flex flex-col items-start gap-3">
+          <!-- Badge Poin -->
+          <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-3 py-1.5 shadow-md border border-orange-200">
+           <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[10px] font-bold shadow-sm">P</span>
+           <span class="text-sm font-bold text-red-600">80000</span>
           </div>
-          <div class="pl-10 md:pl-14">
-           <div class="card-title text-rose-600 font-bold text-base md:text-3xl mb-0.5">Premium</div>
-           <div class="card-price text-rose-600 font-bold text-xl md:text-2xl leading-none mb-2">1<span class="text-xl md:text-2xl">Bulan</span></div>
+          <!-- Logo -->
+          <div>
+           <img src="{{ asset('storage/logo/spotify.png') }}" alt="SPOTIFY" class="w-[140px] h-[140px] object-contain rounded-full" loading="lazy">
           </div>
-          <div class="card-description mt-1 md:mt-2 text-[11px] md:text-xs text-neutral-800 font-medium">Spotify Premium 1 Bulan Individual</div>
-          <div class="card-points mt-1 md:mt-2 inline-flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-orange-600">
-           <span class="inline-flex h-5 w-5 md:h-6 md:w-6 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[10px] md:text-xs font-bold shadow-sm">P</span>
-           <span>80000 Poin</span>
+         </div>
+         
+         <!-- Kolom Tengah: Nama Merchant + Diskon + Deskripsi -->
+         <div class="p-4 flex flex-col justify-center">
+          <!-- Nama Merchant -->
+          <h3 class="text-5xl font-bold text-neutral-900 mb-3 leading-tight">Spotify</h3>
+          
+          <!-- Diskon -->
+          <div class="mb-2">
+           <div class="text-xl font-bold text-neutral-900 mb-1">Premium</div>
+           <div class="text-6xl font-bold text-neutral-900 leading-none mb-1"><span class="text-6xl">1</span><span class="text-2xl font-bold">Bulan</span></div>
           </div>
-         </div>  
-         <div class="card-image-wrapper p-2">
+          
+          <!-- Deskripsi -->
+          <div class="text-sm text-neutral-700 font-normal">
+           Spotify Premium 1 Bulan Individual
+          </div>
+         </div>
+         
+         <!-- Kolom Kanan: Gambar Promo -->
+         <div class="card-image-wrapper p-2 max-w-[520px]">
           <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
            <img src="{{ asset('storage/promo/promo-spotify.jpg') }}" alt="" class="w-full h-full object-cover" loading="lazy">
           </div>
@@ -151,13 +187,6 @@
        <!-- Mobile Layout (default) -->
        <div class="lg:hidden flex flex-col h-full">
         <div class="relative">
-         <!-- Badge Points at top-right -->
-         <div class="absolute top-2 right-2 z-10">
-          <div class="inline-flex items-center gap-1 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 shadow-md">
-           <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-           <span class="text-[10px] font-bold text-rose-600">70.000</span>
-          </div>
-         </div>
          
          <!-- Promo Image -->
          <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
@@ -168,11 +197,19 @@
         <!-- Card Content Below Image -->
         <div class="flex flex-col p-3 space-y-2 flex-1">
          <!-- Title -->
-         <h3 class="text-sm font-bold text-neutral-900 leading-tight">Netflix Premium 1 Bulan</h3>
+         <h3 class="text-2xl font-bold text-neutral-900 leading-tight">Netflix </h3>
          
          <!-- Description -->
-         <p class="text-xs text-neutral-600 leading-relaxed">Netflix Premium 1 Bulan Subscription</p>
-         
+         <div class="text-sm text-neutral-600 leading-relaxed">
+          <div class="font-bold text-neutral-800">Premium <span class="text-xl font-bold text-neutral-800">1 Bulan</span></div>
+          <div>Netflix Premium 1 Bulan Individual</div>
+         </div>
+          <!-- Badge Points -->
+         <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[20px] font-bold text-red-600">100.000</span>
+         </div>
+
          <!-- Stock & Valid Until -->
          <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
           <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
@@ -181,7 +218,7 @@
           </div>
           <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
            <span class="font-medium">Valid until:</span>
-           <span class="font-semibold text-neutral-800">31 Dec 2025</span>
+           <span class="font-semibold text-neutral-800">20 Jun 2025</span>
           </div>
          </div>
         </div>
@@ -189,22 +226,39 @@
        
        <!-- Desktop Layout (md and up) -->
        <div class="hidden lg:block">
-        <div class="grid grid-cols-2 gap-0">
-         <div class="card-content p-4 flex flex-col">
-          <div class="mb-1">
-           <img src="{{ asset('storage/logo/netflix.png') }}" alt="NETFLIX" class="card-logo w-[180px] h-[82px] object-contain" loading="lazy">
+        <div class="grid grid-cols-[auto_1fr_auto] gap-0 items-center">
+         <!-- Kolom Kiri: Poin + Logo -->
+         <div class="p-4 flex flex-col items-start gap-3">
+          <!-- Badge Poin -->
+          <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-3 py-1.5 shadow-md border border-orange-200">
+           <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[10px] font-bold shadow-sm">P</span>
+           <span class="text-sm font-bold text-red-600">70000</span>
           </div>
-          <div class="pl-10 md:pl-14">
-           <div class="card-title text-rose-600 font-bold text-base md:text-3xl mb-0.5">Premium</div>
-           <div class="card-price text-rose-600 font-bold text-xl md:text-2xl leading-none mb-2">1<span class="text-xl md:text-2xl">Bulan</span></div>
+          <!-- Logo -->
+          <div>
+           <img src="{{ asset('storage/logo/netflix.png') }}" alt="NETFLIX" class="w-[140px] h-[140px] object-contain rounded-full" loading="lazy">
           </div>
-          <div class="card-description mt-1 md:mt-2 text-[11px] md:text-xs text-neutral-800 font-medium">Netflix Premium 1 Bulan Mobile</div>
-          <div class="card-points mt-1 md:mt-2 inline-flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-orange-600">
-           <span class="inline-flex h-5 w-5 md:h-6 md:w-6 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[10px] md:text-xs font-bold shadow-sm">P</span>
-           <span>70000 Poin</span>
+         </div>
+         
+         <!-- Kolom Tengah: Nama Merchant + Diskon + Deskripsi -->
+         <div class="p-4 flex flex-col justify-center">
+          <!-- Nama Merchant -->
+          <h3 class="text-5xl font-bold text-neutral-900 mb-3 leading-tight">Netflix</h3>
+          
+          <!-- Diskon -->
+          <div class="mb-2">
+           <div class="text-xl font-bold text-neutral-900 mb-1">Premium</div>
+           <div class="text-6xl font-bold text-neutral-900 leading-none mb-1"><span class="text-6xl">1</span><span class="text-2xl font-bold">Bulan</span></div>
           </div>
-         </div>  
-         <div class="card-image-wrapper p-2">
+          
+          <!-- Deskripsi -->
+          <div class="text-sm text-neutral-700 font-normal">
+           Netflix Premium 1 Bulan Mobile
+          </div>
+         </div>
+         
+         <!-- Kolom Kanan: Gambar Promo -->
+         <div class="card-image-wrapper p-2 max-w-[520px]">
           <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
            <img src="{{ asset('storage/promo/promo-netflix.jpg') }}" alt="" class="w-full h-full object-cover" loading="lazy">
           </div>

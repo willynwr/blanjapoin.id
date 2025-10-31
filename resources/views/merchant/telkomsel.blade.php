@@ -7,13 +7,6 @@
       <!-- Mobile Layout (default) -->
       <div class="lg:hidden flex flex-col h-full">
        <div class="relative">
-        <!-- Badge Points at top-right -->
-        <div class="absolute top-2 right-2 z-10">
-         <div class="inline-flex items-center gap-1 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 shadow-md">
-          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-          <span class="text-[10px] font-bold text-rose-600">50.000</span>
-         </div>
-        </div>
         
         <!-- Promo Image -->
         <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden"> 
@@ -24,44 +17,69 @@
        <!-- Card Content Below Image -->
        <div class="flex flex-col p-3 space-y-2 flex-1">
         <!-- Title -->
-        <h3 class="text-sm font-bold text-neutral-900 leading-tight">Paket Data 10GB</h3>
+        <h3 class="text-2xl font-bold text-neutral-900 leading-tight">Paket Data </h3>
         
-        <!-- Description -->
-        <p class="text-xs text-neutral-600 leading-relaxed">Paket Data Telkomsel 10GB masa aktif 30 hari</p>
-        
-        <!-- Stock & Valid Until -->
-        <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
-         <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
-          <span class="font-medium">Stock:</span>
-          <span class="font-semibold text-neutral-800">500</span>
+         <!-- Description -->
+         <div class="text-sm text-neutral-600 leading-relaxed">
+          <div class="font-bold text-neutral-800">Paket data <span class="text-xl font-bold text-neutral-800">10GB</span></div>
+          <div>Paket data 10GB aktif 30 hari</div>
          </div>
-         <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
-          <span class="font-medium">Valid until:</span>
-          <span class="font-semibold text-neutral-800">31 Dec 2025</span>
+          <!-- Badge Points -->
+         <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[20px] font-bold text-red-600">75.000</span>
+         </div>
+
+         <!-- Stock & Valid Until -->
+         <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
+          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
+           <span class="font-medium">Stock:</span>
+           <span class="font-semibold text-neutral-800">150</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
+           <span class="font-medium">Valid until:</span>
+           <span class="font-semibold text-neutral-800">20 Jan 2025</span>
+          </div>
          </div>
         </div>
        </div>
-      </div>
       
       <!-- Desktop Layout (md and up) -->
       <div class="hidden lg:block">
-       <div class="grid grid-cols-2 gap-0">
-        <div class="card-content p-4 flex flex-col">
-         <div class="mb-1">
-          <img src="{{ asset('storage/logo/telkomsel.png') }}" alt="TELKOMSEL" class="card-logo w-[180px] h-[82px] object-contain" loading="lazy">
+       <div class="grid grid-cols-[auto_1fr_auto] gap-0 items-center">
+        <!-- Kolom Kiri: Poin + Logo -->
+        <div class="p-4 flex flex-col items-start gap-3">
+         <!-- Badge Poin -->
+         <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-3 py-1.5 shadow-md border border-orange-200">
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[10px] font-bold shadow-sm">P</span>
+          <span class="text-sm font-bold text-red-600">50000</span>
          </div>
-         <div class="pl-10 md:pl-14">
-          <div class="card-title text-rose-600 font-bold text-base md:text-3xl mb-0.5">Paket Data</div>
-          <div class="card-price text-rose-600 font-bold text-xl md:text-2xl leading-none mb-2">10<span class="text-xl md:text-2xl">GB</span></div>
+         <!-- Logo -->
+         <div>
+          <img src="{{ asset('storage/logo/telkomsel.png') }}" alt="TELKOMSEL" class="w-[140px] h-[140px] object-contain rounded-full" loading="lazy">
          </div>
-         <div class="card-description mt-1 md:mt-2 text-[11px] md:text-xs text-neutral-800 font-medium">Paket Data Telkomsel 10GB masa aktif 30 hari</div>
-         <div class="card-points mt-1 md:mt-2 inline-flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-orange-600">
-          <span class="inline-flex h-5 w-5 md:h-6 md:w-6 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[10px] md:text-xs font-bold shadow-sm">P</span>
-          <span>50000 Poin</span>
+        </div>
+        
+        <!-- Kolom Tengah: Nama Merchant + Diskon + Deskripsi -->
+        <div class="p-4 flex flex-col justify-center">
+         <!-- Nama Merchant -->
+         <h3 class="text-5xl font-bold text-neutral-900 mb-3 leading-tight">Telkomsel</h3>
+         
+         <!-- Diskon -->
+         <div class="mb-2">
+          <div class="text-xl font-bold text-neutral-900 mb-1">Paket Data</div>
+          <div class="text-6xl font-bold text-neutral-900 leading-none mb-1"><span class="text-6xl">10</span><span class="text-2xl font-bold">GB</span></div>
          </div>
-        </div>  
-        <div class="card-image-wrapper p-2">
-         <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden"> 
+         
+         <!-- Deskripsi -->
+         <div class="text-sm text-neutral-700 font-normal">
+          Paket Data Telkomsel 10GB masa aktif 30 hari
+         </div>
+        </div>
+        
+        <!-- Kolom Kanan: Gambar Promo -->
+        <div class="card-image-wrapper p-2 max-w-[520px]">
+         <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
           <img src="{{ asset('storage/promo/promo-telkomsel.jpg') }}" alt="" class="w-full h-full object-cover" loading="lazy">
          </div>
         </div>
@@ -79,13 +97,6 @@
       <!-- Mobile Layout (default) -->
       <div class="lg:hidden flex flex-col h-full">
        <div class="relative">
-        <!-- Badge Points at top-right -->
-        <div class="absolute top-2 right-2 z-10">
-         <div class="inline-flex items-center gap-1 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 shadow-md">
-          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-          <span class="text-[10px] font-bold text-rose-600">100.000</span>
-         </div>
-        </div>
         
         <!-- Promo Image -->
         <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden"> 
@@ -96,44 +107,69 @@
        <!-- Card Content Below Image -->
        <div class="flex flex-col p-3 space-y-2 flex-1">
         <!-- Title -->
-        <h3 class="text-sm font-bold text-neutral-900 leading-tight">Paket Data 25GB</h3>
+        <h3 class="text-2xl font-bold text-neutral-900 leading-tight">Paket Data </h3>
         
-        <!-- Description -->
-        <p class="text-xs text-neutral-600 leading-relaxed">Paket Data Telkomsel 25GB masa aktif 30 hari</p>
-        
-        <!-- Stock & Valid Until -->
-        <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
-         <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
-          <span class="font-medium">Stock:</span>
-          <span class="font-semibold text-neutral-800">300</span>
+         <!-- Description -->
+         <div class="text-sm text-neutral-600 leading-relaxed">
+          <div class="font-bold text-neutral-800">Paket data <span class="text-xl font-bold text-neutral-800">25GB</span></div>
+          <div>Paket data 25GB aktif 30 hari</div>
          </div>
-         <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
-          <span class="font-medium">Valid until:</span>
-          <span class="font-semibold text-neutral-800">31 Dec 2025</span>
+          <!-- Badge Points -->
+         <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[20px] font-bold text-red-600">100.000</span>
+         </div>
+
+         <!-- Stock & Valid Until -->
+         <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
+          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
+           <span class="font-medium">Stock:</span>
+           <span class="font-semibold text-neutral-800">250</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
+           <span class="font-medium">Valid until:</span>
+           <span class="font-semibold text-neutral-800">20 Dec 2025</span>
+          </div>
          </div>
         </div>
        </div>
-      </div>
       
       <!-- Desktop Layout (md and up) -->
       <div class="hidden lg:block">
-       <div class="grid grid-cols-2 gap-0">
-        <div class="card-content p-4 flex flex-col">
-         <div class="mb-1">
-          <img src="{{ asset('storage/logo/telkomsel.png') }}" alt="TELKOMSEL" class="card-logo w-[180px] h-[82px] object-contain" loading="lazy">
+       <div class="grid grid-cols-[auto_1fr_auto] gap-0 items-center">
+        <!-- Kolom Kiri: Poin + Logo -->
+        <div class="p-4 flex flex-col items-start gap-3">
+         <!-- Badge Poin -->
+         <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-3 py-1.5 shadow-md border border-orange-200">
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[10px] font-bold shadow-sm">P</span>
+          <span class="text-sm font-bold text-red-600">100000</span>
          </div>
-         <div class="pl-10 md:pl-14">
-          <div class="card-title text-rose-600 font-bold text-base md:text-3xl mb-0.5">Paket Data</div>
-          <div class="card-price text-rose-600 font-bold text-xl md:text-2xl leading-none mb-2">25<span class="text-xl md:text-2xl">GB</span></div>
+         <!-- Logo -->
+         <div>
+          <img src="{{ asset('storage/logo/telkomsel.png') }}" alt="TELKOMSEL" class="w-[140px] h-[140px] object-contain rounded-full" loading="lazy">
          </div>
-         <div class="card-description mt-1 md:mt-2 text-[11px] md:text-xs text-neutral-800 font-medium">Paket Data Telkomsel 25GB masa aktif 30 hari</div>
-         <div class="card-points mt-1 md:mt-2 inline-flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-orange-600">
-          <span class="inline-flex h-5 w-5 md:h-6 md:w-6 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[10px] md:text-xs font-bold shadow-sm">P</span>
-          <span>100000 Poin</span>
+        </div>
+        
+        <!-- Kolom Tengah: Nama Merchant + Diskon + Deskripsi -->
+        <div class="p-4 flex flex-col justify-center">
+         <!-- Nama Merchant -->
+         <h3 class="text-5xl font-bold text-neutral-900 mb-3 leading-tight">Telkomsel</h3>
+         
+         <!-- Diskon -->
+         <div class="mb-2">
+          <div class="text-xl font-bold text-neutral-900 mb-1">Paket Data</div>
+          <div class="text-6xl font-bold text-neutral-900 leading-none mb-1"><span class="text-6xl">25</span><span class="text-2xl font-bold">GB</span></div>
          </div>
-        </div>  
-        <div class="card-image-wrapper p-2">
-         <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden"> 
+         
+         <!-- Deskripsi -->
+         <div class="text-sm text-neutral-700 font-normal">
+          Paket Data Telkomsel 25GB masa aktif 30 hari
+         </div>
+        </div>
+        
+        <!-- Kolom Kanan: Gambar Promo -->
+        <div class="card-image-wrapper p-2 max-w-[520px]">
+         <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
           <img src="{{ asset('storage/promo/promo-telkomsel.jpg') }}" alt="" class="w-full h-full object-cover" loading="lazy">
          </div>
         </div>
@@ -151,13 +187,6 @@
       <!-- Mobile Layout (default) -->
       <div class="lg:hidden flex flex-col h-full">
        <div class="relative">
-        <!-- Badge Points at top-right -->
-        <div class="absolute top-2 right-2 z-10">
-         <div class="inline-flex items-center gap-1 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 shadow-md">
-          <span class="inline-flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
-          <span class="text-[10px] font-bold text-rose-600">150.000</span>
-         </div>
-        </div>
         
         <!-- Promo Image -->
         <div class="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
@@ -168,43 +197,68 @@
        <!-- Card Content Below Image -->
        <div class="flex flex-col p-3 space-y-2 flex-1">
         <!-- Title -->
-        <h3 class="text-sm font-bold text-neutral-900 leading-tight">Paket Data 50GB</h3>
+        <h3 class="text-2xl font-bold text-neutral-900 leading-tight">Paket Data</h3>
         
-        <!-- Description -->
-        <p class="text-xs text-neutral-600 leading-relaxed">Paket Data Telkomsel 50GB masa aktif 30 hari</p>
-        
-        <!-- Stock & Valid Until -->
-        <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
-         <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
-          <span class="font-medium">Stock:</span>
-          <span class="font-semibold text-neutral-800">200</span>
+         <!-- Description -->
+         <div class="text-sm text-neutral-600 leading-relaxed">
+          <div class="font-bold text-neutral-800">Paket data <span class="text-xl font-bold text-neutral-800">50GB</span></div>
+          <div>Paket data 50GB aktif 30 hari</div>
          </div>
-         <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
-          <span class="font-medium">Valid until:</span>
-          <span class="font-semibold text-neutral-800">31 Dec 2025</span>
+          <!-- Badge Points -->
+         <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-0.5 py-1.5 self-start">
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[8px] font-bold shadow-sm">P</span>
+          <span class="text-[20px] font-bold text-red-600">150.000</span>
+         </div>
+
+         <!-- Stock & Valid Until -->
+         <div class="flex flex-col gap-0.5 pt-1 border-t border-neutral-100 mt-auto">
+          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
+           <span class="font-medium">Stock:</span>
+           <span class="font-semibold text-neutral-800">150</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-[10px] text-neutral-600">
+           <span class="font-medium">Valid until:</span>
+           <span class="font-semibold text-neutral-800">20 Dec 2025</span>
+          </div>
          </div>
         </div>
        </div>
-      </div>
       
       <!-- Desktop Layout (md and up) -->
       <div class="hidden lg:block">
-       <div class="grid grid-cols-2 gap-0">
-        <div class="card-content p-4 flex flex-col">
-         <div class="mb-1">
-          <img src="{{ asset('storage/logo/telkomsel.png') }}" alt="TELKOMSEL" class="card-logo w-[180px] h-[82px] object-contain" loading="lazy">
+       <div class="grid grid-cols-[auto_1fr_auto] gap-0 items-center">
+        <!-- Kolom Kiri: Poin + Logo -->
+        <div class="p-4 flex flex-col items-start gap-3">
+         <!-- Badge Poin -->
+         <div class="inline-flex items-center gap-1.5 bg-white rounded-full px-3 py-1.5 shadow-md border border-orange-200">
+          <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[10px] font-bold shadow-sm">P</span>
+          <span class="text-sm font-bold text-red-600">150000</span>
          </div>
-         <div class="pl-10 md:pl-14">
-          <div class="card-title text-rose-600 font-bold text-base md:text-3xl mb-0.5">Paket Data</div>
-          <div class="card-price text-rose-600 font-bold text-xl md:text-2xl leading-none mb-2">50<span class="text-xl md:text-2xl">GB</span></div>
+         <!-- Logo -->
+         <div>
+          <img src="{{ asset('storage/logo/telkomsel.png') }}" alt="TELKOMSEL" class="w-[140px] h-[140px] object-contain rounded-full" loading="lazy">
          </div>
-         <div class="card-description mt-1 md:mt-2 text-[11px] md:text-xs text-neutral-800 font-medium">Paket Data Telkomsel 50GB masa aktif 30 hari</div>
-         <div class="card-points mt-1 md:mt-2 inline-flex items-center gap-1.5 text-[11px] md:text-xs font-semibold text-orange-600">
-          <span class="inline-flex h-5 w-5 md:h-6 md:w-6 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white text-[10px] md:text-xs font-bold shadow-sm">P</span>
-          <span>150000 Poin</span>
+        </div>
+        
+        <!-- Kolom Tengah: Nama Merchant + Diskon + Deskripsi -->
+        <div class="p-4 flex flex-col justify-center">
+         <!-- Nama Merchant -->
+         <h3 class="text-5xl font-bold text-neutral-900 mb-3 leading-tight">Telkomsel</h3>
+         
+         <!-- Diskon -->
+         <div class="mb-2">
+          <div class="text-xl font-bold text-neutral-900 mb-1">Paket Data</div>
+          <div class="text-6xl font-bold text-neutral-900 leading-none mb-1"><span class="text-6xl">50</span><span class="text-2xl font-bold">GB</span></div>
          </div>
-        </div>  
-        <div class="card-image-wrapper p-2">
+         
+         <!-- Deskripsi -->
+         <div class="text-sm text-neutral-700 font-normal">
+          Paket Data Telkomsel 50GB masa aktif 30 hari
+         </div>
+        </div>
+        
+        <!-- Kolom Kanan: Gambar Promo -->
+        <div class="card-image-wrapper p-2 max-w-[520px]">
          <div class="aspect-[6/3] md:h-full rounded-xl bg-gradient-to-br from-neutral-100 to-neutral-200 shadow-inner overflow-hidden">
           <img src="{{ asset('storage/promo/promo-telkomsel.jpg') }}" alt="" class="w-full h-full object-cover" loading="lazy">
          </div>
